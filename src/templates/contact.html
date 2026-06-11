@@ -1,0 +1,119 @@
+{{> head}}
+<body>
+
+{{> header}}
+
+    <!-- ===== HERO ===== -->
+    <section class="hero hero-compact">
+        <div class="container">
+            <h1 class="fade-in">{{page.hero_title}}</h1>
+            <p class="fade-in delay-1">{{page.hero_subtitle}}</p>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="section contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-cards fade-in">
+                    <div class="contact-info-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.74-1.74a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>{{page.phone_label}}</h4>
+                            <p><a href="tel:{{footer.phone_href}}">{{footer.phone}}</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>{{page.email_label}}</h4>
+                            <p><span class="email-obfuscated"></span></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>{{page.address_label}}</h4>
+                            <p>{{page.address_value}}</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>{{page.hours_label}}</h4>
+                            <p>{{page.hours_value}}</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" class="icon">
+                                <rect x="2" y="3" width="20" height="18" rx="2"/>
+                                <path d="M8 7v10"/>
+                                <path d="M12 7v10"/>
+                                <path d="M16 7v10"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>{{page.details_label}}</h4>
+                            <p>{{page.details_value}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrap fade-in delay-1">
+                    <h3>{{page.form_title}}</h3>
+                    <p class="form-intro">{{page.form_subtitle}}</p>
+                    <form class="form" id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="name">{{page.form_name_label}}</label>
+                            <input type="text" id="name" name="name" placeholder="{{page.form_name_placeholder}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">{{page.form_phone_label}}</label>
+                            <input type="tel" id="phone" name="phone" placeholder="{{page.form_phone_placeholder}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">{{page.form_message_label}}</label>
+                            <textarea id="message" name="message" placeholder="{{page.form_message_placeholder}}"></textarea>
+                        </div>
+                        <div class="honeypot">
+                            <label for="website">Website</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+                        <button type="submit" class="btn btn-primary">{{page.form_submit}}</button>
+                        <div class="form-success" id="formSuccess">{{page.form_success}}</div>
+                        <p class="form-consent">{{page.form_consent}}</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{{> footer}}
+
+    <script src="{{_assets}}js/main.js"></script>
+</body>
+</html>

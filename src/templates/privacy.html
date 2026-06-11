@@ -1,0 +1,19 @@
+{{> head}}
+<body>
+
+{{> header}}
+
+    <main class="privacy-content container">
+        <h1 class="fade-in">{{page.h1}}</h1>
+        <p class="last-updated fade-in">{{page.last_updated}}</p>
+
+        <div>
+            {{_page_content}}
+        </div>
+    </main>
+
+{{> footer}}
+
+    <script src="{{_assets}}js/main.js"></script>
+</body>
+</html>

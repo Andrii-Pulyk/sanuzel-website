@@ -1,0 +1,4 @@
+#!/bin/sh
+# Auto-build site before commit
+npm run build
+git add index.html services.html contact.html privacy.html css/ js/ images/ sitemap.xml robots.txt
