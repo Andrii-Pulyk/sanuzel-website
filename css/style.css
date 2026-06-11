@@ -910,6 +910,8 @@ ul { list-style: none; }
 .honeypot { position: absolute; left: -9999px; }
 .form-success { display: none; padding: 16px; background: var(--teal-glow); border: 1px solid var(--teal-line); border-radius: var(--radius-sm); color: var(--teal-2); font-size: 0.9rem; text-align: center; }
 .form-success.visible { display: block; }
+.form-error { display: none; padding: 16px; background: rgba(220, 80, 80, 0.10); border: 1px solid rgba(220, 80, 80, 0.35); border-radius: var(--radius-sm); color: #e07a7a; font-size: 0.9rem; text-align: center; }
+.form-error.visible { display: block; }
 .form-consent { font-size: 0.78rem; color: var(--text-3); text-align: center; }
 
 /* ============================================================

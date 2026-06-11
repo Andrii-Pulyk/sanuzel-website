@@ -280,6 +280,7 @@ for (const page of config.pages) {
       page: t[page.slug],
       // Computed values (prefixed with _ to distinguish)
       _assets: assetsPrefix,
+      _lead_email: config.leadEmail,
       _canonical_url: canonicalUrl,
       _hreflang_tags: generateHreflangTags(page, languages),
       _lang_switcher: generateLangSwitcher(lang, page, languages),

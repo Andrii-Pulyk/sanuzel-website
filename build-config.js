@@ -6,6 +6,11 @@ module.exports = {
   basePath: '/sanuzel-website',
   defaultLang: 'ru',
 
+  // Почта, куда приходят заявки с формы (через FormSubmit.co, без сервера).
+  // Чтобы сменить адрес получателя — поменяй здесь и пересобери (npm run build).
+  // ВАЖНО: после смены почты первая заявка снова потребует подтверждения по письму от FormSubmit.
+  leadEmail: '89892615877a@gmail.com',
+
   pages: [
     { template: 'index.html', slug: 'index' },
     { template: 'services.html', slug: 'services' },

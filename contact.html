@@ -140,25 +140,32 @@
                 <div class="contact-form-wrap fade-in delay-1">
                     <h3>Заявка на замер</h3>
                     <p class="form-intro">Заполните форму — перезвоним в течение рабочего дня и согласуем удобное время.</p>
-                    <form class="form" id="contactForm" novalidate>
+                    <form class="form" id="contactForm" novalidate
+                          action="https://formsubmit.co/ajax/89892615877a@gmail.com" method="POST"
+                          data-success="Спасибо! Заявка отправлена — мы свяжемся с вами в ближайшее время." data-error="Не удалось отправить заявку. Позвоните нам или попробуйте ещё раз."
+                          data-submit="Отправить заявку" data-sending="Отправляем…">
+                        <input type="hidden" name="_subject" value="Новая заявка с сайта — отделка санузлов">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
                         <div class="form-group">
                             <label for="name">Имя</label>
-                            <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
+                            <input type="text" id="name" name="Имя" placeholder="Как к вам обращаться" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Телефон</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+48 ___ ___ ___" required>
+                            <input type="tel" id="phone" name="Телефон" placeholder="+48 ___ ___ ___" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Комментарий</label>
-                            <textarea id="message" name="message" placeholder="Площадь санузла, адрес, пожелания"></textarea>
+                            <textarea id="message" name="Комментарий" placeholder="Площадь санузла, адрес, пожелания"></textarea>
                         </div>
                         <div class="honeypot">
                             <label for="website">Website</label>
-                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                            <input type="text" id="website" name="_honey" tabindex="-1" autocomplete="off">
                         </div>
                         <button type="submit" class="btn btn-primary">Отправить заявку</button>
                         <div class="form-success" id="formSuccess">Спасибо! Заявка отправлена — мы свяжемся с вами в ближайшее время.</div>
+                        <div class="form-error" id="formError">Не удалось отправить заявку. Позвоните нам или попробуйте ещё раз.</div>
                         <p class="form-consent">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности и обработкой персональных данных.</p>
                     </form>
                 </div>
@@ -176,7 +183,7 @@
                         </span>
                         <span class="logo-name"><b>DABUDIN<span>WEST</span></b><small>отделка санузлов</small></span>
                     </a>
-                    <p>DABUDINWEST sp. z o.o. — ремонт и отделка ванных комнат и санузлов под ключ. Договор, фиксированная смета и гарантия на работы 3 года.</p>
+                    <p>DABUDINWEST sp. z o.o. — ремонт и отделка ванных комнат и санузлов под ключ. Договор, фиксированная смета и гарантия на работы 2 года.</p>
                 </div>
                 <div>
                     <h4>Навигация</h4>

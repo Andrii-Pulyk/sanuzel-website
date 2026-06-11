@@ -157,19 +157,53 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     })();
 
-    /* ----- Контактная форма ----- */
+    /* ----- Контактная форма (отправка на почту через FormSubmit.co) ----- */
     var contactForm = document.getElementById('contactForm');
     var formSuccess = document.getElementById('formSuccess');
+    var formError = document.getElementById('formError');
     if (contactForm) {
+        var submitBtn = contactForm.querySelector('button[type="submit"]');
+        var labelSubmit = contactForm.getAttribute('data-submit') || 'Отправить';
+        var labelSending = contactForm.getAttribute('data-sending') || 'Отправляем…';
+
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
+
+            // Honeypot: бот заполнит скрытое поле — тихо игнорируем.
             var honeypot = document.getElementById('website');
             if (honeypot && honeypot.value) return;
-            contactForm.reset();
-            if (formSuccess) {
-                formSuccess.classList.add('visible');
-                setTimeout(function () { formSuccess.classList.remove('visible'); }, 7000);
+
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
             }
+
+            if (formError) formError.classList.remove('visible');
+            if (formSuccess) formSuccess.classList.remove('visible');
+            if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = labelSending; }
+
+            fetch(contactForm.action, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: new FormData(contactForm)
+            })
+                .then(function (res) {
+                    if (!res.ok) throw new Error('Bad status ' + res.status);
+                    return res.json();
+                })
+                .then(function () {
+                    contactForm.reset();
+                    if (formSuccess) {
+                        formSuccess.classList.add('visible');
+                        setTimeout(function () { formSuccess.classList.remove('visible'); }, 8000);
+                    }
+                })
+                .catch(function () {
+                    if (formError) formError.classList.add('visible');
+                })
+                .then(function () {
+                    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = labelSubmit; }
+                });
         });
     }
 
