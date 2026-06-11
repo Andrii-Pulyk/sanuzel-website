@@ -1,29 +1,34 @@
-/* ============================================
-   санузел.про — main.js
-   Анимации при скролле, мобильное меню, форма
-   ============================================ */
+/* ============================================================
+   DABUDINWEST — main.js
+   Меню, анимации, слайдер до/после, FAQ, счётчики, форма
+   ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    /* ----- Мобильное меню ----- */
-    const menuToggle = document.getElementById('menuToggle');
-    const nav = document.getElementById('nav');
+    /* ----- Шапка: тень при скролле ----- */
+    var header = document.getElementById('siteHeader');
+    if (header) {
+        var onScroll = function () {
+            header.classList.toggle('scrolled', window.scrollY > 12);
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+    }
 
+    /* ----- Мобильное меню ----- */
+    var menuToggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('nav');
     if (menuToggle && nav) {
         menuToggle.addEventListener('click', function () {
             menuToggle.classList.toggle('active');
             nav.classList.toggle('open');
         });
-
-        // Закрытие меню при клике на ссылку
         nav.querySelectorAll('a').forEach(function (link) {
             link.addEventListener('click', function () {
                 menuToggle.classList.remove('active');
                 nav.classList.remove('open');
             });
         });
-
-        // Закрытие меню при клике вне навигации
         document.addEventListener('click', function (e) {
             if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
                 menuToggle.classList.remove('active');
@@ -32,9 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    /* ----- Анимации при скролле (Intersection Observer) ----- */
-    var animatedElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
-
+    /* ----- Анимации при скролле ----- */
+    var animated = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
     if ('IntersectionObserver' in window) {
         var observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
@@ -43,22 +47,104 @@ document.addEventListener('DOMContentLoaded', function () {
                     observer.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0,
-            rootMargin: '0px 0px 0px 0px'
-        });
-
-        animatedElements.forEach(function (el) {
-            observer.observe(el);
-        });
+        }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+        animated.forEach(function (el) { observer.observe(el); });
     } else {
-        // Фоллбэк для старых браузеров — показать всё сразу
-        animatedElements.forEach(function (el) {
-            el.classList.add('visible');
+        animated.forEach(function (el) { el.classList.add('visible'); });
+    }
+
+    /* ----- Слайдер «до / после» ----- */
+    (function () {
+        var ba = document.getElementById('heroBa');
+        if (!ba) return;
+        var before = document.getElementById('heroBaBefore');
+        var handle = document.getElementById('heroBaHandle');
+        var range = document.getElementById('heroBaRange');
+        if (!before || !handle || !range) return;
+
+        function set(v) {
+            v = Math.max(0, Math.min(100, v));
+            before.style.clipPath = 'inset(0 0 0 ' + v + '%)';
+            handle.style.left = v + '%';
+        }
+        range.addEventListener('input', function () { set(parseFloat(this.value)); });
+        set(parseFloat(range.value));
+    })();
+
+    /* ----- FAQ-аккордеон ----- */
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+        var q = item.querySelector('.faq-q');
+        var a = item.querySelector('.faq-a');
+        if (!q || !a) return;
+        q.addEventListener('click', function () {
+            var isOpen = item.classList.contains('open');
+            // Закрыть остальные
+            document.querySelectorAll('.faq-item.open').forEach(function (other) {
+                if (other !== item) {
+                    other.classList.remove('open');
+                    var oa = other.querySelector('.faq-a');
+                    if (oa) oa.style.maxHeight = null;
+                }
+            });
+            if (isOpen) {
+                item.classList.remove('open');
+                a.style.maxHeight = null;
+            } else {
+                item.classList.add('open');
+                a.style.maxHeight = a.scrollHeight + 'px';
+            }
+        });
+    });
+
+    /* ----- Счётчики статистики ----- */
+    (function () {
+        var nums = document.querySelectorAll('.stat-val[data-count]');
+        if (!nums.length) return;
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function animate(el) {
+            var target = parseFloat(el.getAttribute('data-count'));
+            var prefix = el.getAttribute('data-prefix') || '';
+            var suffix = el.getAttribute('data-suffix') || '';
+            if (reduce || isNaN(target)) { el.textContent = prefix + target + suffix; return; }
+            var dur = 1200, start = null;
+            function step(ts) {
+                if (!start) start = ts;
+                var p = Math.min((ts - start) / dur, 1);
+                var eased = 1 - Math.pow(1 - p, 3);
+                var val = Math.round(target * eased);
+                el.textContent = prefix + val + suffix;
+                if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+
+        if ('IntersectionObserver' in window) {
+            var obs = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) { animate(entry.target); obs.unobserve(entry.target); }
+                });
+            }, { threshold: 0.4 });
+            nums.forEach(function (el) { obs.observe(el); });
+        } else {
+            nums.forEach(animate);
+        }
+    })();
+
+    /* ----- Переключатель города ----- */
+    var cityToggle = document.querySelector('.city-switch-toggle');
+    if (cityToggle) {
+        cityToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            this.parentElement.classList.toggle('open');
+        });
+        document.addEventListener('click', function () {
+            var open = document.querySelector('.city-switch.open');
+            if (open) open.classList.remove('open');
         });
     }
 
-    /* ----- Обфускация email от спам-ботов ----- */
+    /* ----- Обфускация email ----- */
     (function () {
         var user = 'dabudinwest2022';
         var domain = 'gmail.com';
@@ -74,26 +160,15 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ----- Контактная форма ----- */
     var contactForm = document.getElementById('contactForm');
     var formSuccess = document.getElementById('formSuccess');
-
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-
-            // Honeypot: если заполнено — это бот
             var honeypot = document.getElementById('website');
-            if (honeypot && honeypot.value) {
-                return;
-            }
-
-            // Здесь можно добавить отправку данных на сервер (fetch/AJAX)
-            // Пока — показываем сообщение
+            if (honeypot && honeypot.value) return;
             contactForm.reset();
-
             if (formSuccess) {
                 formSuccess.classList.add('visible');
-                setTimeout(function () {
-                    formSuccess.classList.remove('visible');
-                }, 7000);
+                setTimeout(function () { formSuccess.classList.remove('visible'); }, 7000);
             }
         });
     }
@@ -103,46 +178,34 @@ document.addEventListener('DOMContentLoaded', function () {
         anchor.addEventListener('click', function (e) {
             var targetId = this.getAttribute('href');
             if (targetId === '#') return;
-
-            // Валидация: только безопасные ID-селекторы
             if (!/^#[a-zA-Z][a-zA-Z0-9_-]*$/.test(targetId)) return;
-
             var target = document.getElementById(targetId.substring(1));
             if (target) {
                 e.preventDefault();
-                var headerHeight = document.querySelector('.header').offsetHeight;
-                var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                var headerHeight = header ? header.offsetHeight : 70;
+                var pos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12;
+                window.scrollTo({ top: pos, behavior: 'smooth' });
             }
         });
     });
 
-    /* ----- Active nav link detection ----- */
+    /* ----- Активная ссылка навигации ----- */
     (function () {
         var currentPath = window.location.pathname;
-        // Normalize: remove trailing slash for comparison, but keep /
         var navLinks = document.querySelectorAll('.nav a:not(.lang-toggle-mobile), .footer-links a');
         navLinks.forEach(function (link) {
             var href = link.getAttribute('href');
-            if (!href) return;
-            // Resolve relative href to absolute path
+            if (!href || href.indexOf('#') === 0) return;
             var linkPath = new URL(href, window.location.origin).pathname;
-            // Match: exact path, or / matches /index.html
             var isActive = currentPath === linkPath
                 || (currentPath === '/' && linkPath === '/index.html')
                 || (currentPath === '/index.html' && linkPath === '/')
                 || (currentPath.endsWith('/') && linkPath === currentPath + 'index.html');
-            if (isActive) {
-                link.classList.add('active');
-            }
+            if (isActive) link.classList.add('active');
         });
     })();
 
-    /* ----- Language selector dropdown (3+ languages) ----- */
+    /* ----- Языковой селектор (3+ языков) ----- */
     var langSelector = document.querySelector('.lang-selector-toggle');
     if (langSelector) {
         langSelector.addEventListener('click', function (e) {
@@ -152,12 +215,11 @@ document.addEventListener('DOMContentLoaded', function () {
             parent.classList.toggle('open');
             this.setAttribute('aria-expanded', !isOpen);
         });
-
         document.addEventListener('click', function () {
-            var openSelector = document.querySelector('.lang-selector.open');
-            if (openSelector) {
-                openSelector.classList.remove('open');
-                openSelector.querySelector('.lang-selector-toggle').setAttribute('aria-expanded', 'false');
+            var openSel = document.querySelector('.lang-selector.open');
+            if (openSel) {
+                openSel.classList.remove('open');
+                openSel.querySelector('.lang-selector-toggle').setAttribute('aria-expanded', 'false');
             }
         });
     }

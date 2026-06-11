@@ -22,21 +22,36 @@
 
 <body>
 
-    <header class="header">
+    <header class="header" id="siteHeader">
         <div class="container">
-            <a href="/sanuzel-website/" class="logo">санузел<span>.про</span></a>
+            <a href="/sanuzel-website/" class="logo">
+                <span class="logo-mark">
+                    <svg viewBox="0 0 24 24"><path d="M4 13h16v1a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 13V7a2 2 0 0 1 4 0"/><line x1="7" y1="19.5" x2="7" y2="21"/><line x1="17" y1="19.5" x2="17" y2="21"/></svg>
+                </span>
+                <span class="logo-name"><b>DABUDIN<span>WEST</span></b><small>отделка санузлов</small></span>
+            </a>
+
             <nav class="nav" id="nav">
                 <a href="/sanuzel-website/">Главная</a>
                 <a href="/sanuzel-website/services.html">Услуги</a>
+                <a href="/sanuzel-website/#gallery">Работы</a>
+                <a href="/sanuzel-website/#reviews">Отзывы</a>
                 <a href="/sanuzel-website/contact.html">Контакты</a>
                 
             </nav>
+
+            <div class="header-side">
+                
+                <a href="tel:+48795656642" class="header-phone">
+                    +48 795 656 642<small>Звонок бесплатный</small>
+                </a>
+                <a href="/sanuzel-website/contact.html" class="btn btn-primary btn-header">Заявка на замер</a>
+            </div>
+
             
-            <a href="/sanuzel-website/contact.html" class="btn btn-primary btn-header">Оставить заявку</a>
+
             <button class="menu-toggle" id="menuToggle" aria-label="Меню">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
     </header>
@@ -44,153 +59,177 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero">
-        <div class="container">
-            <span class="product-badge badge-live fade-in">Работаем по договору</span>
-            <h1 class="fade-in delay-1">Отделка санузлов <span class="accent">под ключ</span></h1>
-            <p class="fade-in delay-2">Берём ванную «в бетоне» и сдаём готовое помещение с плиткой, сантехникой и светом. Фиксированная смета, понятные сроки и гарантия на работы 3 года.</p>
-            <div class="btn-group fade-in delay-3">
-                <a href="/sanuzel-website/contact.html" class="btn btn-primary">Рассчитать стоимость</a>
-                <a href="#services" class="btn btn-secondary">Что входит в ремонт</a>
+        <div class="container hero-grid">
+            <div class="hero-copy">
+                <div class="hero-rating fade-in">
+                    <span class="ava"><i>D</i><i>K</i><i>М</i></span>
+                    <span class="stars">★★★★★</span>
+                    <span><b>4,9</b> по 180+ отзывам</span>
+                </div>
+                <h1 class="fade-in delay-1">Отделка санузлов <span class="accent">под ключ</span></h1>
+                <p class="hero-sub fade-in delay-2">Берём ванную «в бетоне» и сдаём готовое помещение с плиткой, сантехникой и светом. Фиксированная смета, понятные сроки и гарантия на работы 3 года.</p>
+                <div class="btn-group hero-cta fade-in delay-2">
+                    <a href="/sanuzel-website/contact.html" class="btn btn-primary btn-lg">Рассчитать стоимость</a>
+                    <a href="#gallery" class="btn btn-ghost btn-lg">Смотреть работы</a>
+                </div>
+                <ul class="hero-points fade-in delay-3">
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Бесплатный замер и смета</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Работаем по договору</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Свои мастера, без субподряда</li>
+                </ul>
             </div>
-            <div class="hero-stats fade-in delay-3">
-                <div class="hero-stat">
-                    <span class="hero-stat-value">350+</span>
-                    <span class="hero-stat-label">санузлов сдано</span>
+
+            <div class="hero-visual fade-in-right delay-2">
+                <div class="frame">
+                    <div class="ba" id="heroBa">
+                        <div class="ba-img ba-after"><img src="images/scene-after.svg" alt="Санузел после ремонта под ключ" width="1000" height="720"></div>
+                        <div class="ba-img ba-before" id="heroBaBefore"><img src="images/scene-before.svg" alt="Санузел до ремонта" width="1000" height="720"></div>
+                        <span class="ba-tag after">После</span>
+                        <span class="ba-tag before">До</span>
+                        <div class="ba-handle" id="heroBaHandle"></div>
+                        <input type="range" class="ba-range" id="heroBaRange" min="0" max="100" value="50" aria-label="Сравнить санузел до и после ремонта">
+                    </div>
                 </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-value">от 14</span>
-                    <span class="hero-stat-label">дней под ключ</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-value">3 года</span>
-                    <span class="hero-stat-label">гарантия на работы</span>
+                <div class="hero-badge-float">
+                    <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                    <span><b>3 года</b><span>гарантия на работы</span></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SERVICES ===== -->
+    <!-- ===== ПОЛОСА ГАРАНТИЙ ===== -->
+    <div class="trust-strip">
+        <div class="container">
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                <span><b>Договор</b><span>официальное оформление</span></span>
+            </div>
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                <span><b>Фикс-смета</b><span>цена не меняется</span></span>
+            </div>
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                <span><b>Сроки</b><span>от 14 дней под ключ</span></span>
+            </div>
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                <span><b>Свои бригады</b><span>штатные мастера</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== УСЛУГИ ===== -->
     <section class="section section-center" id="services">
         <div class="container">
-            <h2 class="section-title fade-in">Что мы делаем</h2>
-            <p class="section-subtitle fade-in delay-1">Полный цикл работ по санузлу — от демонтажа до финишной отделки. Каждый этап выполняет профильный мастер.</p>
+            <div class="section-head section-center">
+                <span class="eyebrow center">Услуги</span>
+                <h2 class="section-title fade-in">Что входит в ремонт санузла</h2>
+                <p class="section-subtitle fade-in delay-1">Полный цикл работ по санузлу — от демонтажа до финишной отделки. Каждый этап выполняет профильный мастер.</p>
+            </div>
 
             <div class="cards-grid">
                 <div class="card fade-in delay-1">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" class="icon">
-                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                        </svg>
-                    </div>
+                    <span class="card-num">01</span>
+                    <div class="card-icon"><svg viewBox="0 0 24 24" class="icon"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
                     <h3>Демонтаж</h3>
                     <p>Снимаем старую плитку, сантехнику и стяжку, выносим мусор. Готовим помещение к чистовым работам.</p>
                 </div>
                 <div class="card fade-in delay-2">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" class="icon">
-                            <path d="M3 21h18"/>
-                            <path d="M5 21V7l8-4v18"/>
-                            <path d="M19 21V11l-6-4"/>
-                            <line x1="9" y1="9" x2="9" y2="9.01"/>
-                            <line x1="9" y1="12" x2="9" y2="12.01"/>
-                            <line x1="9" y1="15" x2="9" y2="15.01"/>
-                        </svg>
-                    </div>
+                    <span class="card-num">02</span>
+                    <div class="card-icon"><svg viewBox="0 0 24 24" class="icon"><path d="M12 2s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"/></svg></div>
                     <h3>Гидроизоляция</h3>
                     <p>Обмазочная или рулонная гидроизоляция пола и стен в мокрых зонах. Защита от протечек к соседям.</p>
                 </div>
                 <div class="card fade-in delay-3">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" class="icon">
-                            <path d="M3 12h4l3 8 4-16 3 8h4"/>
-                        </svg>
-                    </div>
+                    <span class="card-num">03</span>
+                    <div class="card-icon"><svg viewBox="0 0 24 24" class="icon"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
                     <h3>Сантехника</h3>
                     <p>Разводка водоснабжения и канализации, установка инсталляции, смесителей, ванны и душевых систем.</p>
                 </div>
                 <div class="card fade-in delay-1">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" class="icon">
-                            <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                        </svg>
-                    </div>
+                    <span class="card-num">04</span>
+                    <div class="card-icon"><svg viewBox="0 0 24 24" class="icon"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                     <h3>Электрика</h3>
                     <p>Прокладка кабеля, розетки с защитой от влаги, подсветка, тёплый пол и подключение полотенцесушителя.</p>
                 </div>
                 <div class="card fade-in delay-2">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" class="icon">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <line x1="3" y1="9" x2="21" y2="9"/>
-                            <line x1="9" y1="21" x2="9" y2="9"/>
-                            <line x1="15" y1="21" x2="15" y2="9"/>
-                        </svg>
-                    </div>
+                    <span class="card-num">05</span>
+                    <div class="card-icon"><svg viewBox="0 0 24 24" class="icon"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/><line x1="15" y1="21" x2="15" y2="9"/></svg></div>
                     <h3>Плитка и керамогранит</h3>
                     <p>Укладка плитки, мозаики и керамогранита с ровными швами, запил под 45° и аккуратной затиркой.</p>
                 </div>
                 <div class="card fade-in delay-3">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" class="icon">
-                            <path d="M12 2a7 7 0 0 0-7 7c0 3 2 5 2 7h10c0-2 2-4 2-7a7 7 0 0 0-7-7z"/>
-                            <line x1="9" y1="22" x2="15" y2="22"/>
-                        </svg>
-                    </div>
+                    <span class="card-num">06</span>
+                    <div class="card-icon"><svg viewBox="0 0 24 24" class="icon"><path d="M12 2a7 7 0 0 0-7 7c0 3 2 5 2 7h10c0-2 2-4 2-7a7 7 0 0 0-7-7z"/><line x1="9" y1="22" x2="15" y2="22"/></svg></div>
                     <h3>Финишная отделка</h3>
                     <p>Потолок, монтаж сантехники и аксессуаров, установка дверей, уборка и сдача готового санузла.</p>
                 </div>
             </div>
 
-            <div class="btn-group fade-in section-cta">
-                <a href="/sanuzel-website/services.html" class="btn btn-secondary">Подробнее об услугах и ценах</a>
+            <div class="btn-group section-cta fade-in">
+                <a href="/sanuzel-website/services.html" class="btn btn-ghost">Все услуги и цены</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== ADVANTAGES ===== -->
-    <section class="section section-alt section-center" id="advantages">
+    <!-- ===== ГАЛЕРЕЯ ДО/ПОСЛЕ ===== -->
+    <section class="section section-alt section-center" id="gallery">
         <div class="container">
-            <h2 class="section-title fade-in">Почему выбирают нас</h2>
-            <p class="section-subtitle fade-in delay-1">Делаем ремонт так, чтобы к нему не пришлось возвращаться.</p>
+            <div class="section-head section-center">
+                <span class="eyebrow center">Наши работы</span>
+                <h2 class="section-title fade-in">До и после ремонта</h2>
+                <p class="section-subtitle fade-in delay-1">Потяните ползунок, чтобы увидеть превращение санузла «в бетоне» в готовое помещение. Реальные проекты, сданные под ключ.</p>
+            </div>
 
+            <div class="gallery-grid">
+                <figure class="gallery-item fade-in delay-1">
+                    <img src="images/scene-after.svg" alt="Санузел в современном стиле" width="1000" height="720">
+                    <figcaption>Санузел 4,2 м², новостройка<span>Современный стиль · 18 дней</span></figcaption>
+                </figure>
+                <figure class="gallery-item tint-warm fade-in delay-2">
+                    <img src="images/scene-after.svg" alt="Ванная комната в тёплых тонах" width="1000" height="720">
+                    <figcaption>Ванная 5 м², вторичка<span>Тёплая гамма · 21 день</span></figcaption>
+                </figure>
+                <figure class="gallery-item tint-sage fade-in delay-3">
+                    <img src="images/scene-after.svg" alt="Санузел в зелёной гамме" width="1000" height="720">
+                    <figcaption>Гостевой санузел 2,8 м²<span>Минимализм · 12 дней</span></figcaption>
+                </figure>
+            </div>
+
+            <div class="btn-group section-cta fade-in">
+                <a href="/sanuzel-website/contact.html" class="btn btn-primary">Хочу такой же ремонт</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ПРЕИМУЩЕСТВА ===== -->
+    <section class="section section-center" id="advantages">
+        <div class="container">
+            <div class="section-head section-center">
+                <span class="eyebrow center">Почему мы</span>
+                <h2 class="section-title fade-in">Делаем так, чтобы не возвращаться</h2>
+                <p class="section-subtitle fade-in delay-1">Прозрачные условия, ответственность за результат и аккуратность на каждом этапе.</p>
+            </div>
             <div class="cards-grid">
                 <div class="card fade-in delay-1">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" class="icon">
-                            <path d="M9 11l3 3L22 4"/>
-                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-                        </svg>
-                    </div>
+                    <div class="card-icon"><svg viewBox="0 0 24 24" class="icon"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
                     <h3>Фиксированная смета</h3>
                     <p>Стоимость закрепляем в договоре до начала работ. Без «вылезших» сумм в процессе ремонта.</p>
                 </div>
                 <div class="card fade-in delay-2">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" class="icon">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
+                    <div class="card-icon"><svg viewBox="0 0 24 24" class="icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                     <h3>Договор и гарантия</h3>
                     <p>Официальный договор, акты приёмки и гарантия на работы 3 года. Отвечаем за результат.</p>
                 </div>
                 <div class="card fade-in delay-3">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" class="icon">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                    </div>
+                    <div class="card-icon"><svg viewBox="0 0 24 24" class="icon"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
                     <h3>Сроки в договоре</h3>
                     <p>Прописываем сроки и соблюдаем их. За срыв по нашей вине предусмотрены штрафные условия.</p>
                 </div>
                 <div class="card fade-in delay-1">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" class="icon">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                            <polyline points="14 2 14 8 20 8"/>
-                            <line x1="9" y1="15" x2="15" y2="15"/>
-                        </svg>
-                    </div>
+                    <div class="card-icon"><svg viewBox="0 0 24 24" class="icon"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
                     <h3>Свои мастера</h3>
                     <p>Штатные плиточники, сантехники и электрики, а не случайные бригады с подработки.</p>
                 </div>
@@ -198,82 +237,124 @@
         </div>
     </section>
 
-    <!-- ===== PROCESS ===== -->
+    <!-- ===== СТАТИСТИКА ===== -->
+    <section class="section section-alt section-tight">
+        <div class="container">
+            <div class="stat-band fade-in">
+                <div><div class="stat-val" data-count="350" data-suffix="+">350+</div><div class="stat-lab">санузлов сдано</div></div>
+                <div><div class="stat-val" data-count="14" data-prefix="от ">от 14</div><div class="stat-lab">дней под ключ</div></div>
+                <div><div class="stat-val" data-count="3" data-suffix=" года">3 года</div><div class="stat-lab">гарантия на работы</div></div>
+                <div><div class="stat-val" data-count="98" data-suffix="%">98%</div><div class="stat-lab">клиентов рекомендуют</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ЭТАПЫ ===== -->
     <section class="section section-center" id="process">
         <div class="container">
-            <h2 class="section-title fade-in">Как мы работаем</h2>
-            <p class="section-subtitle fade-in delay-1">Прозрачный процесс от первого звонка до сдачи готового санузла.</p>
+            <div class="section-head section-center">
+                <span class="eyebrow center">Как мы работаем</span>
+                <h2 class="section-title fade-in">От заявки до готового санузла</h2>
+                <p class="section-subtitle fade-in delay-1">Прозрачный процесс от первого звонка до сдачи объекта по акту.</p>
+            </div>
+            <div class="flow">
+                <div class="flow-step fade-in delay-1"><span class="flow-num">1</span><h3>Заявка и замер</h3><p>Выезжаем на объект, замеряем санузел и обсуждаем пожелания по материалам и планировке.</p></div>
+                <div class="flow-step fade-in delay-2"><span class="flow-num">2</span><h3>Смета и договор</h3><p>Составляем детальную смету и график. Фиксируем цену и сроки в договоре.</p></div>
+                <div class="flow-step fade-in delay-3"><span class="flow-num">3</span><h3>Ремонт</h3><p>Выполняем работы поэтапно с фотоотчётом. Вы видите прогресс и контролируете качество.</p></div>
+                <div class="flow-step fade-in delay-4"><span class="flow-num">4</span><h3>Приёмка</h3><p>Сдаём готовый санузел, подписываем акт и выдаём гарантию на выполненные работы.</p></div>
+            </div>
+        </div>
+    </section>
 
-            <div class="process-grid">
-                <div class="process-step fade-in delay-1">
-                    <span class="process-num">01</span>
-                    <h3>Заявка и замер</h3>
-                    <p>Выезжаем на объект, замеряем санузел и обсуждаем пожелания по материалам и планировке.</p>
+    <!-- ===== ОТЗЫВЫ ===== -->
+    <section class="section section-alt section-center" id="reviews">
+        <div class="container">
+            <div class="section-head section-center">
+                <span class="eyebrow center">Отзывы</span>
+                <h2 class="section-title fade-in">Что говорят клиенты</h2>
+                <p class="section-subtitle fade-in delay-1">Оценка 4,9 из 5 по 180+ отзывам. Несколько историй о ремонте под ключ.</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review fade-in delay-1">
+                    <span class="stars">★★★★★</span>
+                    <p>Сделали ванную за 17 дней, ровно как обещали в договоре. Смета не выросла ни на злотый. Плитка уложена идеально, швы аккуратные. Очень довольна результатом.</p>
+                    <div class="review-author"><span class="av">АК</span><span><b>Анна Ковальчик</b><span>Санузел 4 м², новостройка</span></span><span class="review-source">Google</span></div>
                 </div>
-                <div class="process-step fade-in delay-2">
-                    <span class="process-num">02</span>
-                    <h3>Смета и договор</h3>
-                    <p>Составляем детальную смету и график. Фиксируем цену и сроки в договоре.</p>
+                <div class="review fade-in delay-2">
+                    <span class="stars">★★★★★</span>
+                    <p>Понравилось, что работают свои мастера — не было ощущения «проходного двора». Каждый этап с фотоотчётом, всё по графику. Гарантию выдали официально.</p>
+                    <div class="review-author"><span class="av">ДМ</span><span><b>Дмитрий Мельник</b><span>Совмещённый санузел, вторичка</span></span><span class="review-source">Google</span></div>
                 </div>
-                <div class="process-step fade-in delay-3">
-                    <span class="process-num">03</span>
-                    <h3>Ремонт</h3>
-                    <p>Выполняем работы поэтапно с фотоотчётом. Вы видите прогресс и контролируете качество.</p>
-                </div>
-                <div class="process-step fade-in delay-1">
-                    <span class="process-num">04</span>
-                    <h3>Приёмка</h3>
-                    <p>Сдаём готовый санузел, подписываем акт и выдаём гарантию на выполненные работы.</p>
+                <div class="review fade-in delay-3">
+                    <span class="stars">★★★★★</span>
+                    <p>Переделывали санузел после предыдущей бригады. DABUDINWEST всё выровняли, переложили гидроизоляцию и плитку. Чисто, по договору, с гарантией. Рекомендую.</p>
+                    <div class="review-author"><span class="av">КН</span><span><b>Katarzyna N.</b><span>Ремонт под ключ</span></span><span class="review-source">Google</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== ABOUT ===== -->
-    <section class="section section-alt" id="about">
+    <!-- ===== О КОМПАНИИ ===== -->
+    <section class="section" id="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-text fade-in-left">
-                    <h2 class="section-title">О компании</h2>
-                    <p>DABUDINWEST sp. z o.o. — официально зарегистрированная в Варшаве компания, которая занимается ремонтом и отделкой ванных комнат и санузлов. Профильный вид деятельности — укладка плитки и облицовка стен (PKD 43.33.Z).</p>
-                    <p>Мы работаем по договору с фиксированной сметой и отвечаем за результат гарантией на работы 3 года. Прозрачная стоимость, официальное оформление и аккуратность на каждом этапе.</p>
+                    <span class="eyebrow">О компании</span>
+                    <h2 class="section-title">DABUDINWEST sp. z o.o.</h2>
+                    <p>Официально зарегистрированная в Варшаве компания, которая занимается ремонтом и отделкой ванных комнат и санузлов. Профильный вид деятельности — укладка плитки и облицовка стен (PKD 43.33.Z).</p>
+                    <p>Работаем по договору с фиксированной сметой и отвечаем за результат гарантией на работы 3 года. Прозрачная стоимость, официальное оформление и аккуратность на каждом этапе.</p>
                     <p>Работаем в Варшаве и окрестностях — в квартирах, новостройках и частных домах.</p>
                 </div>
                 <div class="company-details fade-in-right">
                     <h3>Реквизиты</h3>
-                    <div class="detail-row">
-                        <span class="detail-label">Компания</span>
-                        <span class="detail-value">DABUDINWEST sp. z o.o.</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">NIP</span>
-                        <span class="detail-value">1133056595</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">REGON</span>
-                        <span class="detail-value">521795720</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">KRS</span>
-                        <span class="detail-value">0000967333</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Адрес</span>
-                        <span class="detail-value">ul. Hoża 86 lok. 410,<br>00-682 Warszawa</span>
-                    </div>
+                    <div class="detail-row"><span class="detail-label">Компания</span><span class="detail-value">DABUDINWEST sp. z o.o.</span></div>
+                    <div class="detail-row"><span class="detail-label">NIP</span><span class="detail-value">1133056595</span></div>
+                    <div class="detail-row"><span class="detail-label">REGON</span><span class="detail-value">521795720</span></div>
+                    <div class="detail-row"><span class="detail-label">KRS</span><span class="detail-value">0000967333</span></div>
+                    <div class="detail-row"><span class="detail-label">Адрес</span><span class="detail-value">ul. Hoża 86 lok. 410,<br>00-682 Warszawa</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section section-alt section-center" id="faq">
+        <div class="container">
+            <div class="section-head section-center">
+                <span class="eyebrow center">Вопросы и ответы</span>
+                <h2 class="section-title fade-in">Частые вопросы</h2>
+            </div>
+            <div class="faq fade-in delay-1">
+                <div class="faq-item">
+                    <button class="faq-q" type="button">Сколько стоит ремонт санузла под ключ?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-a"><div class="faq-a-inner">Стоимость зависит от площади, объёма работ и материалов. Ориентир — от 18 000 ₽/м² за работу. Точную цену фиксируем в смете после бесплатного замера, и она не меняется в процессе.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" type="button">Сколько времени занимает ремонт?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-a"><div class="faq-a-inner">Стандартный санузел под ключ — от 14 до 21 дня в зависимости от площади и сложности. Точные сроки прописываем в договоре и соблюдаем их.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" type="button">Закупаете материалы вы или мы?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-a"><div class="faq-a-inner">Возможны оба варианта. Поможем подобрать плитку и сантехнику, рассчитаем количество и привезём материалы, либо работаем с теми, что закупили вы. На работы даём гарантию 3 года.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" type="button">Что входит в гарантию?<svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-a"><div class="faq-a-inner">Гарантия 3 года распространяется на выполненные работы: укладку плитки, гидроизоляцию, сантехнические и электромонтажные работы. В гарантийный период бесплатно устраняем дефекты по нашей вине.</div></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ===== CTA ===== -->
-    <section class="section section-center cta-band">
+    <section class="section cta-band">
         <div class="container">
-            <h2 class="section-title fade-in">Узнайте стоимость ремонта вашего санузла</h2>
-            <p class="section-subtitle fade-in delay-1">Оставьте заявку — приедем на бесплатный замер и составим смету с фиксированной ценой.</p>
-            <div class="btn-group fade-in delay-2">
-                <a href="/sanuzel-website/contact.html" class="btn btn-primary">Оставить заявку</a>
-                <a href="tel:+48795656642" class="btn btn-secondary">+48 795 656 642</a>
+            <div class="cta-inner">
+                <h2 class="section-title fade-in">Узнайте стоимость ремонта вашего санузла</h2>
+                <p class="section-subtitle fade-in delay-1">Оставьте заявку — приедем на бесплатный замер и составим смету с фиксированной ценой.</p>
+                <div class="btn-group btn-center fade-in delay-2">
+                    <a href="/sanuzel-website/contact.html" class="btn btn-primary btn-lg">Оставить заявку</a>
+                    <a href="tel:+48795656642" class="btn btn-ghost btn-lg">+48 795 656 642</a>
+                </div>
             </div>
         </div>
     </section>
@@ -282,8 +363,13 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/sanuzel-website/" class="logo">санузел<span>.про</span></a>
-                    <p>DABUDINWEST sp. z o.o. — ремонт и отделка ванных комнат и санузлов под ключ в Варшаве. Договор, фиксированная смета и гарантия на работы.</p>
+                    <a href="/sanuzel-website/" class="logo">
+                        <span class="logo-mark">
+                            <svg viewBox="0 0 24 24"><path d="M4 13h16v1a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 13V7a2 2 0 0 1 4 0"/><line x1="7" y1="19.5" x2="7" y2="21"/><line x1="17" y1="19.5" x2="17" y2="21"/></svg>
+                        </span>
+                        <span class="logo-name"><b>DABUDIN<span>WEST</span></b><small>отделка санузлов</small></span>
+                    </a>
+                    <p>DABUDINWEST sp. z o.o. — ремонт и отделка ванных комнат и санузлов под ключ. Договор, фиксированная смета и гарантия на работы 3 года.</p>
                 </div>
                 <div>
                     <h4>Навигация</h4>
@@ -291,6 +377,7 @@
                         <a href="/sanuzel-website/">Главная</a>
                         <a href="/sanuzel-website/services.html">Услуги</a>
                         <a href="/sanuzel-website/contact.html">Контакты</a>
+                        <a href="/sanuzel-website/privacy.html">Политика конфиденциальности</a>
                     </div>
                 </div>
                 <div>
@@ -298,9 +385,10 @@
                     <div class="footer-links">
                         <a href="tel:+48795656642">+48 795 656 642</a>
                         <span class="email-obfuscated-text"></span>
-                        <a href="/sanuzel-website/privacy.html">Политика конфиденциальности</a>
+                        <span>ul. Hoża 86, Warszawa</span>
                     </div>
                 </div>
+                
             </div>
             <div class="footer-bottom">
                 <span>&copy; 2026 DABUDINWEST sp. z o.o. — отделка санузлов под ключ.</span>
@@ -308,6 +396,15 @@
             </div>
         </div>
     </footer>
+
+    <!-- Липкая мобильная CTA -->
+    <div class="sticky-cta">
+        <a href="tel:+48795656642" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.97.36 1.92.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.34 1.84.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Позвонить
+        </a>
+        <a href="/sanuzel-website/contact.html" class="btn btn-primary">Заявка на замер</a>
+    </div>
 
 
     <script src="js/main.js"></script>

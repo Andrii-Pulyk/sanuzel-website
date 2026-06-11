@@ -156,6 +156,54 @@ function loadPageContent(pageSlug, lang) {
   return '';
 }
 
+// ─── Города (мультигородские лендинги) ───────────────────────────────────────
+
+const CITIES = config.cities || [];
+
+function generateCitySwitcher(activeSlug) {
+  if (!CITIES.length) return '';
+  const activeCity = activeSlug ? CITIES.find(c => c.slug === activeSlug) : null;
+  const label = activeCity ? activeCity.nom : (config.cityMenuLabel || 'Город');
+  let html = '<div class="city-switch">';
+  html += `<button class="city-switch-toggle" type="button" aria-label="Выбрать город">`;
+  html += '<svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+  html += `${label}</button>`;
+  html += '<div class="city-switch-menu">';
+  for (const c of CITIES) {
+    const url = BASE + '/' + c.slug + '/';
+    const active = c.slug === activeSlug ? ' class="active"' : '';
+    html += `<a href="${url}"${active}>${c.nom}<span>${c.pl}</span></a>`;
+  }
+  html += '</div></div>';
+  return html;
+}
+
+function generateFooterCitiesBlock(title) {
+  if (!CITIES.length) return '';
+  const links = CITIES.map(c => `<a href="${BASE}/${c.slug}/">${c.nom}</a>`).join('');
+  return `<div><h4>${title}</h4><div class="footer-cities">${links}</div></div>`;
+}
+
+function substituteCity(cityStrings, city) {
+  const out = {};
+  for (const key of Object.keys(cityStrings)) {
+    out[key] = String(cityStrings[key])
+      .replace(/%CITY_IN%/g, city.loc)
+      .replace(/%CITY_GEN%/g, city.gen)
+      .replace(/%CITY%/g, city.nom);
+  }
+  return out;
+}
+
+function renderTemplate(template, context) {
+  let html = template.replace(/\{\{>\s*(\w+)\s*\}\}/g, (m, name) => partials[name] || m);
+  html = html.replace(/\{\{([a-zA-Z_][a-zA-Z0-9_.]*)\}\}/g, (m, keyPath) => {
+    const value = getNestedValue(context, keyPath);
+    return value !== undefined ? String(value) : m;
+  });
+  return html;
+}
+
 // ─── 5. Clean output files ──────────────────────────────────────────────────────
 
 function cleanOutput() {
@@ -242,6 +290,8 @@ for (const page of config.pages) {
       _privacy_url: BASE + getOutputPath('privacy', 'privacy.html', lang),
       _privacy_switch_url: privacySwitchUrl,
       _page_content: pageContent,
+      _city_switcher: generateCitySwitcher(null),
+      _footer_cities_block: generateFooterCitiesBlock(t.footer.cities_title),
     };
 
     // Process template
@@ -268,6 +318,50 @@ for (const page of config.pages) {
   }
 }
 
+// ─── 7b. Build city landing pages (default language) ────────────────────────
+
+if (CITIES.length) {
+  const cityTemplatePath = path.join(TEMPLATES_DIR, 'city.html');
+  if (fs.existsSync(cityTemplatePath)) {
+    const cityTemplate = fs.readFileSync(cityTemplatePath, 'utf8');
+    const lang = config.defaultLang;
+    const t = translations[lang];
+    const navUrls = generateNavUrls(lang);
+
+    for (const city of CITIES) {
+      const cityPage = substituteCity(t.city, city);
+      const context = {
+        meta: t.meta,
+        nav: t.nav,
+        footer: t.footer,
+        page: cityPage,
+        idx: t.index,
+        _assets: '../',
+        _canonical_url: config.siteUrl + BASE + '/' + city.slug + '/',
+        _hreflang_tags: '',
+        _lang_switcher: '',
+        _lang_switcher_mobile: '',
+        _nav_home_url: navUrls.index,
+        _nav_services_url: navUrls.services,
+        _nav_contacts_url: navUrls.contact,
+        _privacy_url: BASE + getOutputPath('privacy', 'privacy.html', lang),
+        _privacy_switch_url: '',
+        _page_content: '',
+        _city_switcher: generateCitySwitcher(city.slug),
+        _footer_cities_block: generateFooterCitiesBlock(t.footer.cities_title),
+        _districts: city.districts.map(d => `<span class="chip">${d}</span>`).join(''),
+      };
+
+      const html = renderTemplate(cityTemplate, context);
+      const outputFile = path.join(DIST, city.slug, 'index.html');
+      fs.mkdirSync(path.dirname(outputFile), { recursive: true });
+      fs.writeFileSync(outputFile, html, 'utf8');
+      pagesGenerated++;
+      console.log(`  CITY → /${city.slug}/`);
+    }
+  }
+}
+
 // Copy static assets
 copyDirRecursive(path.join(SRC, 'css'), path.join(DIST, 'css'));
 copyDirRecursive(path.join(SRC, 'js'), path.join(DIST, 'js'));
@@ -284,6 +378,11 @@ for (const page of config.pages) {
       : '0.8';
     sitemapUrls.push(`  <url>\n    <loc>${url}</loc>\n    <priority>${priority}</priority>\n  </url>`);
   }
+}
+
+for (const city of CITIES) {
+  const url = config.siteUrl + BASE + '/' + city.slug + '/';
+  sitemapUrls.push(`  <url>\n    <loc>${url}</loc>\n    <priority>0.9</priority>\n  </url>`);
 }
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

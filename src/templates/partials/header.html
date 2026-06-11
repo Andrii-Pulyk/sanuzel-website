@@ -1,18 +1,33 @@
-    <header class="header">
+    <header class="header" id="siteHeader">
         <div class="container">
-            <a href="{{_nav_home_url}}" class="logo">санузел<span>.про</span></a>
+            <a href="{{_nav_home_url}}" class="logo">
+                <span class="logo-mark">
+                    <svg viewBox="0 0 24 24"><path d="M4 13h16v1a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 13V7a2 2 0 0 1 4 0"/><line x1="7" y1="19.5" x2="7" y2="21"/><line x1="17" y1="19.5" x2="17" y2="21"/></svg>
+                </span>
+                <span class="logo-name"><b>DABUDIN<span>WEST</span></b><small>{{footer.brand_tagline}}</small></span>
+            </a>
+
             <nav class="nav" id="nav">
                 <a href="{{_nav_home_url}}">{{nav.home}}</a>
                 <a href="{{_nav_services_url}}">{{nav.services}}</a>
+                <a href="{{_nav_home_url}}#gallery">{{nav.gallery}}</a>
+                <a href="{{_nav_home_url}}#reviews">{{nav.reviews}}</a>
                 <a href="{{_nav_contacts_url}}">{{nav.contacts}}</a>
                 {{_lang_switcher_mobile}}
             </nav>
+
+            <div class="header-side">
+                {{_city_switcher}}
+                <a href="tel:{{footer.phone_href}}" class="header-phone">
+                    {{footer.phone}}<small>{{nav.phone_hint}}</small>
+                </a>
+                <a href="{{_nav_contacts_url}}" class="btn btn-primary btn-header">{{nav.cta}}</a>
+            </div>
+
             {{_lang_switcher}}
-            <a href="{{_nav_contacts_url}}" class="btn btn-primary btn-header">{{nav.cta}}</a>
+
             <button class="menu-toggle" id="menuToggle" aria-label="{{nav.menu_aria}}">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
     </header>

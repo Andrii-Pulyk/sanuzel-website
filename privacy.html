@@ -22,21 +22,36 @@
 
 <body>
 
-    <header class="header">
+    <header class="header" id="siteHeader">
         <div class="container">
-            <a href="/sanuzel-website/" class="logo">санузел<span>.про</span></a>
+            <a href="/sanuzel-website/" class="logo">
+                <span class="logo-mark">
+                    <svg viewBox="0 0 24 24"><path d="M4 13h16v1a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 13V7a2 2 0 0 1 4 0"/><line x1="7" y1="19.5" x2="7" y2="21"/><line x1="17" y1="19.5" x2="17" y2="21"/></svg>
+                </span>
+                <span class="logo-name"><b>DABUDIN<span>WEST</span></b><small>отделка санузлов</small></span>
+            </a>
+
             <nav class="nav" id="nav">
                 <a href="/sanuzel-website/">Главная</a>
                 <a href="/sanuzel-website/services.html">Услуги</a>
+                <a href="/sanuzel-website/#gallery">Работы</a>
+                <a href="/sanuzel-website/#reviews">Отзывы</a>
                 <a href="/sanuzel-website/contact.html">Контакты</a>
                 
             </nav>
+
+            <div class="header-side">
+                
+                <a href="tel:+48795656642" class="header-phone">
+                    +48 795 656 642<small>Звонок бесплатный</small>
+                </a>
+                <a href="/sanuzel-website/contact.html" class="btn btn-primary btn-header">Заявка на замер</a>
+            </div>
+
             
-            <a href="/sanuzel-website/contact.html" class="btn btn-primary btn-header">Оставить заявку</a>
+
             <button class="menu-toggle" id="menuToggle" aria-label="Меню">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
     </header>
@@ -96,8 +111,13 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/sanuzel-website/" class="logo">санузел<span>.про</span></a>
-                    <p>DABUDINWEST sp. z o.o. — ремонт и отделка ванных комнат и санузлов под ключ в Варшаве. Договор, фиксированная смета и гарантия на работы.</p>
+                    <a href="/sanuzel-website/" class="logo">
+                        <span class="logo-mark">
+                            <svg viewBox="0 0 24 24"><path d="M4 13h16v1a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M7 13V7a2 2 0 0 1 4 0"/><line x1="7" y1="19.5" x2="7" y2="21"/><line x1="17" y1="19.5" x2="17" y2="21"/></svg>
+                        </span>
+                        <span class="logo-name"><b>DABUDIN<span>WEST</span></b><small>отделка санузлов</small></span>
+                    </a>
+                    <p>DABUDINWEST sp. z o.o. — ремонт и отделка ванных комнат и санузлов под ключ. Договор, фиксированная смета и гарантия на работы 3 года.</p>
                 </div>
                 <div>
                     <h4>Навигация</h4>
@@ -105,6 +125,7 @@
                         <a href="/sanuzel-website/">Главная</a>
                         <a href="/sanuzel-website/services.html">Услуги</a>
                         <a href="/sanuzel-website/contact.html">Контакты</a>
+                        <a href="/sanuzel-website/privacy.html">Политика конфиденциальности</a>
                     </div>
                 </div>
                 <div>
@@ -112,9 +133,10 @@
                     <div class="footer-links">
                         <a href="tel:+48795656642">+48 795 656 642</a>
                         <span class="email-obfuscated-text"></span>
-                        <a href="/sanuzel-website/privacy.html">Политика конфиденциальности</a>
+                        <span>ul. Hoża 86, Warszawa</span>
                     </div>
                 </div>
+                
             </div>
             <div class="footer-bottom">
                 <span>&copy; 2026 DABUDINWEST sp. z o.o. — отделка санузлов под ключ.</span>
@@ -122,6 +144,15 @@
             </div>
         </div>
     </footer>
+
+    <!-- Липкая мобильная CTA -->
+    <div class="sticky-cta">
+        <a href="tel:+48795656642" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.97.36 1.92.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.34 1.84.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Позвонить
+        </a>
+        <a href="/sanuzel-website/contact.html" class="btn btn-primary">Заявка на замер</a>
+    </div>
 
 
     <script src="js/main.js"></script>
