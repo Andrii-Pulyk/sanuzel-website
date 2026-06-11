@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sanuzel.pro/sitemap.xml
+Sitemap: https://andrii-pulyk.github.io/sanuzel-website/sitemap.xml

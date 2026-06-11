@@ -1,5 +1,9 @@
 module.exports = {
-  siteUrl: 'https://sanuzel.pro',
+  // Полный адрес сайта (без завершающего слэша).
+  siteUrl: 'https://andrii-pulyk.github.io',
+  // Базовый путь, если сайт раздаётся из подпапки (GitHub Pages project site).
+  // Для проектной страницы это '/<имя-репозитория>'. Для корневого домена — ''.
+  basePath: '/sanuzel-website',
   defaultLang: 'ru',
 
   pages: [

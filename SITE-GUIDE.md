@@ -82,11 +82,27 @@ git push
 | Email | dabudinwest2022@gmail.com |
 | Профиль (PKD) | 43.33.Z — укладка плитки, облицовка стен |
 
+## Хостинг
+
+Сайт раздаётся через **GitHub Pages** из ветки `main`, папка `/ (root)`.
+
+- **Репозиторий:** https://github.com/Andrii-Pulyk/sanuzel-website (public)
+- **Адрес сайта:** https://andrii-pulyk.github.io/sanuzel-website/
+- Так как это «проектная» страница (подпапка `/sanuzel-website/`), в `build-config.js`
+  задан `basePath: '/sanuzel-website'` — он подставляется во все внутренние ссылки,
+  canonical и sitemap. Ассеты (css/js/images) подключаются относительными путями.
+
+### Свой домен (когда появится)
+
+1. В `build-config.js`: `siteUrl: 'https://твойдомен'`, `basePath: ''`.
+2. Создать файл `CNAME` в `src/`-сборку (или в корне) с доменом, настроить DNS.
+3. В Settings → Pages → Custom domain указать домен.
+4. `npm run build`, закоммитить, запушить.
+
 ## Что ещё стоит проверить / заменить
 
 | Что | Где | Текущее значение |
 |-----|-----|------------------|
-| Домен сайта | `build-config.js` → `siteUrl` | `https://sanuzel.pro` (плейсхолдер) |
 | Торговая марка / логотип | `src/templates/partials/*.html` | `санузел.про` (можно сменить на DABUDINWEST) |
 | Цифры на главной | `src/i18n/ru.json` → `index.stat_*` | 350+, от 14 дней, 3 года |
 | Цены | `src/i18n/ru.json` → `services.price_*` | ориентировочные |

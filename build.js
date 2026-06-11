@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const config = require('./build-config');
 
+const BASE = config.basePath || '';
+
 const SRC = path.join(__dirname, 'src');
 const DIST = __dirname; // Output to repo root for GitHub Pages
 const I18N_DIR = path.join(SRC, 'i18n');
@@ -58,8 +60,8 @@ function getOutputPath(pageSlug, template, lang) {
 
 function getPageUrl(pageSlug, template, lang) {
   const outputPath = getOutputPath(pageSlug, template, lang);
-  // Clean up /index.html → /
-  return config.siteUrl + outputPath.replace(/\/index\.html$/, '/');
+  // Clean up /index.html → / and prefix the base path
+  return config.siteUrl + BASE + outputPath.replace(/\/index\.html$/, '/');
 }
 
 function generateHreflangTags(page, langs) {
@@ -81,11 +83,11 @@ function generateNavUrls(lang) {
   for (const p of config.pages) {
     const outputPath = getOutputPath(p.slug, p.template, lang);
     const key = p.slug;
-    // For index, use directory path
+    // For index, use directory path. Prefix base path for project-site hosting.
     if (p.slug === 'index') {
-      urls[key] = outputPath.replace(/index\.html$/, '');
+      urls[key] = BASE + outputPath.replace(/index\.html$/, '');
     } else {
-      urls[key] = outputPath;
+      urls[key] = BASE + outputPath;
     }
   }
   return urls;
@@ -215,7 +217,7 @@ for (const page of config.pages) {
         ? languages.find(l => l !== lang)
         : (lang === config.defaultLang ? languages.find(l => l !== lang) : config.defaultLang);
       if (otherLang) {
-        privacySwitchUrl = getOutputPath('privacy', 'privacy.html', otherLang);
+        privacySwitchUrl = BASE + getOutputPath('privacy', 'privacy.html', otherLang);
       }
     }
 
@@ -237,7 +239,7 @@ for (const page of config.pages) {
       _nav_home_url: navUrls.index,
       _nav_services_url: navUrls.services,
       _nav_contacts_url: navUrls.contact,
-      _privacy_url: getOutputPath('privacy', 'privacy.html', lang),
+      _privacy_url: BASE + getOutputPath('privacy', 'privacy.html', lang),
       _privacy_switch_url: privacySwitchUrl,
       _page_content: pageContent,
     };
@@ -298,7 +300,7 @@ console.log('  sitemap.xml generated');
 const robots = `User-agent: *
 Allow: /
 
-Sitemap: ${config.siteUrl}/sitemap.xml
+Sitemap: ${config.siteUrl}${BASE}/sitemap.xml
 `;
 
 fs.writeFileSync(path.join(DIST, 'robots.txt'), robots, 'utf8');
