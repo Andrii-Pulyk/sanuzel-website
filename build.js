@@ -1,13 +1,26 @@
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const config = require('./build-config');
 
 const BASE = config.basePath || '';
+
+// Версия ассетов для cache-busting: короткий хэш от содержимого CSS+JS.
+// Меняется при любой правке стилей/скриптов → браузер подтягивает свежий файл.
+function computeAssetVersion() {
+  const hash = crypto.createHash('md5');
+  for (const rel of ['css/style.css', 'js/main.js']) {
+    try { hash.update(fs.readFileSync(path.join(SRC, rel))); } catch (e) { /* ignore */ }
+  }
+  return hash.digest('hex').slice(0, 8);
+}
 
 const SRC = path.join(__dirname, 'src');
 const DIST = __dirname; // Output to repo root for GitHub Pages
 const I18N_DIR = path.join(SRC, 'i18n');
 const TEMPLATES_DIR = path.join(SRC, 'templates');
+
+const ASSET_VERSION = computeAssetVersion();
 const PARTIALS_DIR = path.join(TEMPLATES_DIR, 'partials');
 const CONTENT_DIR = path.join(SRC, 'content');
 
@@ -280,6 +293,7 @@ for (const page of config.pages) {
       page: t[page.slug],
       // Computed values (prefixed with _ to distinguish)
       _assets: assetsPrefix,
+      _asset_version: ASSET_VERSION,
       _lead_email: config.leadEmail,
       _canonical_url: canonicalUrl,
       _hreflang_tags: generateHreflangTags(page, languages),
@@ -338,6 +352,8 @@ if (CITIES.length) {
         page: cityPage,
         idx: t.index,
         _assets: '../',
+        _asset_version: ASSET_VERSION,
+        _lead_email: config.leadEmail,
         _canonical_url: config.siteUrl + BASE + '/' + city.slug + '/',
         _hreflang_tags: '',
         _lang_switcher: '',
