@@ -356,8 +356,8 @@ ul { list-style: none; }
     display: flex;
     align-items: center;
     background:
-        linear-gradient(90deg, rgba(7, 10, 12, 0.72) 0%, rgba(7, 10, 12, 0.38) 42%, rgba(7, 10, 12, 0.04) 100%),
-        linear-gradient(180deg, rgba(7, 10, 12, 0.22) 0%, rgba(7, 10, 12, 0.02) 54%, var(--bg) 100%),
+        linear-gradient(90deg, rgba(7, 10, 12, 0.60) 0%, rgba(7, 10, 12, 0.24) 42%, rgba(7, 10, 12, 0.02) 100%),
+        linear-gradient(180deg, rgba(7, 10, 12, 0.14) 0%, rgba(7, 10, 12, 0.01) 56%, var(--bg) 100%),
         url('../images/hero-background-wide.png') center / cover no-repeat;
 }
 .hero-main .hero-grid {
@@ -1059,7 +1059,7 @@ ul { list-style: none; }
     .hero-main {
         min-height: 720px;
         background:
-            linear-gradient(180deg, rgba(7, 10, 12, 0.58) 0%, rgba(7, 10, 12, 0.34) 52%, var(--bg) 100%),
+            linear-gradient(180deg, rgba(7, 10, 12, 0.46) 0%, rgba(7, 10, 12, 0.24) 52%, var(--bg) 100%),
             url('../images/hero-background-wide.png') 58% center / cover no-repeat;
     }
     .hero h1 br { display: none; }
