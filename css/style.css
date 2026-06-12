@@ -1,6 +1,6 @@
 /* ============================================================
    DABUDINWEST — Отделка санузлов под ключ
-   Премиальная тёмная тема: графит + бирюза + латунь
+   Премиальная тёмная тема: графит + тёплая латунь
    ============================================================ */
 
 :root {
@@ -22,18 +22,18 @@
     --text-3:       #717c84;
 
     /* Акценты */
-    --teal:         #2bc0d4;
-    --teal-2:       #56d8e8;
-    --teal-deep:    #14808f;
-    --teal-glow:    rgba(43, 192, 212, 0.16);
-    --teal-line:    rgba(43, 192, 212, 0.4);
+    --teal:         #d8a84e;
+    --teal-2:       #f0c66f;
+    --teal-deep:    #9c6428;
+    --teal-glow:    rgba(216, 168, 78, 0.16);
+    --teal-line:    rgba(216, 168, 78, 0.42);
     --brass:        #d8b878;
     --brass-2:      #ecd49e;
 
     /* Тени */
     --shadow-sm:    0 2px 10px rgba(0, 0, 0, 0.25);
     --shadow:       0 18px 50px rgba(0, 0, 0, 0.45);
-    --shadow-glow:  0 18px 50px rgba(43, 192, 212, 0.22);
+    --shadow-glow:  0 18px 50px rgba(216, 168, 78, 0.22);
 
     /* Геометрия */
     --radius:       16px;
@@ -74,7 +74,7 @@ body::before {
     inset: 0;
     z-index: -1;
     background:
-        radial-gradient(680px 520px at 78% -4%, rgba(43, 192, 212, 0.10), transparent 60%),
+        radial-gradient(680px 520px at 78% -4%, rgba(216, 168, 78, 0.10), transparent 60%),
         radial-gradient(620px 500px at 8% 8%, rgba(216, 184, 120, 0.06), transparent 60%),
         var(--bg);
     pointer-events: none;
@@ -149,7 +149,7 @@ ul { list-style: none; }
 .btn-primary {
     background: linear-gradient(135deg, var(--teal-2), var(--teal-deep));
     color: #04181c;
-    box-shadow: 0 10px 30px rgba(43, 192, 212, 0.22);
+    box-shadow: 0 10px 30px rgba(216, 168, 78, 0.22);
 }
 .btn-primary::after {
     content: '';
@@ -162,7 +162,7 @@ ul { list-style: none; }
 .btn-primary:hover {
     color: #04181c;
     transform: translateY(-2px);
-    box-shadow: 0 16px 40px rgba(43, 192, 212, 0.36);
+    box-shadow: 0 16px 40px rgba(216, 168, 78, 0.34);
 }
 .btn-primary:hover::after { left: 130%; }
 
@@ -175,7 +175,7 @@ ul { list-style: none; }
 .btn-ghost:hover {
     color: var(--text);
     border-color: var(--teal-line);
-    background: rgba(43, 192, 212, 0.08);
+    background: rgba(216, 168, 78, 0.08);
     transform: translateY(-2px);
 }
 
@@ -231,7 +231,7 @@ ul { list-style: none; }
     background: linear-gradient(135deg, var(--teal-2), var(--teal-deep));
     display: grid;
     place-items: center;
-    box-shadow: 0 6px 18px rgba(43, 192, 212, 0.3);
+    box-shadow: 0 6px 18px rgba(216, 168, 78, 0.28);
     flex-shrink: 0;
 }
 .logo-mark svg { width: 19px; height: 19px; stroke: #04181c; fill: none; stroke-width: 2; }
@@ -600,7 +600,7 @@ ul { list-style: none; }
     color: var(--teal);
     transition: background var(--t);
 }
-.card:hover .card-icon { background: rgba(43, 192, 212, 0.18); }
+.card:hover .card-icon { background: rgba(216, 168, 78, 0.18); }
 .card-icon svg { width: 25px; height: 25px; }
 .card h3 { font-size: 1.16rem; font-weight: 700; margin-bottom: 9px; letter-spacing: -0.01em; }
 .card p { color: var(--text-2); font-size: 0.93rem; }
@@ -817,7 +817,7 @@ ul { list-style: none; }
 .cta-band { position: relative; overflow: hidden; }
 .cta-inner {
     position: relative;
-    background: linear-gradient(135deg, rgba(43, 192, 212, 0.14), rgba(216, 184, 120, 0.08)), var(--surface);
+    background: linear-gradient(135deg, rgba(216, 168, 78, 0.16), rgba(216, 184, 120, 0.08)), var(--surface);
     border: 1px solid var(--teal-line);
     border-radius: var(--radius-lg);
     padding: clamp(40px, 6vw, 72px);
