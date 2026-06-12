@@ -623,6 +623,28 @@ ul { list-style: none; }
     grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 20px;
 }
+.gallery-group-head {
+    text-align: left;
+    margin: 0 0 20px;
+    padding-top: 4px;
+}
+.gallery-group-head h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+}
+.gallery-group-head p {
+    max-width: 760px;
+    margin-top: 8px;
+    color: var(--text-2);
+    font-size: 0.94rem;
+    line-height: 1.65;
+}
+.gallery-group-head-archive {
+    margin-top: 42px;
+    padding-top: 34px;
+    border-top: 1px solid var(--line);
+}
 .gallery-item {
     position: relative;
     border-radius: var(--radius);
