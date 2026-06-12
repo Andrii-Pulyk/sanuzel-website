@@ -1,124 +1,201 @@
-<svg viewBox="0 0 1000 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Санузел после ремонта под ключ">
+<svg viewBox="0 0 1000 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Санузел после ремонта под ключ — перспектива">
   <defs>
-    <linearGradient id="aWall" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#e9e2d6"/>
-      <stop offset="1" stop-color="#d8cdbb"/>
+    <!-- Материалы -->
+    <linearGradient id="afBackWall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#efe9df"/>
+      <stop offset="1" stop-color="#ddd3c3"/>
     </linearGradient>
-    <linearGradient id="aFloor" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#cdbfa8"/>
-      <stop offset="1" stop-color="#b6a587"/>
+    <linearGradient id="afLeftWall" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#cfc6b6"/>
+      <stop offset="1" stop-color="#e7e0d4"/>
     </linearGradient>
-    <linearGradient id="aStone" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#fbfaf7"/>
-      <stop offset="1" stop-color="#e7e2d8"/>
+    <linearGradient id="afRightWall" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#c7beae"/>
+      <stop offset="1" stop-color="#e4ddd1"/>
     </linearGradient>
-    <linearGradient id="aWood" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#2c343a"/>
-      <stop offset="1" stop-color="#1d2329"/>
+    <linearGradient id="afCeil" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8e2d8"/>
+      <stop offset="1" stop-color="#cfc7b9"/>
     </linearGradient>
-    <linearGradient id="aBrass" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#e6c98c"/>
-      <stop offset="1" stop-color="#bd9a5a"/>
+    <linearGradient id="afFloor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bcae97"/>
+      <stop offset="1" stop-color="#9c8d72"/>
     </linearGradient>
-    <radialGradient id="aMirror" cx="0.5" cy="0.42" r="0.62">
-      <stop offset="0" stop-color="#cfe9ee"/>
-      <stop offset="0.7" stop-color="#a9cdd6"/>
-      <stop offset="1" stop-color="#8fb6c0"/>
+    <linearGradient id="afCounter" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8f4ec"/>
+      <stop offset="1" stop-color="#e6dfd2"/>
+    </linearGradient>
+    <linearGradient id="afVanity" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2d353c"/>
+      <stop offset="1" stop-color="#171c21"/>
+    </linearGradient>
+    <linearGradient id="afBrass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0d49a"/>
+      <stop offset="0.5" stop-color="#cda865"/>
+      <stop offset="1" stop-color="#a9853f"/>
+    </linearGradient>
+    <radialGradient id="afMirror" cx="0.42" cy="0.36" r="0.75">
+      <stop offset="0" stop-color="#2b3a40"/>
+      <stop offset="0.6" stop-color="#1a2429"/>
+      <stop offset="1" stop-color="#0e1519"/>
     </radialGradient>
-    <radialGradient id="aGlow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#7fe3f0" stop-opacity="0.9"/>
-      <stop offset="1" stop-color="#7fe3f0" stop-opacity="0"/>
+    <radialGradient id="afMirrorGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe9c2" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#ffe9c2" stop-opacity="0"/>
     </radialGradient>
+    <radialGradient id="afWarm" cx="0.5" cy="0.18" r="0.7">
+      <stop offset="0" stop-color="#fff3d8" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#fff3d8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="afGlass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dff0f4" stop-opacity="0.30"/>
+      <stop offset="0.5" stop-color="#bcd9e0" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#e8f5f7" stop-opacity="0.26"/>
+    </linearGradient>
+    <radialGradient id="afVignette" cx="0.5" cy="0.46" r="0.75">
+      <stop offset="0.55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.34"/>
+    </radialGradient>
+    <linearGradient id="afFloorShine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
   </defs>
 
-  <!-- wall -->
-  <rect x="0" y="0" width="1000" height="600" fill="url(#aWall)"/>
-  <!-- large-format tile grout lines -->
-  <g opacity="0.45">
-    <g stroke="#c3b6a0" stroke-width="2">
-      <line x1="0" y1="150" x2="1000" y2="150"/>
-      <line x1="0" y1="320" x2="1000" y2="320"/>
-      <line x1="0" y1="470" x2="1000" y2="470"/>
-      <line x1="250" y1="0" x2="250" y2="600"/>
-      <line x1="520" y1="0" x2="520" y2="600"/>
-      <line x1="760" y1="0" x2="760" y2="600"/>
+  <!-- ===== Геометрия комнаты (одноточечная перспектива, VP ~ 500,330) ===== -->
+  <!-- Потолок -->
+  <polygon points="0,0 1000,0 720,92 280,92" fill="url(#afCeil)"/>
+  <!-- Левая стена -->
+  <polygon points="0,0 280,92 280,566 0,720" fill="url(#afLeftWall)"/>
+  <!-- Правая стена -->
+  <polygon points="1000,0 720,92 720,566 1000,720" fill="url(#afRightWall)"/>
+  <!-- Пол -->
+  <polygon points="280,566 720,566 1000,720 0,720" fill="url(#afFloor)"/>
+  <!-- Задняя стена -->
+  <rect x="280" y="92" width="440" height="474" fill="url(#afBackWall)"/>
+
+  <!-- Швы крупноформатной плитки на задней стене -->
+  <g stroke-width="1.5" opacity="0.5">
+    <g stroke="#c6b9a3">
+      <line x1="280" y1="250" x2="720" y2="250"/>
+      <line x1="280" y1="410" x2="720" y2="410"/>
+      <line x1="427" y1="92" x2="427" y2="566"/>
+      <line x1="573" y1="92" x2="573" y2="566"/>
     </g>
   </g>
 
-  <!-- floor -->
-  <rect x="0" y="600" width="1000" height="120" fill="url(#aFloor)"/>
-  <g stroke="#a4937a" stroke-width="2" opacity="0.5">
-    <line x1="0" y1="600" x2="1000" y2="600"/>
-    <line x1="120" y1="600" x2="60" y2="720"/>
-    <line x1="340" y1="600" x2="300" y2="720"/>
-    <line x1="560" y1="600" x2="540" y2="720"/>
-    <line x1="780" y1="600" x2="800" y2="720"/>
-    <line x1="980" y1="600" x2="1010" y2="720"/>
+  <!-- Перспективные швы пола (сходятся к VP 500,330) -->
+  <g stroke="#7e7159" stroke-width="2" opacity="0.45">
+    <line x1="0" y1="720" x2="316" y2="566"/>
+    <line x1="250" y1="720" x2="392" y2="566"/>
+    <line x1="500" y1="720" x2="500" y2="566"/>
+    <line x1="750" y1="720" x2="608" y2="566"/>
+    <line x1="1000" y1="720" x2="684" y2="566"/>
+  </g>
+  <g stroke="#8a7c63" stroke-width="2" opacity="0.4">
+    <line x1="150" y1="600" x2="850" y2="600"/>
+    <line x1="64" y1="660" x2="936" y2="660"/>
+  </g>
+  <!-- Лёгкий блик-отражение на полу -->
+  <polygon points="360,566 640,566 720,720 280,720" fill="url(#afFloorShine)"/>
+
+  <!-- Перспективные швы плитки на левой стене -->
+  <g stroke="#b3a890" stroke-width="1.5" opacity="0.4">
+    <line x1="0" y1="250" x2="280" y2="262"/>
+    <line x1="0" y1="470" x2="280" y2="438"/>
+    <line x1="95" y1="32" x2="95" y2="668"/>
+    <line x1="190" y1="62" x2="190" y2="618"/>
+  </g>
+  <!-- Перспективные швы плитки на правой стене (зона душа) -->
+  <g stroke="#b0a48c" stroke-width="1.5" opacity="0.4">
+    <line x1="1000" y1="250" x2="720" y2="262"/>
+    <line x1="1000" y1="470" x2="720" y2="438"/>
+    <line x1="905" y1="32" x2="905" y2="668"/>
+    <line x1="810" y1="62" x2="810" y2="618"/>
   </g>
 
-  <!-- feature mosaic strip (right) -->
-  <rect x="812" y="0" width="120" height="600" fill="#22414a" opacity="0.9"/>
-  <g fill="#2f5560" opacity="0.8">
-    <rect x="820" y="20" width="48" height="48"/>
-    <rect x="876" y="20" width="48" height="48"/>
-    <rect x="820" y="76" width="48" height="48"/>
-    <rect x="876" y="76" width="48" height="48"/>
-  </g>
-  <g fill="#3c6f7c" opacity="0.55">
-    <rect x="848" y="160" width="40" height="40"/>
-    <rect x="820" y="300" width="40" height="40"/>
-    <rect x="884" y="420" width="40" height="40"/>
-  </g>
+  <!-- ===== ДУШЕВАЯ ЗОНА (правая стена) ===== -->
+  <!-- ниша с подсветкой -->
+  <rect x="772" y="300" width="120" height="150" fill="#26333a"/>
+  <rect x="772" y="300" width="120" height="150" fill="none" stroke="#3a4a52" stroke-width="2"/>
+  <line x1="772" y1="375" x2="892" y2="375" stroke="#46585f" stroke-width="2"/>
+  <rect x="790" y="318" width="26" height="46" rx="3" fill="#cdd6d8"/>
+  <rect x="822" y="330" width="20" height="34" rx="3" fill="#b7c1c3"/>
+  <rect x="790" y="392" width="34" height="42" rx="3" fill="#dfe6e7"/>
+  <!-- тропический душ -->
+  <rect x="828" y="150" width="64" height="9" rx="3" fill="url(#afBrass)"/>
+  <rect x="855" y="159" width="8" height="26" fill="url(#afBrass)"/>
+  <ellipse cx="859" cy="150" rx="34" ry="6" fill="url(#afBrass)"/>
+  <!-- стеклянная перегородка душа -->
+  <polygon points="720,150 720,566 612,620 612,210" fill="url(#afGlass)"/>
+  <polygon points="720,150 720,566 612,620 612,210" fill="none" stroke="#cfe6ea" stroke-width="2" opacity="0.5"/>
+  <rect x="713" y="150" width="7" height="416" fill="url(#afBrass)" opacity="0.85"/>
+  <line x1="666" y1="180" x2="666" y2="593" stroke="#eaf6f8" stroke-width="2" opacity="0.25"/>
 
-  <!-- floating vanity -->
-  <rect x="300" y="430" width="360" height="120" rx="8" fill="url(#aWood)"/>
-  <rect x="300" y="408" width="360" height="34" rx="6" fill="url(#aStone)"/>
-  <line x1="480" y1="450" x2="480" y2="540" stroke="#10151a" stroke-width="2" opacity="0.5"/>
-  <circle cx="430" cy="495" r="5" fill="url(#aBrass)"/>
-  <circle cx="530" cy="495" r="5" fill="url(#aBrass)"/>
-  <!-- shadow under vanity -->
-  <ellipse cx="480" cy="600" rx="210" ry="14" fill="#000" opacity="0.12"/>
+  <!-- ===== ЗАДНЯЯ СТЕНА: тумба + зеркало ===== -->
+  <!-- тёплое свечение от ламп -->
+  <rect x="280" y="92" width="440" height="280" fill="url(#afWarm)"/>
 
-  <!-- undermount sink basin -->
-  <ellipse cx="480" cy="424" rx="86" ry="15" fill="#cdc6b8"/>
-  <ellipse cx="480" cy="421" rx="80" ry="12" fill="#f3efe8"/>
+  <!-- зеркало с контурной подсветкой -->
+  <circle cx="500" cy="232" r="118" fill="url(#afMirrorGlow)" opacity="0.6"/>
+  <circle cx="500" cy="228" r="100" fill="#0a1014"/>
+  <circle cx="500" cy="228" r="94" fill="url(#afMirror)"/>
+  <circle cx="500" cy="228" r="98" fill="none" stroke="#ffedcb" stroke-width="3" opacity="0.55"/>
+  <path d="M455 285 q40 -34 78 -92" stroke="#cfe2e8" stroke-width="11" stroke-linecap="round" opacity="0.18" fill="none"/>
+  <path d="M470 300 q26 -20 50 -54" stroke="#eef6f8" stroke-width="5" stroke-linecap="round" opacity="0.2" fill="none"/>
 
-  <!-- brass faucet -->
-  <path d="M480 408 L480 360 Q480 350 490 350 L516 350" fill="none" stroke="url(#aBrass)" stroke-width="7" stroke-linecap="round"/>
-  <rect x="474" y="404" width="12" height="10" rx="2" fill="url(#aBrass)"/>
-
-  <!-- round backlit mirror -->
-  <circle cx="480" cy="210" r="120" fill="url(#aGlow)" opacity="0.55"/>
-  <circle cx="480" cy="205" r="104" fill="#0c1418"/>
-  <circle cx="480" cy="205" r="98" fill="url(#aMirror)"/>
-  <circle cx="480" cy="205" r="98" fill="none" stroke="#e8e0d2" stroke-width="3" opacity="0.4"/>
-  <path d="M455 250 q35 -26 70 -64" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity="0.25" fill="none"/>
-
-  <!-- sconces -->
-  <g fill="url(#aBrass)">
-    <rect x="316" y="180" width="10" height="60" rx="4"/>
-    <circle cx="321" cy="170" r="12" fill="#fff6df"/>
-    <rect x="674" y="180" width="10" height="60" rx="4"/>
-    <circle cx="679" cy="170" r="12" fill="#fff6df"/>
-  </g>
-
-  <!-- plant -->
-  <rect x="600" y="392" width="40" height="20" rx="4" fill="#b9824d"/>
-  <g fill="#2f6b4f">
-    <path d="M620 392 q-26 -40 -8 -78 q14 30 8 78"/>
-    <path d="M620 392 q26 -34 12 -70 q-18 28 -12 70"/>
-    <path d="M620 392 q-2 -48 2 -84 q10 40 -2 84"/>
-  </g>
-
-  <!-- rolled towel -->
+  <!-- настенные бра по бокам зеркала -->
   <g>
-    <rect x="330" y="392" width="56" height="18" rx="9" fill="#eef1f3"/>
-    <rect x="330" y="392" width="56" height="18" rx="9" fill="none" stroke="#cdd3d6" stroke-width="2"/>
+    <rect x="372" y="196" width="9" height="64" rx="4" fill="url(#afBrass)"/>
+    <circle cx="376.5" cy="186" r="13" fill="#fff4dc"/>
+    <circle cx="376.5" cy="186" r="22" fill="#fff0cf" opacity="0.25"/>
+    <rect x="619" y="196" width="9" height="64" rx="4" fill="url(#afBrass)"/>
+    <circle cx="623.5" cy="186" r="13" fill="#fff4dc"/>
+    <circle cx="623.5" cy="186" r="22" fill="#fff0cf" opacity="0.25"/>
   </g>
 
-  <!-- glass shower hint (left edge) -->
-  <rect x="40" y="120" width="150" height="480" fill="#bcd6da" opacity="0.16"/>
-  <rect x="40" y="120" width="6" height="480" fill="url(#aBrass)" opacity="0.8"/>
-  <circle cx="115" cy="150" r="22" fill="none" stroke="url(#aBrass)" stroke-width="5"/>
-  <line x1="115" y1="172" x2="115" y2="200" stroke="url(#aBrass)" stroke-width="4"/>
+  <!-- парящая тумба -->
+  <rect x="372" y="430" width="256" height="86" rx="6" fill="url(#afVanity)"/>
+  <rect x="372" y="412" width="256" height="24" rx="4" fill="url(#afCounter)"/>
+  <line x1="500" y1="446" x2="500" y2="510" stroke="#0c1014" stroke-width="2" opacity="0.5"/>
+  <rect x="454" y="470" width="20" height="4" rx="2" fill="url(#afBrass)"/>
+  <rect x="526" y="470" width="20" height="4" rx="2" fill="url(#afBrass)"/>
+  <!-- мягкая тень под тумбой на стене/полу -->
+  <ellipse cx="500" cy="528" rx="150" ry="12" fill="#000" opacity="0.18"/>
+
+  <!-- накладная раковина -->
+  <rect x="452" y="398" width="96" height="20" rx="9" fill="#efe9df"/>
+  <rect x="452" y="398" width="96" height="20" rx="9" fill="none" stroke="#cfc6b6" stroke-width="2"/>
+  <ellipse cx="500" cy="408" rx="38" ry="7" fill="#d7cfc1"/>
+  <!-- латунный смеситель -->
+  <path d="M500 398 L500 356 Q500 348 508 348 L528 348" fill="none" stroke="url(#afBrass)" stroke-width="6" stroke-linecap="round"/>
+  <rect x="495" y="394" width="10" height="8" rx="2" fill="url(#afBrass)"/>
+
+  <!-- декор на столешнице -->
+  <rect x="398" y="396" width="46" height="16" rx="8" fill="#eef1f3"/>
+  <rect x="398" y="396" width="46" height="16" rx="8" fill="none" stroke="#d2d7da" stroke-width="1.5"/>
+  <rect x="566" y="386" width="30" height="26" rx="4" fill="#b07a45"/>
+  <g fill="#2f6b4f">
+    <path d="M581 386 q-22 -34 -7 -66 q12 26 7 66"/>
+    <path d="M581 386 q22 -28 10 -58 q-15 24 -10 58"/>
+    <path d="M581 386 q-2 -40 2 -70 q9 34 -2 70"/>
+  </g>
+
+  <!-- полотенцесушитель на левой стене -->
+  <g stroke="url(#afBrass)" stroke-width="6" fill="none" stroke-linecap="round">
+    <line x1="120" y1="330" x2="120" y2="470"/>
+    <line x1="120" y1="345" x2="172" y2="349"/>
+    <line x1="120" y1="385" x2="174" y2="388"/>
+    <line x1="120" y1="425" x2="172" y2="427"/>
+  </g>
+  <rect x="118" y="392" width="60" height="40" rx="6" fill="#eef1f3" opacity="0.92"/>
+
+  <!-- ===== Атмосфера / свет ===== -->
+  <!-- линия подсветки в нише потолка -->
+  <polygon points="300,92 700,92 690,80 310,80" fill="#fff6e0" opacity="0.5"/>
+  <!-- вертикальный тёплый луч из центра потолка -->
+  <polygon points="470,92 530,92 560,300 440,300" fill="#fff3d8" opacity="0.10"/>
+
+  <!-- виньетка для глубины -->
+  <rect x="0" y="0" width="1000" height="720" fill="url(#afVignette)"/>
 </svg>

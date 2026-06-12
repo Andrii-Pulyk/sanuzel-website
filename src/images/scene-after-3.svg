@@ -1,0 +1,130 @@
+<svg viewBox="0 0 1000 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Санузел после ремонта — минимализм">
+  <defs>
+    <linearGradient id="a3Back" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#aeb6ad"/>
+      <stop offset="1" stop-color="#8e978d"/>
+    </linearGradient>
+    <linearGradient id="a3Left" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7d857c"/>
+      <stop offset="1" stop-color="#a3aaa0"/>
+    </linearGradient>
+    <linearGradient id="a3Right" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#767e75"/>
+      <stop offset="1" stop-color="#9fa69c"/>
+    </linearGradient>
+    <linearGradient id="a3Ceil" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9ba298"/>
+      <stop offset="1" stop-color="#828a80"/>
+    </linearGradient>
+    <linearGradient id="a3Floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#75796f"/>
+      <stop offset="1" stop-color="#585c52"/>
+    </linearGradient>
+    <linearGradient id="a3Counter" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#23282b"/>
+      <stop offset="1" stop-color="#14181a"/>
+    </linearGradient>
+    <linearGradient id="a3Oak" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d8b98a"/>
+      <stop offset="1" stop-color="#b6925f"/>
+    </linearGradient>
+    <radialGradient id="a3MirrorGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#dff6ff" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#dff6ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="a3Mirror" cx="0.42" cy="0.36" r="0.75">
+      <stop offset="0" stop-color="#39474a"/>
+      <stop offset="0.6" stop-color="#212b2e"/>
+      <stop offset="1" stop-color="#141b1d"/>
+    </radialGradient>
+    <radialGradient id="a3Cool" cx="0.5" cy="0.2" r="0.7">
+      <stop offset="0" stop-color="#eaf6ff" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#eaf6ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="a3Glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e7f1f2" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#dfeef0" stop-opacity="0.18"/>
+    </linearGradient>
+    <radialGradient id="a3Vignette" cx="0.5" cy="0.46" r="0.75">
+      <stop offset="0.55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.36"/>
+    </radialGradient>
+  </defs>
+
+  <polygon points="0,0 1000,0 720,92 280,92" fill="url(#a3Ceil)"/>
+  <polygon points="0,0 280,92 280,566 0,720" fill="url(#a3Left)"/>
+  <polygon points="1000,0 720,92 720,566 1000,720" fill="url(#a3Right)"/>
+  <polygon points="280,566 720,566 1000,720 0,720" fill="url(#a3Floor)"/>
+  <rect x="280" y="92" width="440" height="474" fill="url(#a3Back)"/>
+
+  <!-- крупная плитка задней стены -->
+  <g stroke="#838b80" stroke-width="1.5" opacity="0.5">
+    <line x1="280" y1="270" x2="720" y2="270"/>
+    <line x1="280" y1="430" x2="720" y2="430"/>
+    <line x1="500" y1="92" x2="500" y2="566"/>
+  </g>
+
+  <!-- швы пола -->
+  <g stroke="#4d5147" stroke-width="2" opacity="0.45">
+    <line x1="0" y1="720" x2="316" y2="566"/>
+    <line x1="250" y1="720" x2="392" y2="566"/>
+    <line x1="500" y1="720" x2="500" y2="566"/>
+    <line x1="750" y1="720" x2="608" y2="566"/>
+    <line x1="1000" y1="720" x2="684" y2="566"/>
+    <line x1="150" y1="610" x2="850" y2="610"/>
+  </g>
+
+  <!-- душевая зона справа -->
+  <rect x="772" y="300" width="120" height="150" fill="#1c2426"/>
+  <line x1="772" y1="375" x2="892" y2="375" stroke="#33403f" stroke-width="2"/>
+  <rect x="790" y="318" width="24" height="44" rx="3" fill="#c6d2d0"/>
+  <rect x="822" y="330" width="18" height="32" rx="3" fill="#aab6b4"/>
+  <rect x="828" y="150" width="60" height="8" rx="3" fill="#1c1f22"/>
+  <rect x="855" y="158" width="7" height="24" fill="#1c1f22"/>
+  <ellipse cx="858" cy="150" rx="32" ry="6" fill="#23272a"/>
+  <polygon points="720,150 720,566 612,620 612,210" fill="url(#a3Glass)"/>
+  <polygon points="720,150 720,566 612,620 612,210" fill="none" stroke="#cfe6ea" stroke-width="2" opacity="0.45"/>
+  <rect x="713" y="150" width="7" height="416" fill="#1c1f22" opacity="0.7"/>
+
+  <rect x="280" y="92" width="440" height="300" fill="url(#a3Cool)"/>
+
+  <!-- круглое зеркало -->
+  <circle cx="500" cy="232" r="116" fill="url(#a3MirrorGlow)" opacity="0.6"/>
+  <circle cx="500" cy="228" r="98" fill="#10171a"/>
+  <circle cx="500" cy="228" r="92" fill="url(#a3Mirror)"/>
+  <circle cx="500" cy="228" r="96" fill="none" stroke="#1c2426" stroke-width="4"/>
+  <path d="M458 282 q38 -32 76 -90" stroke="#cfe2e8" stroke-width="10" stroke-linecap="round" opacity="0.16" fill="none"/>
+
+  <!-- линейный светильник над зеркалом -->
+  <rect x="448" y="104" width="104" height="7" rx="3" fill="#eef7ff"/>
+  <rect x="448" y="104" width="104" height="14" rx="3" fill="#eaf6ff" opacity="0.3"/>
+
+  <!-- светлая дубовая тумба, чёрная столешница -->
+  <rect x="380" y="430" width="240" height="86" rx="6" fill="url(#a3Oak)"/>
+  <rect x="380" y="410" width="240" height="24" rx="4" fill="url(#a3Counter)"/>
+  <line x1="500" y1="446" x2="500" y2="510" stroke="#7a5e36" stroke-width="2" opacity="0.5"/>
+  <rect x="448" y="468" width="22" height="4" rx="2" fill="#23282b"/>
+  <rect x="530" y="468" width="22" height="4" rx="2" fill="#23282b"/>
+  <ellipse cx="500" cy="528" rx="146" ry="11" fill="#000" opacity="0.18"/>
+
+  <!-- встроенная раковина в тёмной столешнице -->
+  <ellipse cx="500" cy="416" rx="50" ry="9" fill="#0d1012"/>
+  <ellipse cx="500" cy="414" rx="44" ry="7" fill="#2b3033"/>
+  <path d="M500 410 L500 372 Q500 364 508 364 L526 364" fill="none" stroke="#1c1f22" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- ваза/декор -->
+  <rect x="556" y="392" width="24" height="22" rx="3" fill="#3a3f36"/>
+  <g fill="#4a7a3e"><path d="M568 392 q-16 -30 -4 -54 q10 22 4 54"/><path d="M568 392 q16 -24 6 -48 q-12 20 -6 48"/></g>
+  <rect x="420" y="396" width="42" height="16" rx="8" fill="#cfd6d4"/>
+
+  <!-- полотенцесушитель левая стена -->
+  <g stroke="#1c1f22" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.85">
+    <line x1="120" y1="340" x2="120" y2="460"/>
+    <line x1="120" y1="356" x2="170" y2="360"/>
+    <line x1="120" y1="392" x2="172" y2="395"/>
+    <line x1="120" y1="428" x2="170" y2="430"/>
+  </g>
+  <rect x="120" y="394" width="56" height="38" rx="5" fill="#eef1f3" opacity="0.9"/>
+
+  <rect x="0" y="0" width="1000" height="720" fill="url(#a3Vignette)"/>
+</svg>

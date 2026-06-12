@@ -1,110 +1,128 @@
-<svg viewBox="0 0 1000 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Санузел до ремонта">
+<svg viewBox="0 0 1000 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Санузел до ремонта — бетон и демонтаж">
   <defs>
-    <linearGradient id="bWall" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#8c8884"/>
-      <stop offset="1" stop-color="#6f6a64"/>
+    <linearGradient id="bfBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8d8a85"/>
+      <stop offset="1" stop-color="#6f6c67"/>
     </linearGradient>
-    <linearGradient id="bFloor" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#6b655d"/>
-      <stop offset="1" stop-color="#534e47"/>
+    <linearGradient id="bfLeft" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#55524d"/>
+      <stop offset="1" stop-color="#7c7973"/>
     </linearGradient>
-    <linearGradient id="bPipe" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#9a6a3f"/>
-      <stop offset="0.5" stop-color="#c08a52"/>
-      <stop offset="1" stop-color="#7d5430"/>
+    <linearGradient id="bfRight2" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#4f4c47"/>
+      <stop offset="1" stop-color="#777570"/>
     </linearGradient>
+    <linearGradient id="bfCeil" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6b6863"/>
+      <stop offset="1" stop-color="#565350"/>
+    </linearGradient>
+    <linearGradient id="bfFloor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7a756c"/>
+      <stop offset="1" stop-color="#5d584f"/>
+    </linearGradient>
+    <radialGradient id="bfLamp" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff6d8" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#ffe9ad" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#ffe9ad" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bfVignette" cx="0.5" cy="0.46" r="0.75">
+      <stop offset="0.5" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.46"/>
+    </radialGradient>
   </defs>
 
-  <!-- bare plaster wall -->
-  <rect x="0" y="0" width="1000" height="600" fill="url(#bWall)"/>
-  <!-- patchy stains / unevenness -->
-  <g fill="#000" opacity="0.06">
-    <path d="M120 60 q60 20 30 90 q-50 40 -90 -10 q-10 -70 60 -80z"/>
-    <path d="M640 120 q80 -10 70 70 q-30 60 -100 30 q-30 -70 30 -100z"/>
-    <path d="M300 360 q70 30 20 100 q-70 20 -80 -40 q0 -50 60 -60z"/>
-  </g>
-  <g fill="#fff" opacity="0.05">
-    <path d="M820 280 q50 20 10 70 q-50 10 -50 -40z"/>
-    <path d="M180 470 q40 10 20 50 q-50 0 -40 -40z"/>
-  </g>
+  <!-- ===== Та же геометрия комнаты ===== -->
+  <polygon points="0,0 1000,0 720,92 280,92" fill="url(#bfCeil)"/>
+  <polygon points="0,0 280,92 280,566 0,720" fill="url(#bfLeft)"/>
+  <polygon points="1000,0 720,92 720,566 1000,720" fill="url(#bfRight2)"/>
+  <polygon points="280,566 720,566 1000,720 0,720" fill="url(#bfFloor)"/>
+  <rect x="280" y="92" width="440" height="474" fill="url(#bfBack)"/>
 
-  <!-- old broken tile remnants (lower band) -->
+  <!-- пятна сырости / неровный бетон на задней стене -->
+  <g opacity="0.5">
+    <ellipse cx="400" cy="200" rx="70" ry="46" fill="#605d58"/>
+    <ellipse cx="600" cy="300" rx="90" ry="60" fill="#7d7a74"/>
+    <ellipse cx="520" cy="430" rx="60" ry="40" fill="#615e59"/>
+  </g>
+  <!-- участок старой кладки (содранная плитка) -->
   <g opacity="0.85">
-    <rect x="0" y="470" width="1000" height="130" fill="#7c8a86"/>
-    <g stroke="#5f6b67" stroke-width="2" opacity="0.7">
-      <line x1="60" y1="470" x2="60" y2="600"/>
-      <line x1="120" y1="470" x2="120" y2="600"/>
-      <line x1="180" y1="470" x2="180" y2="600"/>
-      <line x1="300" y1="470" x2="300" y2="600"/>
-      <line x1="0" y1="520" x2="280" y2="520"/>
-      <line x1="0" y1="565" x2="240" y2="565"/>
+    <rect x="300" y="120" width="150" height="160" fill="#9a6a52"/>
+    <g stroke="#6f4636" stroke-width="3">
+      <line x1="300" y1="150" x2="450" y2="150"/>
+      <line x1="300" y1="180" x2="450" y2="180"/>
+      <line x1="300" y1="210" x2="450" y2="210"/>
+      <line x1="300" y1="240" x2="450" y2="240"/>
+      <line x1="340" y1="120" x2="340" y2="280"/>
+      <line x1="390" y1="120" x2="390" y2="280"/>
+      <line x1="430" y1="120" x2="430" y2="280"/>
     </g>
-    <!-- chipped / missing tiles -->
-    <rect x="180" y="520" width="60" height="45" fill="#6f6a64"/>
-    <rect x="60" y="565" width="60" height="35" fill="#6f6a64"/>
-    <rect x="600" y="470" width="80" height="50" fill="#6f6a64"/>
   </g>
 
-  <!-- cracks -->
-  <g stroke="#3f3b36" stroke-width="2" opacity="0.5" fill="none">
-    <path d="M430 0 q20 120 -10 220 q30 80 0 180"/>
-    <path d="M760 60 q-20 90 10 160"/>
-  </g>
+  <!-- штроба под проводку с кабелями -->
+  <path d="M560 110 L560 250 L520 360 L560 470" fill="none" stroke="#3c3a36" stroke-width="14" opacity="0.8"/>
+  <path d="M566 110 L566 250 L526 360 L566 470" fill="none" stroke="#b8453e" stroke-width="3"/>
+  <path d="M556 112 L556 252 L516 362 L556 470" fill="none" stroke="#3a6fb0" stroke-width="3"/>
+  <!-- свисающие провода из стены -->
+  <path d="M640 92 q6 40 -10 70 q-14 26 6 50" fill="none" stroke="#c2b53a" stroke-width="4"/>
+  <path d="M654 92 q10 44 -6 78" fill="none" stroke="#b8453e" stroke-width="4"/>
+  <rect x="624" y="92" width="40" height="16" fill="#2c2a27"/>
 
-  <!-- floor with rubble -->
-  <rect x="0" y="600" width="1000" height="120" fill="url(#bFloor)"/>
-  <g fill="#7c756b">
-    <path d="M120 660 l30 -14 l26 18 l-18 22 l-34 -6z"/>
-    <path d="M420 690 l24 -10 l22 14 l-14 18 l-30 -4z"/>
-    <path d="M700 650 l26 -12 l24 16 l-16 20 l-30 -6z"/>
-    <circle cx="250" cy="678" r="10"/>
-    <circle cx="560" cy="662" r="8"/>
-  </g>
-  <g fill="#5a544c" opacity="0.7">
-    <circle cx="180" cy="700" r="6"/>
-    <circle cx="480" cy="668" r="5"/>
-    <circle cx="820" cy="692" r="7"/>
-  </g>
+  <!-- торчащая труба (там, где будет раковина) -->
+  <rect x="486" y="430" width="16" height="60" fill="#8a8580"/>
+  <rect x="478" y="424" width="32" height="12" rx="2" fill="#b8b2aa"/>
+  <circle cx="494" cy="430" r="9" fill="#5a564f"/>
+  <!-- старый слив в полу -->
+  <ellipse cx="500" cy="650" rx="26" ry="11" fill="#403d38"/>
+  <ellipse cx="500" cy="649" rx="16" ry="6" fill="#2c2a26"/>
 
-  <!-- exposed pipes sticking from wall (center, where vanity will be) -->
+  <!-- неровная стяжка: трещины и швы пола -->
+  <g stroke="#4a463f" stroke-width="2" opacity="0.6">
+    <line x1="0" y1="720" x2="316" y2="566"/>
+    <line x1="500" y1="720" x2="500" y2="566"/>
+    <line x1="1000" y1="720" x2="684" y2="566"/>
+    <line x1="150" y1="610" x2="850" y2="610"/>
+  </g>
+  <path d="M300 700 l60 -50 l-20 -34 l50 -40" fill="none" stroke="#403d37" stroke-width="2" opacity="0.7"/>
+
+  <!-- мусор / куски плитки на полу -->
   <g>
-    <rect x="440" y="430" width="14" height="120" rx="3" fill="url(#bPipe)"/>
-    <rect x="506" y="430" width="14" height="120" rx="3" fill="url(#bPipe)"/>
-    <circle cx="447" cy="430" r="12" fill="#8a5e36"/>
-    <circle cx="513" cy="430" r="12" fill="#8a5e36"/>
-    <!-- water stain -->
-    <ellipse cx="480" cy="600" rx="120" ry="12" fill="#3f3b36" opacity="0.25"/>
+    <polygon points="360,648 408,636 420,664 372,676" fill="#b9b2a8"/>
+    <polygon points="360,648 408,636 412,650 366,660" fill="#cfc8be"/>
+    <polygon points="600,620 636,612 646,634 610,642" fill="#9a6a52"/>
+    <polygon points="640,668 690,658 700,682 650,694" fill="#a59d92"/>
+    <polygon points="250,672 300,690 270,706 224,690" fill="#8c857a"/>
+    <rect x="430" y="676" width="60" height="14" rx="2" fill="#7d7670" transform="rotate(-6 460 683)"/>
+  </g>
+  <!-- мешок со смесью -->
+  <path d="M716 600 q-6 -54 30 -58 q36 4 30 58 z" fill="#c9c2b4"/>
+  <path d="M716 600 q-6 -54 30 -58 q36 4 30 58 z" fill="none" stroke="#a59d8c" stroke-width="2"/>
+  <rect x="724" y="556" width="44" height="10" rx="3" fill="#9a937f"/>
+
+  <!-- стремянка-силуэт у левой стены -->
+  <g stroke="#4a4641" stroke-width="6" fill="none" opacity="0.92" stroke-linecap="round">
+    <line x1="150" y1="360" x2="120" y2="600"/>
+    <line x1="210" y1="360" x2="234" y2="600"/>
+    <line x1="156" y1="408" x2="204" y2="408"/>
+    <line x1="150" y1="470" x2="216" y2="470"/>
+    <line x1="142" y1="535" x2="226" y2="535"/>
   </g>
 
-  <!-- rough wiring where mirror will be -->
-  <g stroke="#2b2723" stroke-width="3" fill="none" opacity="0.7">
-    <path d="M470 150 q10 30 -8 46 q-14 16 4 30"/>
-    <path d="M495 150 q-8 26 6 44"/>
-  </g>
-  <rect x="462" y="138" width="46" height="26" rx="3" fill="#4a443d"/>
-
-  <!-- hanging bare bulb -->
-  <line x1="700" y1="0" x2="700" y2="120" stroke="#2b2723" stroke-width="2"/>
-  <circle cx="700" cy="134" r="16" fill="#d9c98f" opacity="0.85"/>
-  <circle cx="700" cy="134" r="30" fill="#d9c98f" opacity="0.12"/>
-
-  <!-- bucket + tools -->
+  <!-- временная лампа-прожектор на штативе -->
   <g>
-    <path d="M150 540 l70 0 l-8 60 l-54 0 z" fill="#43596b"/>
-    <ellipse cx="185" cy="540" rx="35" ry="8" fill="#33485a"/>
-    <path d="M156 540 q29 -22 58 0" fill="none" stroke="#8d949a" stroke-width="3"/>
+    <line x1="838" y1="300" x2="838" y2="560" stroke="#3a3833" stroke-width="5"/>
+    <line x1="838" y1="560" x2="808" y2="600" stroke="#3a3833" stroke-width="5"/>
+    <line x1="838" y1="560" x2="868" y2="600" stroke="#3a3833" stroke-width="5"/>
+    <rect x="812" y="276" width="52" height="30" rx="4" fill="#2c2a26"/>
+    <circle cx="838" cy="291" r="60" fill="url(#bfLamp)"/>
+    <rect x="816" y="280" width="44" height="22" rx="3" fill="#fff3c8" opacity="0.9"/>
   </g>
-  <g stroke="#6b5536" stroke-width="6" stroke-linecap="round">
-    <line x1="250" y1="600" x2="330" y2="540"/>
-  </g>
-  <rect x="318" y="520" width="40" height="24" rx="3" fill="#9aa0a4" transform="rotate(-36 338 532)"/>
 
-  <!-- ladder hint (left) -->
-  <g stroke="#7a6240" stroke-width="6" opacity="0.8">
-    <line x1="70" y1="180" x2="40" y2="600"/>
-    <line x1="150" y1="180" x2="170" y2="600"/>
-    <line x1="64" y1="260" x2="156" y2="260"/>
-    <line x1="58" y1="360" x2="160" y2="360"/>
-    <line x1="52" y1="470" x2="166" y2="470"/>
-  </g>
+  <!-- голая лампочка на проводе с потолка -->
+  <line x1="430" y1="92" x2="430" y2="180" stroke="#2c2a27" stroke-width="2"/>
+  <circle cx="430" cy="190" r="13" fill="url(#bfLamp)"/>
+  <circle cx="430" cy="190" r="7" fill="#fff4cc"/>
+
+  <!-- пыльная дымка + виньетка -->
+  <rect x="0" y="0" width="1000" height="720" fill="#6b665d" opacity="0.06"/>
+  <rect x="0" y="0" width="1000" height="720" fill="url(#bfVignette)"/>
 </svg>
