@@ -112,31 +112,28 @@
                 <p class="section-subtitle fade-in delay-1">{{page.gallery_subtitle}}</p>
             </div>
 
-            <div class="gallery-grid">
-                <figure class="gallery-item fade-in delay-1">
-                    <img src="{{_assets}}images/works/bialoleka-tropical-toilet.jpg" alt="Реальный ремонт санузла на Białołęka — графитовая плитка, тёплый пол под дерево и акцентная стена" width="1200" height="1600" loading="lazy">
-                    <figcaption>{{page.work_1_t}}<span>{{page.work_1_d}}</span></figcaption>
-                </figure>
-                <figure class="gallery-item fade-in delay-2">
-                    <img src="{{_assets}}images/works/bialoleka-shower-niche.jpg" alt="Реальный ремонт душевой зоны на Białołęka — гидроизоляция и плитка с декоративной стеной" width="1400" height="1866" loading="lazy">
-                    <figcaption>{{page.work_2_t}}<span>{{page.work_2_d}}</span></figcaption>
-                </figure>
-                <figure class="gallery-item fade-in delay-3">
-                    <img src="{{_assets}}images/works/zoliborz-shower.jpg" alt="Реальный ремонт санузла на Żoliborz — душевая кабина с чёрным профилем и светлый керамогранит" width="1400" height="1866" loading="lazy">
-                    <figcaption>{{page.work_3_t}}<span>{{page.work_3_d}}</span></figcaption>
-                </figure>
-                <figure class="gallery-item fade-in delay-1">
-                    <img src="{{_assets}}images/works/zoliborz-compact.jpg" alt="Реальный ремонт компактного санузла на Żoliborz — инсталляция, тумба и душевая в нише" width="1400" height="1866" loading="lazy">
-                    <figcaption>{{page.work_4_t}}<span>{{page.work_4_d}}</span></figcaption>
-                </figure>
-                <figure class="gallery-item fade-in delay-2">
-                    <img src="{{_assets}}images/works/wola-bath-shower.jpg" alt="Реальный ремонт ванной на Wola — ванна, душевая система и серый керамогранит" width="1200" height="1600" loading="lazy">
-                    <figcaption>{{page.work_5_t}}<span>{{page.work_5_d}}</span></figcaption>
-                </figure>
-                <figure class="gallery-item fade-in delay-3">
-                    <img src="{{_assets}}images/works/wola-gray-tiles.jpg" alt="Реальный ремонт ванной на Wola — крупноформатная плитка и аккуратные примыкания" width="1200" height="1600" loading="lazy">
-                    <figcaption>{{page.work_6_t}}<span>{{page.work_6_d}}</span></figcaption>
-                </figure>
+            <div class="gallery-grid gallery-projects">
+                <button class="gallery-item gallery-project fade-in delay-1" type="button"
+                    data-gallery-title="{{page.work_1_t}}"
+                    data-gallery-images="{{_assets}}images/works/bialoleka-2024/01.jpg,{{_assets}}images/works/bialoleka-2024/02.jpg,{{_assets}}images/works/bialoleka-2024/03.jpg,{{_assets}}images/works/bialoleka-2024/04.jpg,{{_assets}}images/works/bialoleka-2024/05.jpg,{{_assets}}images/works/bialoleka-2024/06.jpg,{{_assets}}images/works/bialoleka-2024/07.jpg">
+                    <img src="{{_assets}}images/works/bialoleka-2024/05.jpg" alt="Реальный ремонт санузла на Białołęka — графитовая плитка, тёплый пол под дерево и акцентная стена" width="1200" height="1600" loading="lazy">
+                    <span class="gallery-count">{{page.work_1_count}}</span>
+                    <span class="gallery-caption">{{page.work_1_t}}<span>{{page.work_1_d}}</span></span>
+                </button>
+                <button class="gallery-item gallery-project fade-in delay-2" type="button"
+                    data-gallery-title="{{page.work_2_t}}"
+                    data-gallery-images="{{_assets}}images/works/zoliborz-2026/01.jpg,{{_assets}}images/works/zoliborz-2026/02.jpg,{{_assets}}images/works/zoliborz-2026/03.jpg,{{_assets}}images/works/zoliborz-2026/04.jpg,{{_assets}}images/works/zoliborz-2026/05.jpg,{{_assets}}images/works/zoliborz-2026/06.jpg">
+                    <img src="{{_assets}}images/works/zoliborz-2026/05.jpg" alt="Реальный ремонт санузла на Żoliborz — душевая кабина с чёрным профилем и светлый керамогранит" width="1400" height="1866" loading="lazy">
+                    <span class="gallery-count">{{page.work_2_count}}</span>
+                    <span class="gallery-caption">{{page.work_2_t}}<span>{{page.work_2_d}}</span></span>
+                </button>
+                <button class="gallery-item gallery-project fade-in delay-3" type="button"
+                    data-gallery-title="{{page.work_3_t}}"
+                    data-gallery-images="{{_assets}}images/works/wola-2025/01.jpg,{{_assets}}images/works/wola-2025/02.jpg,{{_assets}}images/works/wola-2025/03.jpg,{{_assets}}images/works/wola-2025/04.jpg">
+                    <img src="{{_assets}}images/works/wola-2025/01.jpg" alt="Реальный ремонт ванной на Wola — ванна, душевая система и серый керамогранит" width="1200" height="1600" loading="lazy">
+                    <span class="gallery-count">{{page.work_3_count}}</span>
+                    <span class="gallery-caption">{{page.work_3_t}}<span>{{page.work_3_d}}</span></span>
+                </button>
             </div>
 
             <div class="btn-group section-cta fade-in">
@@ -144,6 +141,24 @@
             </div>
         </div>
     </section>
+
+    <div class="work-lightbox" id="workLightbox" aria-hidden="true">
+        <button class="work-lightbox-backdrop" type="button" data-lightbox-close aria-label="Закрыть просмотр"></button>
+        <div class="work-lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="workLightboxTitle">
+            <div class="work-lightbox-top">
+                <div>
+                    <h3 id="workLightboxTitle"></h3>
+                    <p id="workLightboxCounter"></p>
+                </div>
+                <button class="work-lightbox-close" type="button" data-lightbox-close aria-label="Закрыть просмотр">×</button>
+            </div>
+            <div class="work-lightbox-stage">
+                <button class="work-lightbox-nav prev" type="button" data-lightbox-prev aria-label="Предыдущее фото">‹</button>
+                <img id="workLightboxImage" src="" alt="">
+                <button class="work-lightbox-nav next" type="button" data-lightbox-next aria-label="Следующее фото">›</button>
+            </div>
+        </div>
+    </div>
 
     <!-- ===== ПРЕИМУЩЕСТВА ===== -->
     <section class="section section-center" id="advantages">

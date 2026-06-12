@@ -207,6 +207,68 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    /* ----- Галерея объектов ----- */
+    (function () {
+        var lightbox = document.getElementById('workLightbox');
+        if (!lightbox) return;
+
+        var title = document.getElementById('workLightboxTitle');
+        var counter = document.getElementById('workLightboxCounter');
+        var image = document.getElementById('workLightboxImage');
+        var prev = lightbox.querySelector('[data-lightbox-prev]');
+        var next = lightbox.querySelector('[data-lightbox-next]');
+        var closeButtons = lightbox.querySelectorAll('[data-lightbox-close]');
+        var photos = [];
+        var current = 0;
+
+        function render() {
+            if (!photos.length || !image) return;
+            image.src = photos[current];
+            image.alt = (title ? title.textContent : 'Фото объекта') + ' — ' + (current + 1);
+            if (counter) counter.textContent = (current + 1) + ' / ' + photos.length;
+        }
+
+        function move(delta) {
+            if (!photos.length) return;
+            current = (current + delta + photos.length) % photos.length;
+            render();
+        }
+
+        function close() {
+            lightbox.classList.remove('open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('lightbox-lock');
+            if (image) image.removeAttribute('src');
+        }
+
+        document.querySelectorAll('.gallery-project[data-gallery-images]').forEach(function (card) {
+            card.addEventListener('click', function () {
+                photos = (card.getAttribute('data-gallery-images') || '')
+                    .split(',')
+                    .map(function (src) { return src.trim(); })
+                    .filter(Boolean);
+                if (!photos.length) return;
+                current = 0;
+                if (title) title.textContent = card.getAttribute('data-gallery-title') || '';
+                lightbox.classList.add('open');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('lightbox-lock');
+                render();
+            });
+        });
+
+        if (prev) prev.addEventListener('click', function () { move(-1); });
+        if (next) next.addEventListener('click', function () { move(1); });
+        closeButtons.forEach(function (button) { button.addEventListener('click', close); });
+
+        document.addEventListener('keydown', function (e) {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') close();
+            if (e.key === 'ArrowLeft') move(-1);
+            if (e.key === 'ArrowRight') move(1);
+        });
+    })();
+
     /* ----- Плавный скролл к якорям ----- */
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {
