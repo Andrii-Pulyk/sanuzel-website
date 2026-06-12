@@ -351,6 +351,22 @@ ul { list-style: none; }
     padding: calc(var(--header-h) + 56px) 0 80px;
     overflow: hidden;
 }
+.hero-main {
+    min-height: 760px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(90deg, rgba(7, 10, 12, 0.92) 0%, rgba(7, 10, 12, 0.70) 42%, rgba(7, 10, 12, 0.16) 100%),
+        linear-gradient(180deg, rgba(7, 10, 12, 0.52) 0%, rgba(7, 10, 12, 0.06) 48%, var(--bg) 100%),
+        url('../images/hero-background-wide.png') center / cover no-repeat;
+}
+.hero-main .hero-grid {
+    grid-template-columns: minmax(0, 640px);
+}
+.hero-main .hero-copy {
+    position: relative;
+    z-index: 1;
+}
 .hero-grid {
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
@@ -393,6 +409,15 @@ ul { list-style: none; }
 }
 .hero h1 .accent { color: var(--teal); font-style: italic; }
 .hero-sub { font-size: 1.12rem; color: var(--text-2); max-width: 540px; margin-bottom: 32px; }
+.hero-main h1,
+.hero-main .hero-sub,
+.hero-main .hero-points li {
+    text-shadow: 0 2px 22px rgba(0, 0, 0, 0.58);
+}
+.hero-main .hero-sub,
+.hero-main .hero-points li {
+    color: rgba(238, 242, 244, 0.88);
+}
 
 .hero-cta { margin-bottom: 30px; }
 
@@ -995,6 +1020,7 @@ ul { list-style: none; }
    ============================================================ */
 @media (max-width: 992px) {
     .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+    .hero-main .hero-grid { grid-template-columns: minmax(0, 620px); }
     .hero-visual { max-width: 560px; }
     .trust-strip .container { grid-template-columns: repeat(2, 1fr); }
     .trust-item:nth-child(odd) { border-left: none; padding-left: 0; }
@@ -1030,6 +1056,12 @@ ul { list-style: none; }
     .city-switch { order: -1; }
     .city-switch-menu { left: 0; right: auto; }
 
+    .hero-main {
+        min-height: 720px;
+        background:
+            linear-gradient(180deg, rgba(7, 10, 12, 0.82) 0%, rgba(7, 10, 12, 0.58) 52%, var(--bg) 100%),
+            url('../images/hero-background-wide.png') 58% center / cover no-repeat;
+    }
     .hero h1 br { display: none; }
     .hero-badge-float { left: 12px; bottom: 12px; padding: 11px 14px; }
     .section-head { margin-bottom: 38px; }
@@ -1049,6 +1081,7 @@ ul { list-style: none; }
 
 @media (max-width: 480px) {
     .container { padding: 0 18px; }
+    .hero-main { min-height: 680px; }
     .hero-rating { flex-wrap: wrap; }
     .stat-band { grid-template-columns: 1fr 1fr; gap: 22px; }
     .btn { width: 100%; }

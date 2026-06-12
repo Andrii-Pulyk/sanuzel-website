@@ -4,7 +4,7 @@
 {{> header}}
 
     <!-- ===== HERO ===== -->
-    <section class="hero">
+    <section class="hero hero-main">
         <div class="container hero-grid">
             <div class="hero-copy">
                 <div class="hero-rating fade-in">
@@ -23,23 +23,6 @@
                     <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>{{page.hero_point_2}}</li>
                     <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>{{page.hero_point_3}}</li>
                 </ul>
-            </div>
-
-            <div class="hero-visual fade-in-right delay-2">
-                <div class="frame">
-                    <div class="ba" id="heroBa">
-                        <div class="ba-img ba-after"><img src="{{_assets}}images/scene-after.svg" alt="Санузел после ремонта под ключ" width="1000" height="720"></div>
-                        <div class="ba-img ba-before" id="heroBaBefore"><img src="{{_assets}}images/scene-before.svg" alt="Санузел до ремонта" width="1000" height="720"></div>
-                        <span class="ba-tag after">{{page.ba_after}}</span>
-                        <span class="ba-tag before">{{page.ba_before}}</span>
-                        <div class="ba-handle" id="heroBaHandle"></div>
-                        <input type="range" class="ba-range" id="heroBaRange" min="0" max="100" value="50" aria-label="{{page.ba_aria}}">
-                    </div>
-                </div>
-                <div class="hero-badge-float">
-                    <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-                    <span><b>{{page.hero_badge_value}}</b><span>{{page.hero_badge_label}}</span></span>
-                </div>
             </div>
         </div>
     </section>
