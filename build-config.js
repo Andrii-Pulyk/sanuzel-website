@@ -1,9 +1,9 @@
 module.exports = {
   // Полный адрес сайта (без завершающего слэша).
-  siteUrl: 'https://andrii-pulyk.github.io',
+  siteUrl: 'https://clewbyte.com',
   // Базовый путь, если сайт раздаётся из подпапки (GitHub Pages project site).
   // Для проектной страницы это '/<имя-репозитория>'. Для корневого домена — ''.
-  basePath: '/sanuzel-website',
+  basePath: '',
   defaultLang: 'ru',
 
   // Почта, куда приходят заявки с формы (через FormSubmit.co, без сервера).
