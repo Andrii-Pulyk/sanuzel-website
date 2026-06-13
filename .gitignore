@@ -5,3 +5,4 @@ node_modules/
 .playwright-mcp/
 .claude/
 CREDENTIALS.txt
+REVIEWS-real.md
