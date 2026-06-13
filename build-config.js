@@ -12,7 +12,7 @@ module.exports = {
   leadEmail: '89892615877a@gmail.com',
 
   // Название бренда для соцсетей (og:site_name) и schema.org.
-  siteName: 'Mistrz Łazienek — отделка санузлов под ключ',
+  siteName: 'Mistrz Łazienek',
   // Картинка для превью в соцсетях/мессенджерах (og:image). Путь от корня сайта.
   ogImage: 'images/hero-background-wide.png',
   ogImageWidth: 1672,

@@ -28,7 +28,12 @@ const CONTENT_DIR = path.join(SRC, 'content');
 
 const languages = fs.readdirSync(I18N_DIR)
   .filter(f => f.endsWith('.json'))
-  .map(f => f.replace('.json', ''));
+  .map(f => f.replace('.json', ''))
+  .sort((a, b) => {
+    if (a === config.defaultLang) return -1;
+    if (b === config.defaultLang) return 1;
+    return a.localeCompare(b);
+  });
 
 console.log(`Languages found: ${languages.join(', ')}`);
 
@@ -114,7 +119,8 @@ function generateLangSwitcher(currentLang, currentPage, langs) {
     const cleanUrl = currentPage.slug === 'index'
       ? otherUrl.replace(/index\.html$/, '')
       : otherUrl;
-    return `<a href="${cleanUrl}" class="lang-toggle" title="${translations[otherLang].meta.lang.toUpperCase()}">${otherLang.toUpperCase()}</a>`;
+    const label = langs.map(lang => lang.toUpperCase()).join('/');
+    return `<a href="${cleanUrl}" class="lang-toggle" title="${translations[otherLang].meta.lang.toUpperCase()}">${label}</a>`;
   }
 
   // For 3+ languages: dropdown
@@ -143,7 +149,8 @@ function generateLangSwitcherMobile(currentLang, currentPage, langs) {
     const cleanUrl = currentPage.slug === 'index'
       ? otherUrl.replace(/index\.html$/, '')
       : otherUrl;
-    return `<a href="${cleanUrl}" class="lang-toggle-mobile">${otherLang.toUpperCase()}</a>`;
+    const label = langs.map(lang => lang.toUpperCase()).join('/');
+    return `<a href="${cleanUrl}" class="lang-toggle-mobile">${label}</a>`;
   }
 
   // For 3+ languages: list in mobile nav
@@ -318,7 +325,7 @@ function serviceNode(pageData, canonicalUrl) {
     if (num) {
       offer.price = num[0].replace(/\s/g, '');
       // "от X zł" → минимальная цена.
-      if (/^\s*от/i.test(String(value))) {
+      if (/^\s*(от|od)\b/i.test(String(value))) {
         offer.priceSpecification = {
           '@type': 'UnitPriceSpecification',
           minPrice: offer.price,

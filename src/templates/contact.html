@@ -90,20 +90,20 @@
                           action="https://formsubmit.co/ajax/{{_lead_email}}" method="POST"
                           data-success="{{page.form_success}}" data-error="{{page.form_error}}"
                           data-submit="{{page.form_submit}}" data-sending="{{page.form_sending}}">
-                        <input type="hidden" name="_subject" value="Новая заявка с сайта — отделка санузлов">
+                        <input type="hidden" name="_subject" value="{{page.form_subject}}">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
                         <div class="form-group">
                             <label for="name">{{page.form_name_label}}</label>
-                            <input type="text" id="name" name="Имя" placeholder="{{page.form_name_placeholder}}" required>
+                            <input type="text" id="name" name="{{page.form_name_field}}" placeholder="{{page.form_name_placeholder}}" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">{{page.form_phone_label}}</label>
-                            <input type="tel" id="phone" name="Телефон" placeholder="{{page.form_phone_placeholder}}" required>
+                            <input type="tel" id="phone" name="{{page.form_phone_field}}" placeholder="{{page.form_phone_placeholder}}" required>
                         </div>
                         <div class="form-group">
                             <label for="message">{{page.form_message_label}}</label>
-                            <textarea id="message" name="Комментарий" placeholder="{{page.form_message_placeholder}}"></textarea>
+                            <textarea id="message" name="{{page.form_message_field}}" placeholder="{{page.form_message_placeholder}}"></textarea>
                         </div>
                         <div class="honeypot">
                             <label for="website">Website</label>
