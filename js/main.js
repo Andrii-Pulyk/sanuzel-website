@@ -146,8 +146,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /* ----- Обфускация email ----- */
     (function () {
-        var user = 'dabudinwest2022';
-        var domain = 'gmail.com';
+        var user = 'kontakt';
+        var domain = 'mistrzlazienek.pl';
         var addr = user + '@' + domain;
         document.querySelectorAll('.email-obfuscated').forEach(function (el) {
             el.innerHTML = '<a href="mailto:' + addr + '">' + addr + '</a>';

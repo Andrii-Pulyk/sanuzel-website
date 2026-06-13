@@ -29,7 +29,7 @@ module.exports = {
     // Тип по schema.org: HomeAndConstructionBusiness — ремонт/строительство.
     type: 'HomeAndConstructionBusiness',
     phone: '+48795656642',
-    email: 'dabudinwest2022@gmail.com',
+    email: 'kontakt@mistrzlazienek.pl',
     street: 'ul. Hoża 86 lok. 410',
     postalCode: '00-682',
     city: 'Warszawa',
