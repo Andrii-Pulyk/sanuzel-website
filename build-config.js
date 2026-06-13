@@ -1,6 +1,6 @@
 module.exports = {
   // Полный адрес сайта (без завершающего слэша).
-  siteUrl: 'https://clewbyte.com',
+  siteUrl: 'https://mistrzlazienek.pl',
   // Базовый путь, если сайт раздаётся из подпапки (GitHub Pages project site).
   // Для проектной страницы это '/<имя-репозитория>'. Для корневого домена — ''.
   basePath: '',
