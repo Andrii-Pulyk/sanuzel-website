@@ -78,8 +78,6 @@ function getPageUrl(pageSlug, template, lang) {
 }
 
 function generateHreflangTags(page, langs) {
-  // Single language: no hreflang tags needed
-  if (langs.length < 2) return '';
   const tags = [];
   for (const lang of langs) {
     const url = getPageUrl(page.slug, page.template, lang);
@@ -386,6 +384,8 @@ copyDirRecursive(path.join(SRC, 'images'), path.join(DIST, 'images'));
 
 // ─── 8. Generate sitemap.xml ────────────────────────────────────────────────
 
+const SITEMAP_DATE = new Date().toISOString().slice(0, 10);
+
 const sitemapUrls = [];
 for (const page of config.pages) {
   for (const lang of languages) {
@@ -393,13 +393,16 @@ for (const page of config.pages) {
     const priority = page.slug === 'index' ? '1.0'
       : page.slug === 'privacy' ? '0.3'
       : '0.8';
-    sitemapUrls.push(`  <url>\n    <loc>${url}</loc>\n    <priority>${priority}</priority>\n  </url>`);
+    const changefreq = page.slug === 'index' ? 'weekly'
+      : page.slug === 'privacy' ? 'yearly'
+      : 'monthly';
+    sitemapUrls.push(`  <url>\n    <loc>${url}</loc>\n    <lastmod>${SITEMAP_DATE}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`);
   }
 }
 
 for (const city of CITIES) {
   const url = config.siteUrl + BASE + '/' + city.slug + '/';
-  sitemapUrls.push(`  <url>\n    <loc>${url}</loc>\n    <priority>0.9</priority>\n  </url>`);
+  sitemapUrls.push(`  <url>\n    <loc>${url}</loc>\n    <lastmod>${SITEMAP_DATE}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.9</priority>\n  </url>`);
 }
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
