@@ -215,6 +215,180 @@ function renderTemplate(template, context) {
   return html;
 }
 
+// ─── 4b. Structured data (JSON-LD schema.org) ──────────────────────────────────
+// Генерирует микроразметку для каждой страницы: LocalBusiness, WebSite, WebPage,
+// BreadcrumbList, а также Service+OfferCatalog (услуги) и FAQPage (там, где есть
+// блок вопросов). Помогает Google понимать бизнес и показывать его в локальной
+// выдаче, на Картах и с расширенными сниппетами.
+
+const DAY_NAMES = {
+  Mo: 'Monday', Tu: 'Tuesday', We: 'Wednesday', Th: 'Thursday',
+  Fr: 'Friday', Sa: 'Saturday', Su: 'Sunday',
+};
+
+const HOME_URL = config.siteUrl + BASE + '/';
+
+function absUrl(relFromRoot) {
+  return config.siteUrl + BASE + '/' + String(relFromRoot).replace(/^\//, '');
+}
+
+function businessNode() {
+  const b = config.business || {};
+  const node = {
+    '@type': ['LocalBusiness', b.type].filter(Boolean),
+    '@id': HOME_URL + '#business',
+    name: b.legalName || b.name,
+    url: HOME_URL,
+  };
+  if (b.name && b.name !== node.name) node.alternateName = b.name;
+  if (config.ogImage) node.image = absUrl(config.ogImage);
+  if (b.phone) node.telephone = b.phone;
+  if (b.email) node.email = b.email;
+  if (b.priceRange) node.priceRange = b.priceRange;
+  if (b.vatID) node.vatID = b.vatID;
+  if (b.foundingDate) node.foundingDate = String(b.foundingDate);
+  if (b.street || b.city) {
+    node.address = {
+      '@type': 'PostalAddress',
+      streetAddress: b.street,
+      postalCode: b.postalCode,
+      addressLocality: b.city,
+      addressRegion: b.region,
+      addressCountry: b.country,
+    };
+  }
+  if (b.lat != null && b.lng != null) {
+    node.geo = { '@type': 'GeoCoordinates', latitude: b.lat, longitude: b.lng };
+  }
+  if (Array.isArray(b.areaServed) && b.areaServed.length) {
+    node.areaServed = b.areaServed.map(a => ({ '@type': 'City', name: a }));
+  }
+  if (Array.isArray(b.openingHours) && b.openingHours.length) {
+    node.openingHoursSpecification = b.openingHours.map(o => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: (o.days || []).map(d => DAY_NAMES[d] || d),
+      opens: o.opens,
+      closes: o.closes,
+    }));
+  }
+  if (Array.isArray(b.sameAs) && b.sameAs.length) node.sameAs = b.sameAs;
+  return node;
+}
+
+function breadcrumbNode(page, pageData, canonicalUrl, t) {
+  const items = [
+    { '@type': 'ListItem', position: 1, name: t.nav.home, item: HOME_URL },
+  ];
+  if (page.slug !== 'index') {
+    items.push({ '@type': 'ListItem', position: 2, name: pageData.title, item: canonicalUrl });
+  }
+  return { '@type': 'BreadcrumbList', '@id': canonicalUrl + '#breadcrumb', itemListElement: items };
+}
+
+// Собирает FAQPage из последовательных ключей faq_N_q / faq_N_a в данных страницы.
+function faqNode(pageData, canonicalUrl) {
+  const qa = [];
+  for (let i = 1; i <= 20; i++) {
+    const q = pageData[`faq_${i}_q`];
+    const a = pageData[`faq_${i}_a`];
+    if (!q || !a) break;
+    qa.push({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    });
+  }
+  if (!qa.length) return null;
+  return { '@type': 'FAQPage', '@id': canonicalUrl + '#faq', mainEntity: qa };
+}
+
+// Service + OfferCatalog с ценами из таблицы price_N_* (страница услуг).
+function serviceNode(pageData, canonicalUrl) {
+  const offers = [];
+  for (let i = 1; i <= 20; i++) {
+    const work = pageData[`price_${i}_work`];
+    const value = pageData[`price_${i}_value`];
+    if (!work) break;
+    const offer = {
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: work },
+      priceCurrency: 'PLN',
+    };
+    const num = value && String(value).match(/[\d\s]+/);
+    if (num) {
+      offer.price = num[0].replace(/\s/g, '');
+      // "от X zł" → минимальная цена.
+      if (/^\s*от/i.test(String(value))) {
+        offer.priceSpecification = {
+          '@type': 'UnitPriceSpecification',
+          minPrice: offer.price,
+          priceCurrency: 'PLN',
+          unitText: pageData[`price_${i}_unit`],
+        };
+      }
+    }
+    if (value) offer.description = String(value);
+    offers.push(offer);
+  }
+  const node = {
+    '@type': 'Service',
+    '@id': canonicalUrl + '#service',
+    serviceType: pageData.hero_title || pageData.title,
+    provider: { '@id': HOME_URL + '#business' },
+    areaServed: (config.business.areaServed || ['Warszawa']).map(a => ({ '@type': 'City', name: a })),
+  };
+  if (pageData.hero_tagline) node.description = pageData.hero_tagline;
+  if (offers.length) {
+    node.hasOfferCatalog = {
+      '@type': 'OfferCatalog',
+      name: pageData.pricing_title || 'Услуги',
+      itemListElement: offers,
+    };
+  }
+  return node;
+}
+
+function generateStructuredData(page, pageData, lang, canonicalUrl, t) {
+  const graph = [];
+
+  graph.push(businessNode());
+
+  graph.push({
+    '@type': 'WebSite',
+    '@id': HOME_URL + '#website',
+    url: HOME_URL,
+    name: config.siteName || (config.business && config.business.legalName),
+    inLanguage: lang,
+    publisher: { '@id': HOME_URL + '#business' },
+  });
+
+  graph.push({
+    '@type': 'WebPage',
+    '@id': canonicalUrl + '#webpage',
+    url: canonicalUrl,
+    name: pageData.title,
+    description: pageData.meta_description,
+    inLanguage: lang,
+    isPartOf: { '@id': HOME_URL + '#website' },
+    about: { '@id': HOME_URL + '#business' },
+    breadcrumb: { '@id': canonicalUrl + '#breadcrumb' },
+  });
+
+  graph.push(breadcrumbNode(page, pageData, canonicalUrl, t));
+
+  if (page.slug === 'services') graph.push(serviceNode(pageData, canonicalUrl));
+
+  const faq = faqNode(pageData, canonicalUrl);
+  if (faq) graph.push(faq);
+
+  const ld = { '@context': 'https://schema.org', '@graph': graph };
+  // type="application/ld+json" — это блок данных, не исполняемый скрипт,
+  // поэтому строгий CSP (script-src 'self') его не блокирует.
+  return '<script type="application/ld+json">\n' +
+    JSON.stringify(ld, null, 2) +
+    '\n    </script>';
+}
+
 // ─── 5. Clean output files ──────────────────────────────────────────────────────
 
 function cleanOutput() {
@@ -294,6 +468,11 @@ for (const page of config.pages) {
       _asset_version: ASSET_VERSION,
       _lead_email: config.leadEmail,
       _canonical_url: canonicalUrl,
+      _site_name: config.siteName || (config.business && config.business.legalName) || '',
+      _og_image: config.ogImage ? absUrl(config.ogImage) : '',
+      _og_image_width: config.ogImageWidth || '',
+      _og_image_height: config.ogImageHeight || '',
+      _structured_data: generateStructuredData(page, t[page.slug], lang, canonicalUrl, t),
       _hreflang_tags: generateHreflangTags(page, languages),
       _lang_switcher: generateLangSwitcher(lang, page, languages),
       _lang_switcher_mobile: generateLangSwitcherMobile(lang, page, languages),
@@ -353,6 +532,13 @@ if (CITIES.length) {
         _asset_version: ASSET_VERSION,
         _lead_email: config.leadEmail,
         _canonical_url: config.siteUrl + BASE + '/' + city.slug + '/',
+        _site_name: config.siteName || (config.business && config.business.legalName) || '',
+        _og_image: config.ogImage ? absUrl(config.ogImage) : '',
+        _og_image_width: config.ogImageWidth || '',
+        _og_image_height: config.ogImageHeight || '',
+        _structured_data: generateStructuredData(
+          { slug: 'city', template: 'city.html' },
+          cityPage, lang, config.siteUrl + BASE + '/' + city.slug + '/', t),
         _hreflang_tags: '',
         _lang_switcher: '',
         _lang_switcher_mobile: '',

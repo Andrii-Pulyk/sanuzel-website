@@ -11,6 +11,45 @@ module.exports = {
   // ВАЖНО: после смены почты первая заявка снова потребует подтверждения по письму от FormSubmit.
   leadEmail: '89892615877a@gmail.com',
 
+  // Название бренда для соцсетей (og:site_name) и schema.org.
+  siteName: 'DABUDINWEST — отделка санузлов под ключ',
+  // Картинка для превью в соцсетях/мессенджерах (og:image). Путь от корня сайта.
+  ogImage: 'images/hero-background-wide.png',
+  ogImageWidth: 1672,
+  ogImageHeight: 941,
+
+  // ─── Данные бизнеса для микроразметки schema.org (JSON-LD) ─────────────────
+  // На основе этого блока build.js генерирует LocalBusiness / Service / FAQPage /
+  // BreadcrumbList. Это помогает Google показывать сайт в локальной выдаче и картах.
+  // ВАЖНО: проверь координаты (lat/lng) — они приблизительные. Точные возьми из
+  // Google Business Profile (карточки компании на Google Картах).
+  business: {
+    name: 'DABUDINWEST',
+    legalName: 'DABUDINWEST sp. z o.o.',
+    // Тип по schema.org: HomeAndConstructionBusiness — ремонт/строительство.
+    type: 'HomeAndConstructionBusiness',
+    phone: '+48795656642',
+    email: 'dabudinwest2022@gmail.com',
+    street: 'ul. Hoża 86 lok. 410',
+    postalCode: '00-682',
+    city: 'Warszawa',
+    region: 'Mazowieckie',
+    country: 'PL',
+    lat: 52.2272,   // приблизительно (Hoża 86, Śródmieście) — уточнить в Google Business Profile
+    lng: 21.0000,   // приблизительно
+    priceRange: '$$',
+    vatID: 'PL1133056595',
+    foundingDate: '2022',
+    // Города/районы обслуживания (areaServed).
+    areaServed: ['Warszawa', 'Warszawa i okolice'],
+    // Режим работы: дни недели (Mo,Tu,We,Th,Fr,Sa,Su) + время.
+    openingHours: [
+      { days: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'], opens: '09:00', closes: '20:00' },
+    ],
+    // Ссылки на профили (Google Business Profile, соцсети) — заполни, когда появятся.
+    sameAs: [],
+  },
+
   pages: [
     { template: 'index.html', slug: 'index' },
     { template: 'services.html', slug: 'services' },
