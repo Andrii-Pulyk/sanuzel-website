@@ -136,30 +136,29 @@ SEO-тайтлом и canonical. В шапке — переключатель г
 Сайт раздаётся через **GitHub Pages** из ветки `main`, папка `/ (root)`.
 
 - **Репозиторий:** https://github.com/Andrii-Pulyk/sanuzel-website (public)
-- **Адрес сайта:** https://andrii-pulyk.github.io/sanuzel-website/
-- Так как это «проектная» страница (подпапка `/sanuzel-website/`), в `build-config.js`
-  задан `basePath: '/sanuzel-website'` — он подставляется во все внутренние ссылки,
-  canonical и sitemap. Ассеты (css/js/images) подключаются относительными путями.
+- **Адрес сайта:** https://mistrzlazienek.pl/
+- Так как используется корневой домен, в `build-config.js`
+  задан `basePath: ''` — canonical, sitemap и внутренние ссылки строятся от корня сайта.
 
-### Свой домен (когда появится)
+### Свой домен
 
-1. В `build-config.js`: `siteUrl: 'https://твойдомен'`, `basePath: ''`.
-2. Создать файл `CNAME` в `src/`-сборку (или в корне) с доменом, настроить DNS.
-3. В Settings → Pages → Custom domain указать домен.
+1. В `build-config.js`: `siteUrl: 'https://mistrzlazienek.pl'`, `basePath: ''`.
+2. Файл `CNAME` в корне содержит `mistrzlazienek.pl`.
+3. В Settings → Pages → Custom domain указан домен.
 4. `npm run build`, закоммитить, запушить.
 
 ## Что ещё стоит проверить / заменить
 
 | Что | Где | Текущее значение |
 |-----|-----|------------------|
-| Торговая марка / логотип | `src/templates/partials/*.html` | `санузел.про` (можно сменить на DABUDINWEST) |
+| Торговая марка / логотип | `src/templates/partials/*.html` | `Mistrz Łazienek` |
 | Цифры на главной | `src/i18n/ru.json` → `index.stat_*` | 350+, от 14 дней, 3 года |
 | Цены | `src/i18n/ru.json` → `services.price_*` | ориентировочные |
 | Режим работы | `src/i18n/ru.json` → `contact.hours_value` | Пн–Сб, 9:00–20:00 |
-| `CNAME` для GitHub Pages | создать файл в корне | — |
+| `CNAME` для GitHub Pages | файл в корне | `mistrzlazienek.pl` |
 
 > Email вынесен в `main.js` (обфускация от спам-ботов) — меняй переменные `user` и `domain`.
-> Логотип-бренд `санузел.про` — это торговое название; юридическое лицо
+> Логотип-бренд `Mistrz Łazienek` — это торговое название; юридическое лицо
 > DABUDINWEST sp. z o.o. указано в реквизитах (подвал, блок «О компании», контакты, политика).
 
 ## Заявки с формы

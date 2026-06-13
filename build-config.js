@@ -12,7 +12,7 @@ module.exports = {
   leadEmail: '89892615877a@gmail.com',
 
   // Название бренда для соцсетей (og:site_name) и schema.org.
-  siteName: 'DABUDINWEST — отделка санузлов под ключ',
+  siteName: 'Mistrz Łazienek — отделка санузлов под ключ',
   // Картинка для превью в соцсетях/мессенджерах (og:image). Путь от корня сайта.
   ogImage: 'images/hero-background-wide.png',
   ogImageWidth: 1672,
@@ -24,7 +24,7 @@ module.exports = {
   // ВАЖНО: проверь координаты (lat/lng) — они приблизительные. Точные возьми из
   // Google Business Profile (карточки компании на Google Картах).
   business: {
-    name: 'DABUDINWEST',
+    name: 'Mistrz Łazienek',
     legalName: 'DABUDINWEST sp. z o.o.',
     // Тип по schema.org: HomeAndConstructionBusiness — ремонт/строительство.
     type: 'HomeAndConstructionBusiness',
