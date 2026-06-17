@@ -9,7 +9,9 @@ module.exports = {
   // Почта, куда приходят заявки с формы (через FormSubmit.co, без сервера).
   // Чтобы сменить адрес получателя — поменяй здесь и пересобери (npm run build).
   // ВАЖНО: после смены почты первая заявка снова потребует подтверждения по письму от FormSubmit.
-  leadEmail: '89892615877a@gmail.com',
+  leadEmail: 'kontakt@mistrzlazienek.pl',
+  // Дополнительный адрес для CC (будет получать копию каждой заявки).
+  ccEmail: '89892615877a@gmail.com',
 
   // Название бренда для соцсетей (og:site_name) и schema.org.
   siteName: 'Mistrz Łazienek',
