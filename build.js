@@ -373,18 +373,17 @@ function serviceNode(pageData, canonicalUrl) {
 }
 
 function worksNode(indexData, canonicalUrl) {
-  const coverImages = [
-    'images/works/bialoleka-2024/cover.jpg',
-    'images/works/wola-2025/cover.jpg',
-    'images/works/zoliborz-2026/cover.jpg',
-    'images/works/praga-poludnia-2021/cover.jpg',
-  ];
-  const projects = [1, 2, 3, 4]
-    .map((i) => ({
-      name: indexData[`work_${i}_t`],
-      description: indexData[`work_${i}_d`],
-      image: coverImages[i - 1],
-      anchor: `project-${i}`,
+  const projects = [
+    { index: 2, image: 'images/works/wola-2025/06.jpg', anchor: 'project-1' },
+    { index: 1, image: 'images/works/bialoleka-2024/cover.jpg', anchor: 'project-2' },
+    { index: 3, image: 'images/works/zoliborz-2026/cover.jpg', anchor: 'project-3' },
+    { index: 4, image: 'images/works/praga-poludnia-2021/cover.jpg', anchor: 'project-4' },
+  ]
+    .map((project) => ({
+      name: indexData[`work_${project.index}_t`],
+      description: indexData[`work_${project.index}_d`],
+      image: project.image,
+      anchor: project.anchor,
     }))
     .filter((project) => project.name);
 
