@@ -375,6 +375,8 @@
     "form_assets_field": "Фото или файлы",
     "form_assets_help": "Можно приложить фото ванной, проект или PDF с объёмом работ.",
     "form_assets_remove": "Удалить файл",
+    "form_assets_empty": "Файлы не выбраны",
+    "form_assets_selected": "Выбрано файлов:",
     "form_message_label": "Краткое описание",
     "form_message_placeholder": "Коротко напишите: метраж, адрес, текущее состояние ванной, желаемый уровень и объём работ.",
     "form_select_placeholder": "Выберите",

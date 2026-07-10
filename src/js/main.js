@@ -167,6 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var labelSending = contactForm.getAttribute('data-sending') || 'Отправляем…';
         var attachmentsInput = document.getElementById('attachments');
         var attachmentsList = document.getElementById('attachmentsList');
+        var attachmentsSummary = document.getElementById('attachmentsSummary');
         var queuedFiles = [];
 
         function formatFileSize(bytes) {
@@ -179,9 +180,24 @@ document.addEventListener('DOMContentLoaded', function () {
             return [file.name, file.size, file.lastModified].join(':');
         }
 
+        function syncInputFiles() {
+            if (!attachmentsInput) return;
+            if (typeof DataTransfer === 'undefined') return;
+            var dataTransfer = new DataTransfer();
+            queuedFiles.forEach(function (file) {
+                dataTransfer.items.add(file);
+            });
+            attachmentsInput.files = dataTransfer.files;
+        }
+
         function renderQueuedFiles() {
             if (!attachmentsList) return;
             attachmentsList.innerHTML = '';
+            if (attachmentsSummary) {
+                var emptyLabel = attachmentsSummary.getAttribute('data-empty') || 'No files selected';
+                var selectedLabel = attachmentsSummary.getAttribute('data-selected') || 'Selected files:';
+                attachmentsSummary.textContent = queuedFiles.length ? (selectedLabel + ' ' + queuedFiles.length) : emptyLabel;
+            }
             queuedFiles.forEach(function (file, index) {
                 var item = document.createElement('div');
                 item.className = 'form-file-item';
@@ -204,6 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 remove.setAttribute('aria-label', attachmentsInput ? (attachmentsInput.getAttribute('data-remove-label') || 'Remove file') : 'Remove file');
                 remove.addEventListener('click', function () {
                     queuedFiles.splice(index, 1);
+                    syncInputFiles();
                     renderQueuedFiles();
                 });
 
@@ -221,10 +238,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     var exists = queuedFiles.some(function (queued) { return fileKey(queued) === fileKey(file); });
                     if (!exists) queuedFiles.push(file);
                 });
-                attachmentsInput.value = '';
+                syncInputFiles();
                 renderQueuedFiles();
             });
         }
+
+        renderQueuedFiles();
 
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -262,6 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(function () {
                     contactForm.reset();
                     queuedFiles = [];
+                    syncInputFiles();
                     renderQueuedFiles();
                     if (formSuccess) {
                         formSuccess.classList.add('visible');

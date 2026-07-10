@@ -1074,6 +1074,7 @@ body.lightbox-lock { overflow: hidden; }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 3px var(--teal-glow); }
 .form-group textarea { resize: vertical; min-height: 120px; }
 .form-help { font-size: 0.78rem; color: var(--text-3); }
+.form-file-summary { font-size: 0.82rem; color: var(--text-2); }
 .form-file-list { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
 .form-file-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; }
 .form-file-meta { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
