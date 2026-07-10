@@ -138,7 +138,7 @@
 }
     </script>
     <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
-    <link rel="stylesheet" href="../css/style.css?v=bf96f1f7">
+    <link rel="stylesheet" href="../css/style.css?v=9f37801e">
 </head>
 
 <body>
@@ -259,8 +259,8 @@
                 </div>
 
                 <div class="contact-form-wrap fade-in delay-1">
-                    <h3>Zgłoszenie na pomiar</h3>
-                    <p class="form-intro">Wypełnij formularz — oddzwonimy w ciągu dnia roboczego i ustalimy dogodny termin.</p>
+                    <h3>Otrzymaj wstępną kwalifikację i termin pomiaru</h3>
+                    <p class="form-intro">Opisz łazienkę w kilku krótkich krokach. Oddzwonimy w ciągu dnia roboczego z kolejnym krokiem i oceną, czy zakres pasuje do naszego modelu pracy.</p>
                     <form class="form" id="contactForm" novalidate
                           action="https://formsubmit.co/ajax/kontakt@mistrzlazienek.pl" method="POST"
                           data-success="Dziękujemy! Zgłoszenie zostało wysłane — skontaktujemy się z Tobą w najbliższym czasie." data-error="Nie udało się wysłać zgłoszenia. Zadzwoń do nas albo spróbuj ponownie."
@@ -269,17 +269,80 @@
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_cc" value="89892615877a@gmail.com">
-                        <div class="form-group">
-                            <label for="name">Imię</label>
-                            <input type="text" id="name" name="Imię" placeholder="Jak się do Ciebie zwracać" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Telefon</label>
-                            <input type="tel" id="phone" name="Telefon" placeholder="+48 ___ ___ ___" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Komentarz</label>
-                            <textarea id="message" name="Komentarz" placeholder="Powierzchnia łazienki, adres, oczekiwania"></textarea>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="name">Imię</label>
+                                <input type="text" id="name" name="Imię" placeholder="Jak się do Ciebie zwracać" autocomplete="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon</label>
+                                <input type="tel" id="phone" name="Telefon" placeholder="+48 ___ ___ ___" autocomplete="tel" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="objectType">Rodzaj obiektu</label>
+                                <select id="objectType" name="Rodzaj obiektu" required>
+                                    <option value="" selected disabled>Wybierz</option>
+                                    <option value="Mieszkanie w stanie deweloperskim">Mieszkanie w stanie deweloperskim</option>
+                                    <option value="Mieszkanie z rynku wtórnego">Mieszkanie z rynku wtórnego</option>
+                                    <option value="Dom">Dom</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Dzielnica / miejscowość</label>
+                                <input type="text" id="location" name="Dzielnica / miejscowość" placeholder="Np. Mokotów, Piaseczno" autocomplete="address-level2" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bathroomSize">Powierzchnia łazienki</label>
+                                <select id="bathroomSize" name="Powierzchnia łazienki" required>
+                                    <option value="" selected disabled>Wybierz</option>
+                                    <option value="do 4 m2">do 4 m2</option>
+                                    <option value="4-6 m2">4-6 m2</option>
+                                    <option value="6-10 m2">6-10 m2</option>
+                                    <option value="powyżej 10 m2">powyżej 10 m2</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="workScope">Zakres prac</label>
+                                <select id="workScope" name="Zakres prac" required>
+                                    <option value="" selected disabled>Wybierz</option>
+                                    <option value="Kompleksowo pod klucz">Kompleksowo pod klucz</option>
+                                    <option value="Tylko płytki">Tylko płytki</option>
+                                    <option value="Hydraulika + płytki">Hydraulika + płytki</option>
+                                    <option value="Inny zakres">Inny zakres</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="startDate">Planowany termin startu</label>
+                                <select id="startDate" name="Planowany termin startu" required>
+                                    <option value="" selected disabled>Wybierz</option>
+                                    <option value="Jak najszybciej">Jak najszybciej</option>
+                                    <option value="W ciągu 1 miesiąca">W ciągu 1 miesiąca</option>
+                                    <option value="Za 1-3 miesiące">Za 1-3 miesiące</option>
+                                    <option value="Jeszcze porównuję oferty">Jeszcze porównuję oferty</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="budget">Orientacyjny budżet</label>
+                                <select id="budget" name="Orientacyjny budżet" required>
+                                    <option value="" selected disabled>Wybierz</option>
+                                    <option value="do 15 000 zł">do 15 000 zł</option>
+                                    <option value="15 000-25 000 zł">15 000-25 000 zł</option>
+                                    <option value="25 000-40 000 zł">25 000-40 000 zł</option>
+                                    <option value="40 000 zł+">40 000 zł+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="projectReady">Czy masz projekt / zdjęcia?</label>
+                                <select id="projectReady" name="Czy masz projekt / zdjęcia?" required>
+                                    <option value="" selected disabled>Wybierz</option>
+                                    <option value="Tak">Tak</option>
+                                    <option value="Nie">Nie</option>
+                                </select>
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label for="message">Krótki opis</label>
+                                <textarea id="message" name="Krótki opis" placeholder="Napisz krótko: metraż, adres, stan łazienki, oczekiwany standard i zakres prac."></textarea>
+                            </div>
                         </div>
                         <div class="honeypot">
                             <label for="website">Website</label>
@@ -343,6 +406,6 @@
     </div>
 
 
-    <script src="../js/main.js?v=bf96f1f7"></script>
+    <script src="../js/main.js?v=9f37801e"></script>
 </body>
 </html>

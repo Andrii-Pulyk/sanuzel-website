@@ -94,17 +94,80 @@
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_cc" value="{{_cc_email}}">
-                        <div class="form-group">
-                            <label for="name">{{page.form_name_label}}</label>
-                            <input type="text" id="name" name="{{page.form_name_field}}" placeholder="{{page.form_name_placeholder}}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">{{page.form_phone_label}}</label>
-                            <input type="tel" id="phone" name="{{page.form_phone_field}}" placeholder="{{page.form_phone_placeholder}}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">{{page.form_message_label}}</label>
-                            <textarea id="message" name="{{page.form_message_field}}" placeholder="{{page.form_message_placeholder}}"></textarea>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="name">{{page.form_name_label}}</label>
+                                <input type="text" id="name" name="{{page.form_name_field}}" placeholder="{{page.form_name_placeholder}}" autocomplete="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">{{page.form_phone_label}}</label>
+                                <input type="tel" id="phone" name="{{page.form_phone_field}}" placeholder="{{page.form_phone_placeholder}}" autocomplete="tel" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="objectType">{{page.form_object_label}}</label>
+                                <select id="objectType" name="{{page.form_object_field}}" required>
+                                    <option value="" selected disabled>{{page.form_select_placeholder}}</option>
+                                    <option value="{{page.form_object_option_1}}">{{page.form_object_option_1}}</option>
+                                    <option value="{{page.form_object_option_2}}">{{page.form_object_option_2}}</option>
+                                    <option value="{{page.form_object_option_3}}">{{page.form_object_option_3}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">{{page.form_location_label}}</label>
+                                <input type="text" id="location" name="{{page.form_location_field}}" placeholder="{{page.form_location_placeholder}}" autocomplete="address-level2" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bathroomSize">{{page.form_size_label}}</label>
+                                <select id="bathroomSize" name="{{page.form_size_field}}" required>
+                                    <option value="" selected disabled>{{page.form_select_placeholder}}</option>
+                                    <option value="{{page.form_size_option_1}}">{{page.form_size_option_1}}</option>
+                                    <option value="{{page.form_size_option_2}}">{{page.form_size_option_2}}</option>
+                                    <option value="{{page.form_size_option_3}}">{{page.form_size_option_3}}</option>
+                                    <option value="{{page.form_size_option_4}}">{{page.form_size_option_4}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="workScope">{{page.form_scope_label}}</label>
+                                <select id="workScope" name="{{page.form_scope_field}}" required>
+                                    <option value="" selected disabled>{{page.form_select_placeholder}}</option>
+                                    <option value="{{page.form_scope_option_1}}">{{page.form_scope_option_1}}</option>
+                                    <option value="{{page.form_scope_option_2}}">{{page.form_scope_option_2}}</option>
+                                    <option value="{{page.form_scope_option_3}}">{{page.form_scope_option_3}}</option>
+                                    <option value="{{page.form_scope_option_4}}">{{page.form_scope_option_4}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="startDate">{{page.form_start_label}}</label>
+                                <select id="startDate" name="{{page.form_start_field}}" required>
+                                    <option value="" selected disabled>{{page.form_select_placeholder}}</option>
+                                    <option value="{{page.form_start_option_1}}">{{page.form_start_option_1}}</option>
+                                    <option value="{{page.form_start_option_2}}">{{page.form_start_option_2}}</option>
+                                    <option value="{{page.form_start_option_3}}">{{page.form_start_option_3}}</option>
+                                    <option value="{{page.form_start_option_4}}">{{page.form_start_option_4}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="budget">{{page.form_budget_label}}</label>
+                                <select id="budget" name="{{page.form_budget_field}}" required>
+                                    <option value="" selected disabled>{{page.form_select_placeholder}}</option>
+                                    <option value="{{page.form_budget_option_1}}">{{page.form_budget_option_1}}</option>
+                                    <option value="{{page.form_budget_option_2}}">{{page.form_budget_option_2}}</option>
+                                    <option value="{{page.form_budget_option_3}}">{{page.form_budget_option_3}}</option>
+                                    <option value="{{page.form_budget_option_4}}">{{page.form_budget_option_4}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="projectReady">{{page.form_assets_label}}</label>
+                                <select id="projectReady" name="{{page.form_assets_field}}" required>
+                                    <option value="" selected disabled>{{page.form_select_placeholder}}</option>
+                                    <option value="{{page.form_assets_option_1}}">{{page.form_assets_option_1}}</option>
+                                    <option value="{{page.form_assets_option_2}}">{{page.form_assets_option_2}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label for="message">{{page.form_message_label}}</label>
+                                <textarea id="message" name="{{page.form_message_field}}" placeholder="{{page.form_message_placeholder}}"></textarea>
+                            </div>
                         </div>
                         <div class="honeypot">
                             <label for="website">Website</label>

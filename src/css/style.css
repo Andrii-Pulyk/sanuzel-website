@@ -1052,9 +1052,11 @@ body.lightbox-lock { overflow: hidden; }
 .contact-form-wrap h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: 7px; }
 .form-intro { color: var(--text-2); font-size: 0.92rem; margin-bottom: 22px; }
 .form { display: flex; flex-direction: column; gap: 16px; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group-full { grid-column: 1 / -1; }
 .form-group label { font-size: 0.85rem; font-weight: 500; color: var(--text-2); }
-.form-group input, .form-group textarea {
+.form-group input, .form-group select, .form-group textarea {
     padding: 14px 16px;
     background: var(--bg-2);
     border: 1px solid var(--line-2);
@@ -1065,7 +1067,8 @@ body.lightbox-lock { overflow: hidden; }
     transition: border-color var(--t), box-shadow var(--t);
     outline: none;
 }
-.form-group input:focus, .form-group textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 3px var(--teal-glow); }
+.form-group select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--text-3) 50%), linear-gradient(135deg, var(--text-3) 50%, transparent 50%); background-position: calc(100% - 22px) calc(50% - 2px), calc(100% - 16px) calc(50% - 2px); background-size: 6px 6px, 6px 6px; background-repeat: no-repeat; padding-right: 42px; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 3px var(--teal-glow); }
 .form-group textarea { resize: vertical; min-height: 120px; }
 .honeypot { position: absolute; left: -9999px; }
 .form-success { display: none; padding: 16px; background: var(--teal-glow); border: 1px solid var(--teal-line); border-radius: var(--radius-sm); color: var(--teal-2); font-size: 0.9rem; text-align: center; }
@@ -1211,6 +1214,7 @@ body.lightbox-lock { overflow: hidden; }
     .stat-band { grid-template-columns: repeat(2, 1fr); padding: 32px 24px; }
     .pricing-row { padding: 14px 18px; grid-template-columns: 1.6fr 0.8fr 1fr; gap: 10px; font-size: 0.85rem; }
     .contact-form-wrap { padding: 26px 20px; }
+    .form-grid { grid-template-columns: 1fr; }
     .footer-grid { flex-direction: column; gap: 28px; }
     .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
     .sticky-cta { display: flex; }

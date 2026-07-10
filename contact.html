@@ -138,7 +138,7 @@
 }
     </script>
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="stylesheet" href="css/style.css?v=bf96f1f7">
+    <link rel="stylesheet" href="css/style.css?v=9f37801e">
 </head>
 
 <body>
@@ -259,8 +259,8 @@
                 </div>
 
                 <div class="contact-form-wrap fade-in delay-1">
-                    <h3>Заявка на замер</h3>
-                    <p class="form-intro">Заполните форму — перезвоним в течение рабочего дня и согласуем удобное время.</p>
+                    <h3>Опишите ванную и получите следующий шаг</h3>
+                    <p class="form-intro">Коротко заполните форму. В течение рабочего дня перезвоним, уточним детали и скажем, подходит ли объект под наш формат работ.</p>
                     <form class="form" id="contactForm" novalidate
                           action="https://formsubmit.co/ajax/kontakt@mistrzlazienek.pl" method="POST"
                           data-success="Спасибо! Заявка отправлена — мы свяжемся с вами в ближайшее время." data-error="Не удалось отправить заявку. Позвоните нам или попробуйте ещё раз."
@@ -269,17 +269,80 @@
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_cc" value="89892615877a@gmail.com">
-                        <div class="form-group">
-                            <label for="name">Имя</label>
-                            <input type="text" id="name" name="Имя" placeholder="Как к вам обращаться" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Телефон</label>
-                            <input type="tel" id="phone" name="Телефон" placeholder="+48 ___ ___ ___" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Комментарий</label>
-                            <textarea id="message" name="Комментарий" placeholder="Площадь санузла, адрес, пожелания"></textarea>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="name">Имя</label>
+                                <input type="text" id="name" name="Имя" placeholder="Как к вам обращаться" autocomplete="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Телефон</label>
+                                <input type="tel" id="phone" name="Телефон" placeholder="+48 ___ ___ ___" autocomplete="tel" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="objectType">Тип объекта</label>
+                                <select id="objectType" name="Тип объекта" required>
+                                    <option value="" selected disabled>Выберите</option>
+                                    <option value="Квартира от застройщика">Квартира от застройщика</option>
+                                    <option value="Квартира на вторичном рынке">Квартира на вторичном рынке</option>
+                                    <option value="Дом">Дом</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Район / населённый пункт</label>
+                                <input type="text" id="location" name="Район / населённый пункт" placeholder="Например, Mokotow, Piaseczno" autocomplete="address-level2" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bathroomSize">Площадь ванной</label>
+                                <select id="bathroomSize" name="Площадь ванной" required>
+                                    <option value="" selected disabled>Выберите</option>
+                                    <option value="до 4 м2">до 4 м2</option>
+                                    <option value="4-6 м2">4-6 м2</option>
+                                    <option value="6-10 м2">6-10 м2</option>
+                                    <option value="более 10 м2">более 10 м2</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="workScope">Объём работ</label>
+                                <select id="workScope" name="Объём работ" required>
+                                    <option value="" selected disabled>Выберите</option>
+                                    <option value="Под ключ полностью">Под ключ полностью</option>
+                                    <option value="Только плитка">Только плитка</option>
+                                    <option value="Сантехника + плитка">Сантехника + плитка</option>
+                                    <option value="Другой объём">Другой объём</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="startDate">Планируемый старт</label>
+                                <select id="startDate" name="Планируемый старт" required>
+                                    <option value="" selected disabled>Выберите</option>
+                                    <option value="Как можно скорее">Как можно скорее</option>
+                                    <option value="В течение 1 месяца">В течение 1 месяца</option>
+                                    <option value="Через 1-3 месяца">Через 1-3 месяца</option>
+                                    <option value="Пока сравниваю предложения">Пока сравниваю предложения</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="budget">Ориентировочный бюджет</label>
+                                <select id="budget" name="Ориентировочный бюджет" required>
+                                    <option value="" selected disabled>Выберите</option>
+                                    <option value="до 15 000 zł">до 15 000 zł</option>
+                                    <option value="15 000-25 000 zł">15 000-25 000 zł</option>
+                                    <option value="25 000-40 000 zł">25 000-40 000 zł</option>
+                                    <option value="40 000 zł+">40 000 zł+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="projectReady">Есть проект / фото?</label>
+                                <select id="projectReady" name="Есть проект / фото?" required>
+                                    <option value="" selected disabled>Выберите</option>
+                                    <option value="Да">Да</option>
+                                    <option value="Нет">Нет</option>
+                                </select>
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label for="message">Краткое описание</label>
+                                <textarea id="message" name="Краткое описание" placeholder="Коротко напишите: метраж, адрес, текущее состояние ванной, желаемый уровень и объём работ."></textarea>
+                            </div>
                         </div>
                         <div class="honeypot">
                             <label for="website">Website</label>
@@ -343,6 +406,6 @@
     </div>
 
 
-    <script src="js/main.js?v=bf96f1f7"></script>
+    <script src="js/main.js?v=9f37801e"></script>
 </body>
 </html>
