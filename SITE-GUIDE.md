@@ -173,6 +173,9 @@ SEO-тайтлом и canonical. В шапке — переключатель г
 
 - **Текущий form backend:** `build-config.js → forminitFormId`
   (сейчас `mdg7xylojtp`, форма `Mistrz Lazienek Contact`).
+- **Fallback на другой провайдер удалён:** если `forminitFormId` убрать из
+  `build-config.js`, сборка завершится ошибкой. Это сделано специально, чтобы
+  в проекте не оставалось скрытого запасного посредника.
 - **Через какой аккаунт зарегистрировано:** вход в Forminit выполнен через
   Google-аккаунт **Andrii Pulyk**.
 - **Куда реально падают уведомления на Free plan:** email аккаунта Forminit,

@@ -37,6 +37,10 @@ const languages = fs.readdirSync(I18N_DIR)
 
 console.log(`Languages found: ${languages.join(', ')}`);
 
+if (!config.forminitFormId) {
+  throw new Error('Missing required "forminitFormId" in build-config.js');
+}
+
 // ─── 2. Load translations ─────────────────────────────────────────────────────
 
 const translations = {};
@@ -475,7 +479,7 @@ for (const page of config.pages) {
       _asset_version: ASSET_VERSION,
       _lead_email: config.leadEmail,
       _cc_email: config.ccEmail || '',
-      _form_action: config.forminitFormId ? `https://forminit.com/f/${config.forminitFormId}` : `https://formsubmit.co/ajax/${config.leadEmail}`,
+      _form_action: `https://forminit.com/f/${config.forminitFormId}`,
       _form_success_url: canonicalUrl + '?sent=1#contactForm',
       _canonical_url: canonicalUrl,
       _site_name: config.siteName || (config.business && config.business.legalName) || '',
@@ -542,7 +546,7 @@ if (CITIES.length) {
         _asset_version: ASSET_VERSION,
         _lead_email: config.leadEmail,
         _cc_email: config.ccEmail || '',
-        _form_action: config.forminitFormId ? `https://forminit.com/f/${config.forminitFormId}` : `https://formsubmit.co/ajax/${config.leadEmail}`,
+        _form_action: `https://forminit.com/f/${config.forminitFormId}`,
         _form_success_url: config.siteUrl + BASE + '/' + city.slug + '/?sent=1#contactForm',
         _canonical_url: config.siteUrl + BASE + '/' + city.slug + '/',
         _site_name: config.siteName || (config.business && config.business.legalName) || '',
