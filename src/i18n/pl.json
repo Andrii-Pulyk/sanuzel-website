@@ -374,6 +374,7 @@
     "form_assets_label": "Dodaj zdjęcia lub plik",
     "form_assets_field": "Zdjęcia lub pliki",
     "form_assets_help": "Możesz dodać zdjęcia łazienki, projekt albo PDF z zakresem prac.",
+    "form_assets_remove": "Usuń plik",
     "form_message_label": "Krótki opis",
     "form_message_placeholder": "Napisz krótko: metraż, adres, stan łazienki, oczekiwany standard i zakres prac.",
     "form_select_placeholder": "Wybierz",

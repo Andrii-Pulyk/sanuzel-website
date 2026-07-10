@@ -138,7 +138,7 @@
 }
     </script>
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="stylesheet" href="css/style.css?v=56c7e3dd">
+    <link rel="stylesheet" href="css/style.css?v=fbeec4ba">
 </head>
 
 <body>
@@ -333,8 +333,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="attachments">Добавьте фото или файл</label>
-                                <input type="file" id="attachments" name="Фото или файлы" accept="image/*,.pdf,.heic,.heif" multiple>
+                                <input type="file" id="attachments" name="Фото или файлы" accept="image/*,.pdf,.heic,.heif" multiple data-remove-label="Удалить файл">
                                 <div class="form-help">Можно приложить фото ванной, проект или PDF с объёмом работ.</div>
+                                <div class="form-file-list" id="attachmentsList" aria-live="polite"></div>
                             </div>
                             <div class="form-group form-group-full">
                                 <label for="message">Краткое описание</label>
@@ -403,6 +404,6 @@
     </div>
 
 
-    <script src="js/main.js?v=56c7e3dd"></script>
+    <script src="js/main.js?v=fbeec4ba"></script>
 </body>
 </html>

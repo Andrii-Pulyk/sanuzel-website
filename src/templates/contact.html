@@ -158,8 +158,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="attachments">{{page.form_assets_label}}</label>
-                                <input type="file" id="attachments" name="{{page.form_assets_field}}" accept="image/*,.pdf,.heic,.heif" multiple>
+                                <input type="file" id="attachments" name="{{page.form_assets_field}}" accept="image/*,.pdf,.heic,.heif" multiple data-remove-label="{{page.form_assets_remove}}">
                                 <div class="form-help">{{page.form_assets_help}}</div>
+                                <div class="form-file-list" id="attachmentsList" aria-live="polite"></div>
                             </div>
                             <div class="form-group form-group-full">
                                 <label for="message">{{page.form_message_label}}</label>

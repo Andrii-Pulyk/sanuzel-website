@@ -1074,6 +1074,13 @@ body.lightbox-lock { overflow: hidden; }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 3px var(--teal-glow); }
 .form-group textarea { resize: vertical; min-height: 120px; }
 .form-help { font-size: 0.78rem; color: var(--text-3); }
+.form-file-list { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.form-file-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; }
+.form-file-meta { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.form-file-name { color: var(--text); font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.form-file-size { color: var(--text-3); font-size: 0.76rem; }
+.form-file-remove { flex-shrink: 0; width: 32px; height: 32px; border: 1px solid var(--line-2); border-radius: 999px; background: transparent; color: var(--text-2); cursor: pointer; transition: border-color var(--t), color var(--t), background var(--t); }
+.form-file-remove:hover { border-color: rgba(220, 80, 80, 0.35); color: #e07a7a; background: rgba(220, 80, 80, 0.10); }
 .honeypot { position: absolute; left: -9999px; }
 .form-success { display: none; padding: 16px; background: var(--teal-glow); border: 1px solid var(--teal-line); border-radius: var(--radius-sm); color: var(--teal-2); font-size: 0.9rem; text-align: center; }
 .form-success.visible { display: block; }
