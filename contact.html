@@ -138,7 +138,7 @@
 }
     </script>
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="stylesheet" href="css/style.css?v=9f37801e">
+    <link rel="stylesheet" href="css/style.css?v=56c7e3dd">
 </head>
 
 <body>
@@ -332,12 +332,9 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="projectReady">Есть проект / фото?</label>
-                                <select id="projectReady" name="Есть проект / фото?" required>
-                                    <option value="" selected disabled>Выберите</option>
-                                    <option value="Да">Да</option>
-                                    <option value="Нет">Нет</option>
-                                </select>
+                                <label for="attachments">Добавьте фото или файл</label>
+                                <input type="file" id="attachments" name="Фото или файлы" accept="image/*,.pdf,.heic,.heif" multiple>
+                                <div class="form-help">Можно приложить фото ванной, проект или PDF с объёмом работ.</div>
                             </div>
                             <div class="form-group form-group-full">
                                 <label for="message">Краткое описание</label>
@@ -406,6 +403,6 @@
     </div>
 
 
-    <script src="js/main.js?v=9f37801e"></script>
+    <script src="js/main.js?v=56c7e3dd"></script>
 </body>
 </html>

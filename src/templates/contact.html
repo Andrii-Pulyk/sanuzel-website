@@ -157,12 +157,9 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="projectReady">{{page.form_assets_label}}</label>
-                                <select id="projectReady" name="{{page.form_assets_field}}" required>
-                                    <option value="" selected disabled>{{page.form_select_placeholder}}</option>
-                                    <option value="{{page.form_assets_option_1}}">{{page.form_assets_option_1}}</option>
-                                    <option value="{{page.form_assets_option_2}}">{{page.form_assets_option_2}}</option>
-                                </select>
+                                <label for="attachments">{{page.form_assets_label}}</label>
+                                <input type="file" id="attachments" name="{{page.form_assets_field}}" accept="image/*,.pdf,.heic,.heif" multiple>
+                                <div class="form-help">{{page.form_assets_help}}</div>
                             </div>
                             <div class="form-group form-group-full">
                                 <label for="message">{{page.form_message_label}}</label>
