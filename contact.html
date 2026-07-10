@@ -2,7 +2,7 @@
 <html lang="ru" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; base-uri 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co https://forminit.com; form-action 'self' https://formsubmit.co https://forminit.com; base-uri 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -138,7 +138,7 @@
 }
     </script>
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="stylesheet" href="css/style.css?v=15241b35">
+    <link rel="stylesheet" href="css/style.css?v=7119dd48">
 </head>
 
 <body>
@@ -262,25 +262,21 @@
                     <h3>Опишите ванную и получите следующий шаг</h3>
                     <p class="form-intro">Коротко заполните форму. В течение рабочего дня перезвоним, уточним детали и скажем, подходит ли объект под наш формат работ.</p>
                     <form class="form" id="contactForm" novalidate
-                          action="https://formsubmit.co/ajax/kontakt@mistrzlazienek.pl" method="POST"
+                          action="https://forminit.com/f/mdg7xylojtp" method="POST" enctype="multipart/form-data"
                           data-success="Спасибо! Заявка отправлена — мы свяжемся с вами в ближайшее время." data-error="Не удалось отправить заявку. Позвоните нам или попробуйте ещё раз."
-                          data-submit="Отправить заявку" data-sending="Отправляем…">
-                        <input type="hidden" name="_subject" value="Новая заявка с сайта — отделка санузлов">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_cc" value="89892615877a@gmail.com">
+                          data-submit="Отправить заявку" data-sending="Отправляем…" data-attachments-limit="Общий размер вложений не должен превышать 25 МБ.">
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="name">Имя</label>
-                                <input type="text" id="name" name="Имя" placeholder="Как к вам обращаться" autocomplete="name" required>
+                                <input type="text" id="name" name="fi-text-full-name" placeholder="Как к вам обращаться" autocomplete="name" required>
                             </div>
                             <div class="form-group">
                                 <label for="phone">Телефон</label>
-                                <input type="tel" id="phone" name="Телефон" placeholder="+48 ___ ___ ___" autocomplete="tel" required>
+                                <input type="tel" id="phone" name="fi-text-phone" placeholder="+48 ___ ___ ___" autocomplete="tel" required>
                             </div>
                             <div class="form-group">
                                 <label for="objectType">Тип объекта</label>
-                                <select id="objectType" name="Тип объекта" required>
+                                <select id="objectType" name="fi-select-object-type" required>
                                     <option value="" selected disabled>Выберите</option>
                                     <option value="Квартира от застройщика">Квартира от застройщика</option>
                                     <option value="Квартира на вторичном рынке">Квартира на вторичном рынке</option>
@@ -289,11 +285,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="location">Район / населённый пункт</label>
-                                <input type="text" id="location" name="Район / населённый пункт" placeholder="Например, Mokotow, Piaseczno" autocomplete="address-level2" required>
+                                <input type="text" id="location" name="fi-text-district-area" placeholder="Например, Mokotow, Piaseczno" autocomplete="address-level2" required>
                             </div>
                             <div class="form-group">
                                 <label for="bathroomSize">Площадь ванной</label>
-                                <select id="bathroomSize" name="Площадь ванной" required>
+                                <select id="bathroomSize" name="fi-select-bathroom-size" required>
                                     <option value="" selected disabled>Выберите</option>
                                     <option value="до 4 м2">до 4 м2</option>
                                     <option value="4-6 м2">4-6 м2</option>
@@ -303,7 +299,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="workScope">Объём работ</label>
-                                <select id="workScope" name="Объём работ" required>
+                                <select id="workScope" name="fi-select-work-scope" required>
                                     <option value="" selected disabled>Выберите</option>
                                     <option value="Под ключ полностью">Под ключ полностью</option>
                                     <option value="Только плитка">Только плитка</option>
@@ -313,7 +309,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="startDate">Планируемый старт</label>
-                                <select id="startDate" name="Планируемый старт" required>
+                                <select id="startDate" name="fi-select-start-date" required>
                                     <option value="" selected disabled>Выберите</option>
                                     <option value="Как можно скорее">Как можно скорее</option>
                                     <option value="В течение 1 месяца">В течение 1 месяца</option>
@@ -323,7 +319,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="budget">Ориентировочный бюджет</label>
-                                <select id="budget" name="Ориентировочный бюджет" required>
+                                <select id="budget" name="fi-select-budget" required>
                                     <option value="" selected disabled>Выберите</option>
                                     <option value="до 15 000 zł">до 15 000 zł</option>
                                     <option value="15 000-25 000 zł">15 000-25 000 zł</option>
@@ -332,16 +328,15 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="projectReady">Есть проект / фото?</label>
-                                <select id="projectReady" name="Есть проект / фото?" required>
-                                    <option value="" selected disabled>Выберите</option>
-                                    <option value="Да">Да</option>
-                                    <option value="Нет">Нет</option>
-                                </select>
+                                <label for="attachments">Добавьте фото или файл</label>
+                                <input type="file" id="attachments" name="fi-file-attachments" accept="image/*,.pdf,.heic,.heif" multiple data-remove-label="Удалить файл">
+                                <div class="form-help">Можно приложить фото ванной, проект или PDF с объёмом работ.</div>
+                                <div class="form-file-summary" id="attachmentsSummary" data-empty="Файлы не выбраны" data-selected="Выбрано файлов:">Файлы не выбраны</div>
+                                <div class="form-file-list" id="attachmentsList" aria-live="polite"></div>
                             </div>
                             <div class="form-group form-group-full">
                                 <label for="message">Краткое описание</label>
-                                <textarea id="message" name="Краткое описание" placeholder="Коротко напишите: метраж, адрес, текущее состояние ванной, желаемый уровень и объём работ."></textarea>
+                                <textarea id="message" name="fi-text-short-description" placeholder="Коротко напишите: метраж, адрес, текущее состояние ванной, желаемый уровень и объём работ."></textarea>
                             </div>
                         </div>
                         <div class="honeypot">
@@ -406,6 +401,6 @@
     </div>
 
 
-    <script src="js/main.js?v=15241b35"></script>
+    <script src="js/main.js?v=7119dd48"></script>
 </body>
 </html>

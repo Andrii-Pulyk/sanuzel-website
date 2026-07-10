@@ -12,6 +12,7 @@ module.exports = {
   leadEmail: 'kontakt@mistrzlazienek.pl',
   // Дополнительный адрес для CC (будет получать копию каждой заявки).
   ccEmail: '89892615877a@gmail.com',
+  forminitFormId: 'mdg7xylojtp',
 
   // Название бренда для соцсетей (og:site_name) и schema.org.
   siteName: 'Mistrz Łazienek',

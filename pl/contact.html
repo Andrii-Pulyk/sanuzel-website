@@ -2,7 +2,7 @@
 <html lang="pl" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; base-uri 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co https://forminit.com; form-action 'self' https://formsubmit.co https://forminit.com; base-uri 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -138,7 +138,7 @@
 }
     </script>
     <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
-    <link rel="stylesheet" href="../css/style.css?v=15241b35">
+    <link rel="stylesheet" href="../css/style.css?v=7119dd48">
 </head>
 
 <body>
@@ -262,25 +262,21 @@
                     <h3>Otrzymaj wstępną kwalifikację i termin pomiaru</h3>
                     <p class="form-intro">Opisz łazienkę w kilku krótkich krokach. Oddzwonimy w ciągu dnia roboczego z kolejnym krokiem i oceną, czy zakres pasuje do naszego modelu pracy.</p>
                     <form class="form" id="contactForm" novalidate
-                          action="https://formsubmit.co/ajax/kontakt@mistrzlazienek.pl" method="POST"
+                          action="https://forminit.com/f/mdg7xylojtp" method="POST" enctype="multipart/form-data"
                           data-success="Dziękujemy! Zgłoszenie zostało wysłane — skontaktujemy się z Tobą w najbliższym czasie." data-error="Nie udało się wysłać zgłoszenia. Zadzwoń do nas albo spróbuj ponownie."
-                          data-submit="Wyślij zgłoszenie" data-sending="Wysyłamy…">
-                        <input type="hidden" name="_subject" value="Nowe zgłoszenie ze strony — wykończenie łazienek">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_cc" value="89892615877a@gmail.com">
+                          data-submit="Wyślij zgłoszenie" data-sending="Wysyłamy…" data-attachments-limit="Łączny rozmiar załączników nie może przekraczać 25 MB.">
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="name">Imię</label>
-                                <input type="text" id="name" name="Imię" placeholder="Jak się do Ciebie zwracać" autocomplete="name" required>
+                                <input type="text" id="name" name="fi-text-full-name" placeholder="Jak się do Ciebie zwracać" autocomplete="name" required>
                             </div>
                             <div class="form-group">
                                 <label for="phone">Telefon</label>
-                                <input type="tel" id="phone" name="Telefon" placeholder="+48 ___ ___ ___" autocomplete="tel" required>
+                                <input type="tel" id="phone" name="fi-text-phone" placeholder="+48 ___ ___ ___" autocomplete="tel" required>
                             </div>
                             <div class="form-group">
                                 <label for="objectType">Rodzaj obiektu</label>
-                                <select id="objectType" name="Rodzaj obiektu" required>
+                                <select id="objectType" name="fi-select-object-type" required>
                                     <option value="" selected disabled>Wybierz</option>
                                     <option value="Mieszkanie w stanie deweloperskim">Mieszkanie w stanie deweloperskim</option>
                                     <option value="Mieszkanie z rynku wtórnego">Mieszkanie z rynku wtórnego</option>
@@ -289,11 +285,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="location">Dzielnica / miejscowość</label>
-                                <input type="text" id="location" name="Dzielnica / miejscowość" placeholder="Np. Mokotów, Piaseczno" autocomplete="address-level2" required>
+                                <input type="text" id="location" name="fi-text-district-area" placeholder="Np. Mokotów, Piaseczno" autocomplete="address-level2" required>
                             </div>
                             <div class="form-group">
                                 <label for="bathroomSize">Powierzchnia łazienki</label>
-                                <select id="bathroomSize" name="Powierzchnia łazienki" required>
+                                <select id="bathroomSize" name="fi-select-bathroom-size" required>
                                     <option value="" selected disabled>Wybierz</option>
                                     <option value="do 4 m2">do 4 m2</option>
                                     <option value="4-6 m2">4-6 m2</option>
@@ -303,7 +299,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="workScope">Zakres prac</label>
-                                <select id="workScope" name="Zakres prac" required>
+                                <select id="workScope" name="fi-select-work-scope" required>
                                     <option value="" selected disabled>Wybierz</option>
                                     <option value="Kompleksowo pod klucz">Kompleksowo pod klucz</option>
                                     <option value="Tylko płytki">Tylko płytki</option>
@@ -313,7 +309,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="startDate">Planowany termin startu</label>
-                                <select id="startDate" name="Planowany termin startu" required>
+                                <select id="startDate" name="fi-select-start-date" required>
                                     <option value="" selected disabled>Wybierz</option>
                                     <option value="Jak najszybciej">Jak najszybciej</option>
                                     <option value="W ciągu 1 miesiąca">W ciągu 1 miesiąca</option>
@@ -323,7 +319,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="budget">Orientacyjny budżet</label>
-                                <select id="budget" name="Orientacyjny budżet" required>
+                                <select id="budget" name="fi-select-budget" required>
                                     <option value="" selected disabled>Wybierz</option>
                                     <option value="do 15 000 zł">do 15 000 zł</option>
                                     <option value="15 000-25 000 zł">15 000-25 000 zł</option>
@@ -332,16 +328,15 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="projectReady">Czy masz projekt / zdjęcia?</label>
-                                <select id="projectReady" name="Czy masz projekt / zdjęcia?" required>
-                                    <option value="" selected disabled>Wybierz</option>
-                                    <option value="Tak">Tak</option>
-                                    <option value="Nie">Nie</option>
-                                </select>
+                                <label for="attachments">Dodaj zdjęcia lub plik</label>
+                                <input type="file" id="attachments" name="fi-file-attachments" accept="image/*,.pdf,.heic,.heif" multiple data-remove-label="Usuń plik">
+                                <div class="form-help">Możesz dodać zdjęcia łazienki, projekt albo PDF z zakresem prac.</div>
+                                <div class="form-file-summary" id="attachmentsSummary" data-empty="Nie wybrano plików" data-selected="Wybrano plików:">Nie wybrano plików</div>
+                                <div class="form-file-list" id="attachmentsList" aria-live="polite"></div>
                             </div>
                             <div class="form-group form-group-full">
                                 <label for="message">Krótki opis</label>
-                                <textarea id="message" name="Krótki opis" placeholder="Napisz krótko: metraż, adres, stan łazienki, oczekiwany standard i zakres prac."></textarea>
+                                <textarea id="message" name="fi-text-short-description" placeholder="Napisz krótko: metraż, adres, stan łazienki, oczekiwany standard i zakres prac."></textarea>
                             </div>
                         </div>
                         <div class="honeypot">
@@ -406,6 +401,6 @@
     </div>
 
 
-    <script src="../js/main.js?v=15241b35"></script>
+    <script src="../js/main.js?v=7119dd48"></script>
 </body>
 </html>
