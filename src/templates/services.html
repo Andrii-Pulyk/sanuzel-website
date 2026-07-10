@@ -256,7 +256,7 @@
             <h2 class="section-title fade-in">{{page.cta_title}}</h2>
             <p class="section-subtitle fade-in delay-1">{{page.cta_subtitle}}</p>
             <div class="btn-group fade-in delay-2">
-                <a href="{{_nav_contacts_url}}" class="btn btn-primary">{{page.cta_button}}</a>
+                <a href="{{_nav_contacts_url}}" class="btn btn-primary" data-analytics-event="click_contact_cta" data-analytics-label="{{page.cta_button}}">{{page.cta_button}}</a>
                 <a href="tel:{{footer.phone_href}}" class="btn btn-secondary">{{footer.phone}}</a>
             </div>
         </div>

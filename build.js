@@ -178,6 +178,19 @@ function loadPageContent(pageSlug, lang) {
   return '';
 }
 
+function getGaMeasurementId() {
+  return (config.ga4MeasurementId || '').trim();
+}
+
+function getCspScriptSrc() {
+  return getGaMeasurementId() ? " https://www.googletagmanager.com" : '';
+}
+
+function getCspConnectSrc() {
+  if (!getGaMeasurementId()) return '';
+  return ' https://www.google-analytics.com https://region1.google-analytics.com';
+}
+
 // ─── Города (мультигородские лендинги) ───────────────────────────────────────
 
 const CITIES = config.cities || [];
@@ -477,8 +490,11 @@ for (const page of config.pages) {
       // Computed values (prefixed with _ to distinguish)
       _assets: assetsPrefix,
       _asset_version: ASSET_VERSION,
+      _ga_measurement_id: getGaMeasurementId(),
       _lead_email: config.leadEmail,
       _cc_email: config.ccEmail || '',
+      _csp_script_src: getCspScriptSrc(),
+      _csp_connect_src: getCspConnectSrc(),
       _form_action: `https://forminit.com/f/${config.forminitFormId}`,
       _form_success_url: canonicalUrl + '?sent=1#contactForm',
       _canonical_url: canonicalUrl,
@@ -544,8 +560,11 @@ if (CITIES.length) {
         idx: t.index,
         _assets: '../',
         _asset_version: ASSET_VERSION,
+        _ga_measurement_id: getGaMeasurementId(),
         _lead_email: config.leadEmail,
         _cc_email: config.ccEmail || '',
+        _csp_script_src: getCspScriptSrc(),
+        _csp_connect_src: getCspConnectSrc(),
         _form_action: `https://forminit.com/f/${config.forminitFormId}`,
         _form_success_url: config.siteUrl + BASE + '/' + city.slug + '/?sent=1#contactForm',
         _canonical_url: config.siteUrl + BASE + '/' + city.slug + '/',

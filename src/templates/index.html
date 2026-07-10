@@ -10,7 +10,7 @@
                 <h1 class="fade-in delay-1">{{page.hero_title}}</h1>
                 <p class="hero-sub fade-in delay-2">{{page.hero_subtitle}}</p>
                 <div class="btn-group hero-cta fade-in delay-2">
-                    <a href="{{_nav_contacts_url}}" class="btn btn-primary btn-lg">{{page.hero_cta_contact}}</a>
+                    <a href="{{_nav_contacts_url}}" class="btn btn-primary btn-lg" data-analytics-event="click_contact_cta" data-analytics-label="{{page.hero_cta_contact}}">{{page.hero_cta_contact}}</a>
                     <a href="#gallery" class="btn btn-ghost btn-lg">{{page.hero_cta_services}}</a>
                 </div>
                 <ul class="hero-points fade-in delay-3">
@@ -199,7 +199,7 @@
             </div>
 
             <div class="btn-group section-cta fade-in">
-                <a href="{{_nav_contacts_url}}" class="btn btn-primary">{{page.gallery_cta}}</a>
+                <a href="{{_nav_contacts_url}}" class="btn btn-primary" data-analytics-event="click_contact_cta" data-analytics-label="{{page.gallery_cta}}">{{page.gallery_cta}}</a>
             </div>
         </div>
     </section>

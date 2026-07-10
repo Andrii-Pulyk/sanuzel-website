@@ -4,6 +4,35 @@
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
+    var gaMeasurementIdMeta = document.querySelector('meta[name="ga4-measurement-id"]');
+    var gaMeasurementId = gaMeasurementIdMeta ? gaMeasurementIdMeta.getAttribute('content') : '';
+
+    function initAnalytics() {
+        if (!gaMeasurementId || window.gtag) return;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () {
+            window.dataLayer.push(arguments);
+        };
+        window.gtag('js', new Date());
+        window.gtag('config', gaMeasurementId);
+
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaMeasurementId);
+        document.head.appendChild(script);
+    }
+
+    function trackEvent(name, params) {
+        if (!gaMeasurementId) return;
+        initAnalytics();
+        window.gtag('event', name, params || {});
+    }
+
+    function getAnalyticsLabel(el) {
+        var explicitLabel = el.getAttribute('data-analytics-label');
+        if (explicitLabel) return explicitLabel;
+        return (el.textContent || '').replace(/\s+/g, ' ').trim();
+    }
 
     /* ----- Шапка: тень при скролле ----- */
     var header = document.getElementById('siteHeader');
@@ -157,14 +186,51 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     })();
 
+    /* ----- Аналитика: клики по телефону и CTA ----- */
+    document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+        link.addEventListener('click', function () {
+            trackEvent('click_phone', {
+                phone_number: (link.getAttribute('href') || '').replace(/^tel:/, ''),
+                link_text: getAnalyticsLabel(link),
+                page_location: window.location.pathname
+            });
+        });
+    });
+
+    document.querySelectorAll('[data-analytics-event]').forEach(function (el) {
+        el.addEventListener('click', function () {
+            trackEvent(el.getAttribute('data-analytics-event'), {
+                cta_label: getAnalyticsLabel(el),
+                page_location: window.location.pathname
+            });
+        });
+    });
+
     /* ----- Контактная форма (отправка заявки через Forminit) ----- */
     var contactForm = document.getElementById('contactForm');
     var formSuccess = document.getElementById('formSuccess');
     var formError = document.getElementById('formError');
     if (contactForm) {
+        var formStarted = false;
         var submitBtn = contactForm.querySelector('button[type="submit"]');
         var labelSubmit = contactForm.getAttribute('data-submit') || 'Отправить';
         var labelSending = contactForm.getAttribute('data-sending') || 'Отправляем…';
+
+        function trackFormStart() {
+            if (formStarted) return;
+            formStarted = true;
+            trackEvent('form_start', {
+                form_id: contactForm.id || 'contactForm',
+                page_location: window.location.pathname
+            });
+        }
+
+        contactForm.querySelectorAll('input, select, textarea').forEach(function (field) {
+            field.addEventListener('focus', trackFormStart, { once: true });
+            field.addEventListener('input', trackFormStart, { once: true });
+            field.addEventListener('change', trackFormStart, { once: true });
+        });
+
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
@@ -195,6 +261,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .then(function () {
                     contactForm.reset();
+                    formStarted = false;
+                    trackEvent('form_submit', {
+                        form_id: contactForm.id || 'contactForm',
+                        page_location: window.location.pathname
+                    });
                     if (formSuccess) {
                         formSuccess.classList.add('visible');
                         setTimeout(function () { formSuccess.classList.remove('visible'); }, 8000);

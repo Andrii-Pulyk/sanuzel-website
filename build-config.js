@@ -12,6 +12,8 @@ module.exports = {
   ccEmail: '89892615877a@gmail.com',
   // ID формы в Forminit. Текущий backend формы: https://forminit.com/f/<formId>
   forminitFormId: 'mdg7xylojtp',
+  // GA4 Measurement ID. Пример: G-XXXXXXXXXX. Оставь пустым, чтобы отключить аналитику.
+  ga4MeasurementId: 'G-P9N5CG8ZZX',
 
   // Название бренда для соцсетей (og:site_name) и schema.org.
   siteName: 'Mistrz Łazienek',
