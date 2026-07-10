@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     })();
 
-    /* ----- Контактная форма (отправка на почту через FormSubmit.co) ----- */
+    /* ----- Контактная форма (отправка заявки через Forminit) ----- */
     var contactForm = document.getElementById('contactForm');
     var formSuccess = document.getElementById('formSuccess');
     var formError = document.getElementById('formError');
@@ -165,87 +165,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var submitBtn = contactForm.querySelector('button[type="submit"]');
         var labelSubmit = contactForm.getAttribute('data-submit') || 'Отправить';
         var labelSending = contactForm.getAttribute('data-sending') || 'Отправляем…';
-        var attachmentsInput = document.getElementById('attachments');
-        var attachmentsList = document.getElementById('attachmentsList');
-        var attachmentsSummary = document.getElementById('attachmentsSummary');
-        var queuedFiles = [];
-        var maxAttachmentBytes = 25 * 1024 * 1024;
-
-        function formatFileSize(bytes) {
-            if (bytes < 1024) return bytes + ' B';
-            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1).replace('.0', '') + ' KB';
-            return (bytes / (1024 * 1024)).toFixed(1).replace('.0', '') + ' MB';
-        }
-
-        function fileKey(file) {
-            return [file.name, file.size, file.lastModified].join(':');
-        }
-
-        function syncInputFiles() {
-            if (!attachmentsInput) return;
-            if (typeof DataTransfer === 'undefined') return;
-            var dataTransfer = new DataTransfer();
-            queuedFiles.forEach(function (file) {
-                dataTransfer.items.add(file);
-            });
-            attachmentsInput.files = dataTransfer.files;
-        }
-
-        function renderQueuedFiles() {
-            if (!attachmentsList) return;
-            attachmentsList.innerHTML = '';
-            if (attachmentsSummary) {
-                var emptyLabel = attachmentsSummary.getAttribute('data-empty') || 'No files selected';
-                var selectedLabel = attachmentsSummary.getAttribute('data-selected') || 'Selected files:';
-                attachmentsSummary.textContent = queuedFiles.length ? (selectedLabel + ' ' + queuedFiles.length) : emptyLabel;
-            }
-            queuedFiles.forEach(function (file, index) {
-                var item = document.createElement('div');
-                item.className = 'form-file-item';
-
-                var meta = document.createElement('div');
-                meta.className = 'form-file-meta';
-
-                var name = document.createElement('div');
-                name.className = 'form-file-name';
-                name.textContent = file.name;
-
-                var size = document.createElement('div');
-                size.className = 'form-file-size';
-                size.textContent = formatFileSize(file.size);
-
-                var remove = document.createElement('button');
-                remove.type = 'button';
-                remove.className = 'form-file-remove';
-                remove.textContent = '×';
-                remove.setAttribute('aria-label', attachmentsInput ? (attachmentsInput.getAttribute('data-remove-label') || 'Remove file') : 'Remove file');
-                remove.addEventListener('click', function () {
-                    queuedFiles.splice(index, 1);
-                    syncInputFiles();
-                    renderQueuedFiles();
-                });
-
-                meta.appendChild(name);
-                meta.appendChild(size);
-                item.appendChild(meta);
-                item.appendChild(remove);
-                attachmentsList.appendChild(item);
-            });
-        }
-
-        if (attachmentsInput) {
-            attachmentsInput.addEventListener('change', function () {
-                Array.prototype.forEach.call(attachmentsInput.files || [], function (file) {
-                    var exists = queuedFiles.some(function (queued) { return fileKey(queued) === fileKey(file); });
-                    if (!exists) queuedFiles.push(file);
-                });
-                syncInputFiles();
-                renderQueuedFiles();
-            });
-        }
-
-        renderQueuedFiles();
-
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
@@ -262,18 +181,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (formSuccess) formSuccess.classList.remove('visible');
             if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = labelSending; }
 
-            var totalAttachmentBytes = queuedFiles.reduce(function (sum, file) {
-                return sum + file.size;
-            }, 0);
-            if (totalAttachmentBytes > maxAttachmentBytes) {
-                if (formError) {
-                    formError.textContent = contactForm.getAttribute('data-attachments-limit') || 'Attachments exceed the 25 MB limit.';
-                    formError.classList.add('visible');
-                }
-                if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = labelSubmit; }
-                return;
-            }
-
             var formData = new FormData(contactForm);
 
             fetch(contactForm.action, {
@@ -288,9 +195,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .then(function () {
                     contactForm.reset();
-                    queuedFiles = [];
-                    syncInputFiles();
-                    renderQueuedFiles();
                     if (formSuccess) {
                         formSuccess.classList.add('visible');
                         setTimeout(function () { formSuccess.classList.remove('visible'); }, 8000);

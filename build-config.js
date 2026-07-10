@@ -6,12 +6,11 @@ module.exports = {
   basePath: '',
   defaultLang: 'ru',
 
-  // Почта, куда приходят заявки с формы (через FormSubmit.co, без сервера).
-  // Чтобы сменить адрес получателя — поменяй здесь и пересобери (npm run build).
-  // ВАЖНО: после смены почты первая заявка снова потребует подтверждения по письму от FormSubmit.
+  // Контактный email бренда, показывается на сайте и используется в контенте.
   leadEmail: 'kontakt@mistrzlazienek.pl',
-  // Дополнительный адрес для CC (будет получать копию каждой заявки).
+  // Email аккаунта Forminit (Free plan): сюда реально приходят уведомления по форме.
   ccEmail: '89892615877a@gmail.com',
+  // ID формы в Forminit. Текущий backend формы: https://forminit.com/f/<formId>
   forminitFormId: 'mdg7xylojtp',
 
   // Название бренда для соцсетей (og:site_name) и schema.org.

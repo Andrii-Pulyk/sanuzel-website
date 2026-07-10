@@ -167,22 +167,31 @@ SEO-тайтлом и canonical. В шапке — переключатель г
 
 ## Заявки с формы
 
-Форма на странице «Контакты» **работает и отправляет заявки** через сервис
-**FormSubmit** (`formsubmit.co`). Обработчик — `src/js/main.js` (`contactForm`),
-он шлёт `fetch()` POST на `https://formsubmit.co/ajax/<leadEmail>`.
+Форма на странице «Контакты» **работает через Forminit** (`forminit.com`), без
+собственного сервера. Обработчик — `src/js/main.js` (`contactForm`), он шлёт
+`fetch()` POST на `https://forminit.com/f/<formId>`.
 
-- **Куда падают заявки:** email из `build-config.js → leadEmail`
-  (сейчас `89892615877a@gmail.com`). Чтобы сменить адрес получателя — правь
-  `leadEmail` и пересобирай (`npm run build`); адрес подставляется в `action` формы
-  и в CSP (`connect-src`/`form-action`).
-- **Тема письма:** скрытое поле `_subject` (RU и PL — разные), капча FormSubmit
-  отключена (`_captcha=false`).
+- **Текущий form backend:** `build-config.js → forminitFormId`
+  (сейчас `mdg7xylojtp`, форма `Mistrz Lazienek Contact`).
+- **Через какой аккаунт зарегистрировано:** вход в Forminit выполнен через
+  Google-аккаунт **Andrii Pulyk**.
+- **Куда реально падают уведомления на Free plan:** email аккаунта Forminit,
+  сейчас `89892615877a@gmail.com` (`build-config.js → ccEmail` оставлен как
+  справочная фиксация текущего адреса аккаунта).
+- **Важно:** на Free plan Forminit не даёт поменять recipient email отдельно.
+  Если нужно получать письма именно на `kontakt@mistrzlazienek.pl`, надо либо
+  сменить email самого аккаунта Forminit, либо перейти на платный план.
+- **Файлы через форму отключены.** Вместо этого в форме есть поле для ссылки на
+  `Google Drive / WeTransfer / Dropbox`.
+- **Лимиты Free plan (проверять в кабинете):**
+  `100 submissions/month`, `30-day submission archive`, file storage в dashboard
+  сейчас отображается как `10 MB`. Когда лимит плана достигнут, форма ставится
+  на паузу и перестаёт принимать новые заявки.
 - **Антиспам:** в форме есть honeypot-поле `Website` (скрыто от людей) — боты его
   заполняют и отсекаются.
 
-> ⚠️ FormSubmit при ПЕРВОЙ отправке на новый адрес присылает письмо-подтверждение —
-> пока не подтвердишь по ссылке, заявки не доходят. Проверь, что `leadEmail`
-> активирован. Рекомендую раз в месяц слать тестовую заявку для контроля.
+> Рекомендация: раз в месяц отправлять тестовую заявку и смотреть счётчик
+> `Submission Limit/mo` в кабинете Forminit.
 
 ## Языки (RU + PL — уже подключены)
 

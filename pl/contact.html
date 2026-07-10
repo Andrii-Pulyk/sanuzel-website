@@ -138,7 +138,7 @@
 }
     </script>
     <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
-    <link rel="stylesheet" href="../css/style.css?v=7119dd48">
+    <link rel="stylesheet" href="../css/style.css?v=a1ed42ed">
 </head>
 
 <body>
@@ -262,9 +262,9 @@
                     <h3>Otrzymaj wstępną kwalifikację i termin pomiaru</h3>
                     <p class="form-intro">Opisz łazienkę w kilku krótkich krokach. Oddzwonimy w ciągu dnia roboczego z kolejnym krokiem i oceną, czy zakres pasuje do naszego modelu pracy.</p>
                     <form class="form" id="contactForm" novalidate
-                          action="https://forminit.com/f/mdg7xylojtp" method="POST" enctype="multipart/form-data"
+                          action="https://forminit.com/f/mdg7xylojtp" method="POST"
                           data-success="Dziękujemy! Zgłoszenie zostało wysłane — skontaktujemy się z Tobą w najbliższym czasie." data-error="Nie udało się wysłać zgłoszenia. Zadzwoń do nas albo spróbuj ponownie."
-                          data-submit="Wyślij zgłoszenie" data-sending="Wysyłamy…" data-attachments-limit="Łączny rozmiar załączników nie może przekraczać 25 MB.">
+                          data-submit="Wyślij zgłoszenie" data-sending="Wysyłamy…">
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="name">Imię</label>
@@ -328,11 +328,9 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="attachments">Dodaj zdjęcia lub plik</label>
-                                <input type="file" id="attachments" name="fi-file-attachments" accept="image/*,.pdf,.heic,.heif" multiple data-remove-label="Usuń plik">
-                                <div class="form-help">Możesz dodać zdjęcia łazienki, projekt albo PDF z zakresem prac.</div>
-                                <div class="form-file-summary" id="attachmentsSummary" data-empty="Nie wybrano plików" data-selected="Wybrano plików:">Nie wybrano plików</div>
-                                <div class="form-file-list" id="attachmentsList" aria-live="polite"></div>
+                                <label for="assetsLink">Link do zdjęć / projektu</label>
+                                <input type="url" id="assetsLink" name="fi-text-assets-link" placeholder="Np. Google Drive, WeTransfer, Dropbox" inputmode="url" autocomplete="url">
+                                <div class="form-help">Jeśli masz zdjęcia lub projekt, wklej link do Google Drive, WeTransfer albo Dropbox. Plików nie wysyłamy przez formularz.</div>
                             </div>
                             <div class="form-group form-group-full">
                                 <label for="message">Krótki opis</label>
@@ -401,6 +399,6 @@
     </div>
 
 
-    <script src="../js/main.js?v=7119dd48"></script>
+    <script src="../js/main.js?v=a1ed42ed"></script>
 </body>
 </html>

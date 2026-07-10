@@ -87,9 +87,9 @@
                     <h3>{{page.form_title}}</h3>
                     <p class="form-intro">{{page.form_subtitle}}</p>
                     <form class="form" id="contactForm" novalidate
-                          action="{{_form_action}}" method="POST" enctype="multipart/form-data"
+                          action="{{_form_action}}" method="POST"
                           data-success="{{page.form_success}}" data-error="{{page.form_error}}"
-                          data-submit="{{page.form_submit}}" data-sending="{{page.form_sending}}" data-attachments-limit="{{page.form_attachments_limit}}">
+                          data-submit="{{page.form_submit}}" data-sending="{{page.form_sending}}">
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="name">{{page.form_name_label}}</label>
@@ -153,11 +153,9 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="attachments">{{page.form_assets_label}}</label>
-                                <input type="file" id="attachments" name="fi-file-attachments" accept="image/*,.pdf,.heic,.heif" multiple data-remove-label="{{page.form_assets_remove}}">
+                                <label for="assetsLink">{{page.form_assets_label}}</label>
+                                <input type="url" id="assetsLink" name="fi-text-assets-link" placeholder="{{page.form_assets_placeholder}}" inputmode="url" autocomplete="url">
                                 <div class="form-help">{{page.form_assets_help}}</div>
-                                <div class="form-file-summary" id="attachmentsSummary" data-empty="{{page.form_assets_empty}}" data-selected="{{page.form_assets_selected}}">{{page.form_assets_empty}}</div>
-                                <div class="form-file-list" id="attachmentsList" aria-live="polite"></div>
                             </div>
                             <div class="form-group form-group-full">
                                 <label for="message">{{page.form_message_label}}</label>

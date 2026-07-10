@@ -138,7 +138,7 @@
 }
     </script>
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="stylesheet" href="css/style.css?v=7119dd48">
+    <link rel="stylesheet" href="css/style.css?v=a1ed42ed">
 </head>
 
 <body>
@@ -262,9 +262,9 @@
                     <h3>Опишите ванную и получите следующий шаг</h3>
                     <p class="form-intro">Коротко заполните форму. В течение рабочего дня перезвоним, уточним детали и скажем, подходит ли объект под наш формат работ.</p>
                     <form class="form" id="contactForm" novalidate
-                          action="https://forminit.com/f/mdg7xylojtp" method="POST" enctype="multipart/form-data"
+                          action="https://forminit.com/f/mdg7xylojtp" method="POST"
                           data-success="Спасибо! Заявка отправлена — мы свяжемся с вами в ближайшее время." data-error="Не удалось отправить заявку. Позвоните нам или попробуйте ещё раз."
-                          data-submit="Отправить заявку" data-sending="Отправляем…" data-attachments-limit="Общий размер вложений не должен превышать 25 МБ.">
+                          data-submit="Отправить заявку" data-sending="Отправляем…">
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="name">Имя</label>
@@ -328,11 +328,9 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="attachments">Добавьте фото или файл</label>
-                                <input type="file" id="attachments" name="fi-file-attachments" accept="image/*,.pdf,.heic,.heif" multiple data-remove-label="Удалить файл">
-                                <div class="form-help">Можно приложить фото ванной, проект или PDF с объёмом работ.</div>
-                                <div class="form-file-summary" id="attachmentsSummary" data-empty="Файлы не выбраны" data-selected="Выбрано файлов:">Файлы не выбраны</div>
-                                <div class="form-file-list" id="attachmentsList" aria-live="polite"></div>
+                                <label for="assetsLink">Ссылка на фото / проект</label>
+                                <input type="url" id="assetsLink" name="fi-text-assets-link" placeholder="Например, Google Drive, WeTransfer, Dropbox" inputmode="url" autocomplete="url">
+                                <div class="form-help">Если есть фото или проект, вставьте ссылку на Google Drive, WeTransfer или Dropbox. Файлы через форму не загружаем.</div>
                             </div>
                             <div class="form-group form-group-full">
                                 <label for="message">Краткое описание</label>
@@ -401,6 +399,6 @@
     </div>
 
 
-    <script src="js/main.js?v=7119dd48"></script>
+    <script src="js/main.js?v=a1ed42ed"></script>
 </body>
 </html>
