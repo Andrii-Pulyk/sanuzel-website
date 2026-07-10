@@ -86,14 +86,15 @@
                 <div class="contact-form-wrap fade-in delay-1">
                     <h3>{{page.form_title}}</h3>
                     <p class="form-intro">{{page.form_subtitle}}</p>
-                    <form class="form" id="contactForm" novalidate
-                          action="https://formsubmit.co/ajax/{{_lead_email}}" method="POST"
+                    <form class="form" id="contactForm"
+                          action="https://formsubmit.co/{{_lead_email}}" method="POST" enctype="multipart/form-data"
                           data-success="{{page.form_success}}" data-error="{{page.form_error}}"
                           data-submit="{{page.form_submit}}" data-sending="{{page.form_sending}}">
                         <input type="hidden" name="_subject" value="{{page.form_subject}}">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_cc" value="{{_cc_email}}">
+                        <input type="hidden" name="_next" value="{{_form_success_url}}">
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="name">{{page.form_name_label}}</label>

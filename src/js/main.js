@@ -245,55 +245,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
         renderQueuedFiles();
 
+        if (window.location.search.indexOf('sent=1') !== -1 && formSuccess) {
+            formSuccess.classList.add('visible');
+            if (window.history && window.history.replaceState) {
+                var cleanUrl = window.location.pathname + window.location.hash;
+                window.history.replaceState({}, document.title, cleanUrl);
+            }
+            setTimeout(function () { formSuccess.classList.remove('visible'); }, 8000);
+        }
+
         contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Honeypot: бот заполнит скрытое поле — тихо игнорируем.
             var honeypot = document.getElementById('website');
-            if (honeypot && honeypot.value) return;
-
-            if (!contactForm.checkValidity()) {
-                contactForm.reportValidity();
+            if (honeypot && honeypot.value) {
+                e.preventDefault();
                 return;
             }
 
             if (formError) formError.classList.remove('visible');
             if (formSuccess) formSuccess.classList.remove('visible');
             if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = labelSending; }
-
-            var formData = new FormData(contactForm);
-            if (attachmentsInput) {
-                formData.delete(attachmentsInput.name);
-                queuedFiles.forEach(function (file) {
-                    formData.append(attachmentsInput.name, file, file.name);
-                });
-            }
-
-            fetch(contactForm.action, {
-                method: 'POST',
-                headers: { 'Accept': 'application/json' },
-                body: formData
-            })
-                .then(function (res) {
-                    if (!res.ok) throw new Error('Bad status ' + res.status);
-                    return res.json();
-                })
-                .then(function () {
-                    contactForm.reset();
-                    queuedFiles = [];
-                    syncInputFiles();
-                    renderQueuedFiles();
-                    if (formSuccess) {
-                        formSuccess.classList.add('visible');
-                        setTimeout(function () { formSuccess.classList.remove('visible'); }, 8000);
-                    }
-                })
-                .catch(function () {
-                    if (formError) formError.classList.add('visible');
-                })
-                .then(function () {
-                    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = labelSubmit; }
-                });
         });
     }
 

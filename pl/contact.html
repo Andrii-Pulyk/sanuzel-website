@@ -138,7 +138,7 @@
 }
     </script>
     <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
-    <link rel="stylesheet" href="../css/style.css?v=b19283d2">
+    <link rel="stylesheet" href="../css/style.css?v=e0e0a07a">
 </head>
 
 <body>
@@ -261,14 +261,15 @@
                 <div class="contact-form-wrap fade-in delay-1">
                     <h3>Otrzymaj wstępną kwalifikację i termin pomiaru</h3>
                     <p class="form-intro">Opisz łazienkę w kilku krótkich krokach. Oddzwonimy w ciągu dnia roboczego z kolejnym krokiem i oceną, czy zakres pasuje do naszego modelu pracy.</p>
-                    <form class="form" id="contactForm" novalidate
-                          action="https://formsubmit.co/ajax/kontakt@mistrzlazienek.pl" method="POST"
+                    <form class="form" id="contactForm"
+                          action="https://formsubmit.co/kontakt@mistrzlazienek.pl" method="POST" enctype="multipart/form-data"
                           data-success="Dziękujemy! Zgłoszenie zostało wysłane — skontaktujemy się z Tobą w najbliższym czasie." data-error="Nie udało się wysłać zgłoszenia. Zadzwoń do nas albo spróbuj ponownie."
                           data-submit="Wyślij zgłoszenie" data-sending="Wysyłamy…">
                         <input type="hidden" name="_subject" value="Nowe zgłoszenie ze strony — wykończenie łazienek">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_cc" value="89892615877a@gmail.com">
+                        <input type="hidden" name="_next" value="https://mistrzlazienek.pl/pl/contact.html?sent=1#contactForm">
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="name">Imię</label>
@@ -405,6 +406,6 @@
     </div>
 
 
-    <script src="../js/main.js?v=b19283d2"></script>
+    <script src="../js/main.js?v=e0e0a07a"></script>
 </body>
 </html>
