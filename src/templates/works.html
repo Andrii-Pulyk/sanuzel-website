@@ -1,0 +1,151 @@
+{{> head}}
+<body>
+
+{{> header}}
+
+    <section class="hero hero-compact">
+        <div class="container">
+            <h1 class="fade-in">{{page.hero_title}}</h1>
+            <p class="fade-in delay-1">{{page.hero_subtitle}}</p>
+        </div>
+    </section>
+
+    <section class="section section-center">
+        <div class="container">
+            <div class="section-head section-center">
+                <span class="eyebrow center">{{page.intro_eyebrow}}</span>
+                <h2 class="section-title fade-in">{{page.intro_title}}</h2>
+                <p class="section-subtitle fade-in delay-1">{{page.intro_subtitle}}</p>
+            </div>
+            <div class="work-case-grid">
+                <article class="work-case fade-in" id="project-1">
+                    <div class="work-case-media">
+                        <img src="{{_assets}}images/works/bialoleka-2024/cover.jpg" alt="{{idx.work_1_alt}}" width="720" height="960" loading="lazy">
+                    </div>
+                    <div class="work-case-copy">
+                        <span class="work-case-kicker">{{page.project_label_1}}</span>
+                        <h2>{{idx.work_1_t}}</h2>
+                        <p>{{page.project_1_text}}</p>
+                        <div class="work-case-meta">
+                            <span>{{idx.work_1_d}}</span>
+                            <span>{{idx.work_1_count}}</span>
+                            <span>{{page.warsaw_label}}</span>
+                        </div>
+                        <ul class="work-case-list">
+                            <li>{{page.project_1_point_1}}</li>
+                            <li>{{page.project_1_point_2}}</li>
+                            <li>{{page.project_1_point_3}}</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="work-case fade-in delay-1" id="project-2">
+                    <div class="work-case-media">
+                        <img src="{{_assets}}images/works/wola-2025/cover.jpg" alt="{{idx.work_2_alt}}" width="720" height="960" loading="lazy">
+                    </div>
+                    <div class="work-case-copy">
+                        <span class="work-case-kicker">{{page.project_label_2}}</span>
+                        <h2>{{idx.work_2_t}}</h2>
+                        <p>{{page.project_2_text}}</p>
+                        <div class="work-case-meta">
+                            <span>{{idx.work_2_d}}</span>
+                            <span>{{idx.work_2_count}}</span>
+                            <span>{{page.warsaw_label}}</span>
+                        </div>
+                        <ul class="work-case-list">
+                            <li>{{page.project_2_point_1}}</li>
+                            <li>{{page.project_2_point_2}}</li>
+                            <li>{{page.project_2_point_3}}</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="work-case fade-in delay-2" id="project-3">
+                    <div class="work-case-media">
+                        <img src="{{_assets}}images/works/zoliborz-2026/cover.jpg" alt="{{idx.work_3_alt}}" width="720" height="960" loading="lazy">
+                    </div>
+                    <div class="work-case-copy">
+                        <span class="work-case-kicker">{{page.project_label_3}}</span>
+                        <h2>{{idx.work_3_t}}</h2>
+                        <p>{{page.project_3_text}}</p>
+                        <div class="work-case-meta">
+                            <span>{{idx.work_3_d}}</span>
+                            <span>{{idx.work_3_count}}</span>
+                            <span>{{page.warsaw_label}}</span>
+                        </div>
+                        <ul class="work-case-list">
+                            <li>{{page.project_3_point_1}}</li>
+                            <li>{{page.project_3_point_2}}</li>
+                            <li>{{page.project_3_point_3}}</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="work-case fade-in delay-3" id="project-4">
+                    <div class="work-case-media">
+                        <img src="{{_assets}}images/works/praga-poludnia-2021/cover.jpg" alt="{{idx.work_4_alt}}" width="720" height="960" loading="lazy">
+                    </div>
+                    <div class="work-case-copy">
+                        <span class="work-case-kicker">{{page.project_label_4}}</span>
+                        <h2>{{idx.work_4_t}}</h2>
+                        <p>{{page.project_4_text}}</p>
+                        <div class="work-case-meta">
+                            <span>{{idx.work_4_d}}</span>
+                            <span>{{idx.work_4_count}}</span>
+                            <span>{{page.warsaw_label}}</span>
+                        </div>
+                        <ul class="work-case-list">
+                            <li>{{page.project_4_point_1}}</li>
+                            <li>{{page.project_4_point_2}}</li>
+                            <li>{{page.project_4_point_3}}</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt section-center">
+        <div class="container">
+            <div class="section-head section-center">
+                <span class="eyebrow center">{{page.archive_eyebrow}}</span>
+                <h2 class="section-title fade-in">{{page.archive_title}}</h2>
+                <p class="section-subtitle fade-in delay-1">{{page.archive_subtitle}}</p>
+            </div>
+            <div class="gallery-grid gallery-projects">
+                <div class="gallery-item fade-in delay-1">
+                    <img src="{{_assets}}images/works/ukraina-2018-3/cover.jpg" alt="{{idx.work_5_alt}}" width="720" height="960" loading="lazy">
+                    <span class="gallery-count">{{idx.work_5_count}}</span>
+                    <span class="gallery-caption">{{idx.work_5_t}}<span>{{idx.work_5_d}}</span></span>
+                </div>
+                <div class="gallery-item fade-in delay-2">
+                    <img src="{{_assets}}images/works/ukraina-2019/cover.jpg" alt="{{idx.work_6_alt}}" width="720" height="960" loading="lazy">
+                    <span class="gallery-count">{{idx.work_6_count}}</span>
+                    <span class="gallery-caption">{{idx.work_6_t}}<span>{{idx.work_6_d}}</span></span>
+                </div>
+                <div class="gallery-item fade-in delay-3">
+                    <img src="{{_assets}}images/works/ukraina-2018/cover.jpg" alt="{{idx.work_7_alt}}" width="720" height="960" loading="lazy">
+                    <span class="gallery-count">{{idx.work_7_count}}</span>
+                    <span class="gallery-caption">{{idx.work_7_t}}<span>{{idx.work_7_d}}</span></span>
+                </div>
+            </div>
+            <p class="work-case-note fade-in">{{page.archive_note}}</p>
+        </div>
+    </section>
+
+    <section class="section section-center cta-band">
+        <div class="container">
+            <h2 class="section-title fade-in">{{page.cta_title}}</h2>
+            <p class="section-subtitle fade-in delay-1">{{page.cta_subtitle}}</p>
+            <div class="btn-group fade-in delay-2">
+                <a href="{{_nav_contacts_url}}" class="btn btn-primary" data-analytics-event="click_contact_cta" data-analytics-label="{{page.cta_button}}">{{page.cta_button}}</a>
+                <a href="{{_nav_services_url}}" class="btn btn-ghost">{{page.cta_secondary}}</a>
+            </div>
+        </div>
+    </section>
+
+{{> footer}}
+
+    <script src="{{_assets}}js/main.js?v={{_asset_version}}"></script>
+</body>
+</html>

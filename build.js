@@ -372,6 +372,41 @@ function serviceNode(pageData, canonicalUrl) {
   return node;
 }
 
+function worksNode(indexData, canonicalUrl) {
+  const coverImages = [
+    'images/works/bialoleka-2024/cover.jpg',
+    'images/works/wola-2025/cover.jpg',
+    'images/works/zoliborz-2026/cover.jpg',
+    'images/works/praga-poludnia-2021/cover.jpg',
+  ];
+  const projects = [1, 2, 3, 4]
+    .map((i) => ({
+      name: indexData[`work_${i}_t`],
+      description: indexData[`work_${i}_d`],
+      image: coverImages[i - 1],
+      anchor: `project-${i}`,
+    }))
+    .filter((project) => project.name);
+
+  if (!projects.length) return null;
+
+  return {
+    '@type': 'ItemList',
+    '@id': canonicalUrl + '#projects',
+    itemListElement: projects.map((project, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: canonicalUrl + '#' + project.anchor,
+      item: {
+        '@type': 'CreativeWork',
+        name: project.name,
+        description: project.description,
+        image: absUrl(project.image),
+      },
+    })),
+  };
+}
+
 function generateStructuredData(page, pageData, lang, canonicalUrl, t) {
   const graph = [];
 
@@ -401,6 +436,10 @@ function generateStructuredData(page, pageData, lang, canonicalUrl, t) {
   graph.push(breadcrumbNode(page, pageData, canonicalUrl, t));
 
   if (page.slug === 'services') graph.push(serviceNode(pageData, canonicalUrl));
+  if (page.slug === 'works') {
+    const works = worksNode(t.index, canonicalUrl);
+    if (works) graph.push(works);
+  }
 
   const faq = faqNode(pageData, canonicalUrl);
   if (faq) graph.push(faq);
@@ -487,6 +526,7 @@ for (const page of config.pages) {
       nav: t.nav,
       footer: t.footer,
       page: t[page.slug],
+      idx: t.index,
       // Computed values (prefixed with _ to distinguish)
       _assets: assetsPrefix,
       _asset_version: ASSET_VERSION,
@@ -508,6 +548,7 @@ for (const page of config.pages) {
       _lang_switcher_mobile: generateLangSwitcherMobile(lang, page, languages),
       _nav_home_url: navUrls.index,
       _nav_services_url: navUrls.services,
+      _nav_works_url: navUrls.works,
       _nav_contacts_url: navUrls.contact,
       _privacy_url: BASE + getOutputPath('privacy', 'privacy.html', lang),
       _privacy_switch_url: privacySwitchUrl,
@@ -580,6 +621,7 @@ if (CITIES.length) {
         _lang_switcher_mobile: '',
         _nav_home_url: navUrls.index,
         _nav_services_url: navUrls.services,
+        _nav_works_url: navUrls.works,
         _nav_contacts_url: navUrls.contact,
         _privacy_url: BASE + getOutputPath('privacy', 'privacy.html', lang),
         _privacy_switch_url: '',
