@@ -34,6 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
         return (el.textContent || '').replace(/\s+/g, ' ').trim();
     }
 
+    initAnalytics();
+
     /* ----- Шапка: тень при скролле ----- */
     var header = document.getElementById('siteHeader');
     if (header) {
