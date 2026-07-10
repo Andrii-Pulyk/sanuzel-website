@@ -50,20 +50,41 @@ document.addEventListener('DOMContentLoaded', function () {
     var menuToggle = document.getElementById('menuToggle');
     var nav = document.getElementById('nav');
     if (menuToggle && nav) {
+        function closeMenu() {
+            menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            nav.classList.remove('open');
+            document.body.classList.remove('menu-open');
+        }
+
+        function openMenu() {
+            menuToggle.classList.add('active');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            nav.classList.add('open');
+            document.body.classList.add('menu-open');
+        }
+
         menuToggle.addEventListener('click', function () {
-            menuToggle.classList.toggle('active');
-            nav.classList.toggle('open');
+            if (nav.classList.contains('open')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
         nav.querySelectorAll('a').forEach(function (link) {
             link.addEventListener('click', function () {
-                menuToggle.classList.remove('active');
-                nav.classList.remove('open');
+                closeMenu();
             });
         });
         document.addEventListener('click', function (e) {
             if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
-                menuToggle.classList.remove('active');
-                nav.classList.remove('open');
+                closeMenu();
+            }
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && nav.classList.contains('open')) {
+                closeMenu();
+                menuToggle.focus();
             }
         });
     }
@@ -290,11 +311,20 @@ document.addEventListener('DOMContentLoaded', function () {
         var title = document.getElementById('workLightboxTitle');
         var counter = document.getElementById('workLightboxCounter');
         var image = document.getElementById('workLightboxImage');
+        var panel = lightbox.querySelector('.work-lightbox-panel');
         var prev = lightbox.querySelector('[data-lightbox-prev]');
         var next = lightbox.querySelector('[data-lightbox-next]');
         var closeButtons = lightbox.querySelectorAll('[data-lightbox-close]');
         var photos = [];
         var current = 0;
+        var lastTrigger = null;
+
+        function getFocusableElements() {
+            if (!panel) return [];
+            return Array.prototype.slice.call(panel.querySelectorAll(
+                'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+            ));
+        }
 
         function render() {
             if (!photos.length || !image) return;
@@ -314,10 +344,14 @@ document.addEventListener('DOMContentLoaded', function () {
             lightbox.setAttribute('aria-hidden', 'true');
             document.body.classList.remove('lightbox-lock');
             if (image) image.removeAttribute('src');
+            if (lastTrigger && typeof lastTrigger.focus === 'function') {
+                lastTrigger.focus();
+            }
         }
 
         document.querySelectorAll('.gallery-project[data-gallery-images]').forEach(function (card) {
             card.addEventListener('click', function () {
+                lastTrigger = card;
                 photos = (card.getAttribute('data-gallery-images') || '')
                     .split(',')
                     .map(function (src) { return src.trim(); })
@@ -329,6 +363,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 lightbox.setAttribute('aria-hidden', 'false');
                 document.body.classList.add('lightbox-lock');
                 render();
+                if (panel) panel.focus();
             });
         });
 
@@ -341,6 +376,19 @@ document.addEventListener('DOMContentLoaded', function () {
             if (e.key === 'Escape') close();
             if (e.key === 'ArrowLeft') move(-1);
             if (e.key === 'ArrowRight') move(1);
+            if (e.key === 'Tab') {
+                var focusable = getFocusableElements();
+                if (!focusable.length) return;
+                var first = focusable[0];
+                var last = focusable[focusable.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
         });
     })();
 

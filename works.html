@@ -189,7 +189,7 @@
 }
     </script>
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="stylesheet" href="css/style.css?v=8b42dcf5">
+    <link rel="stylesheet" href="css/style.css?v=e9fa0e3b">
 </head>
 
 <body>
@@ -222,7 +222,7 @@
 
             <a href="/pl/works.html" class="lang-toggle" title="PL">RU/PL</a>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+            <button class="menu-toggle" id="menuToggle" aria-label="Меню" aria-controls="nav" aria-expanded="false" type="button">
                 <span></span><span></span><span></span>
             </button>
         </div>
@@ -423,7 +423,7 @@
 
     <div class="work-lightbox" id="workLightbox" aria-hidden="true">
         <button class="work-lightbox-backdrop" type="button" data-lightbox-close aria-label="Закрыть просмотр"></button>
-        <div class="work-lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="workLightboxTitle">
+        <div class="work-lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="workLightboxTitle" tabindex="-1">
             <div class="work-lightbox-top">
                 <div>
                     <h3 id="workLightboxTitle"></h3>
@@ -488,6 +488,6 @@
     </div>
 
 
-    <script src="js/main.js?v=8b42dcf5"></script>
+    <script src="js/main.js?v=e9fa0e3b"></script>
 </body>
 </html>

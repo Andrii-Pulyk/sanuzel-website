@@ -34,16 +34,20 @@
     --shadow-sm:    0 2px 10px rgba(0, 0, 0, 0.25);
     --shadow:       0 18px 50px rgba(0, 0, 0, 0.45);
     --shadow-glow:  0 18px 50px rgba(216, 168, 78, 0.22);
+    --shadow-soft:  0 12px 34px rgba(0, 0, 0, 0.28);
 
     /* Геометрия */
     --radius:       16px;
     --radius-sm:    11px;
     --radius-lg:    24px;
+    --radius-xl:    30px;
     --maxw:         1200px;
     --header-h:     74px;
 
     --ease:         cubic-bezier(0.22, 0.61, 0.36, 1);
     --t:            0.32s var(--ease);
+
+    --accent:       var(--teal);
 
     /* Шрифты */
     --font:         -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -65,6 +69,11 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+}
+
+body.menu-open,
+body.lightbox-lock {
+    overflow: hidden;
 }
 
 /* Амбиентный фон страницы */
@@ -956,8 +965,6 @@ ul { list-style: none; }
 }
 .work-lightbox-nav.prev { left: 10px; }
 .work-lightbox-nav.next { right: 10px; }
-body.lightbox-lock { overflow: hidden; }
-
 /* Палитровые вариации для повторного использования одной сцены */
 .tint-warm img { filter: hue-rotate(-26deg) saturate(1.12); }
 .tint-sage img { filter: hue-rotate(48deg) saturate(0.92); }
