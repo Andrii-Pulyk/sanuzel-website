@@ -124,30 +124,63 @@
                 <h2 class="section-title fade-in">{{page.archive_title}}</h2>
                 <p class="section-subtitle fade-in delay-1">{{page.archive_subtitle}}</p>
             </div>
-            <div class="gallery-grid gallery-projects">
-                <button class="gallery-item gallery-project fade-in delay-1" type="button"
-                    data-gallery-title="{{idx.work_5_t}}"
-                    data-gallery-images="{{_assets}}images/works/ukraina-2018-3/01.jpg,{{_assets}}images/works/ukraina-2018-3/02.jpg,{{_assets}}images/works/ukraina-2018-3/03.jpg,{{_assets}}images/works/ukraina-2018-3/04.jpg,{{_assets}}images/works/ukraina-2018-3/05.jpg">
-                    <img src="{{_assets}}images/works/ukraina-2018-3/cover.jpg" alt="{{idx.work_5_alt}}" width="720" height="960" loading="lazy">
-                    <span class="gallery-count">{{idx.work_5_count}}</span>
-                    <span class="gallery-caption">{{idx.work_5_t}}<span>{{idx.work_5_d}}</span></span>
-                </button>
-                <button class="gallery-item gallery-project fade-in delay-2" type="button"
-                    data-gallery-title="{{idx.work_6_t}}"
-                    data-gallery-images="{{_assets}}images/works/ukraina-2019/01.jpg,{{_assets}}images/works/ukraina-2019/02.jpg,{{_assets}}images/works/ukraina-2019/03.jpg,{{_assets}}images/works/ukraina-2019/04.jpg,{{_assets}}images/works/ukraina-2019/05.jpg">
-                    <img src="{{_assets}}images/works/ukraina-2019/cover.jpg" alt="{{idx.work_6_alt}}" width="720" height="960" loading="lazy">
-                    <span class="gallery-count">{{idx.work_6_count}}</span>
-                    <span class="gallery-caption">{{idx.work_6_t}}<span>{{idx.work_6_d}}</span></span>
-                </button>
-                <button class="gallery-item gallery-project fade-in delay-3" type="button"
-                    data-gallery-title="{{idx.work_7_t}}"
-                    data-gallery-images="{{_assets}}images/works/ukraina-2018/01.jpg,{{_assets}}images/works/ukraina-2018/02.jpg,{{_assets}}images/works/ukraina-2018/03.jpg,{{_assets}}images/works/ukraina-2018/04.jpg,{{_assets}}images/works/ukraina-2018/05.jpg,{{_assets}}images/works/ukraina-2018/06.jpg">
-                    <img src="{{_assets}}images/works/ukraina-2018/cover.jpg" alt="{{idx.work_7_alt}}" width="720" height="960" loading="lazy">
-                    <span class="gallery-count">{{idx.work_7_count}}</span>
-                    <span class="gallery-caption">{{idx.work_7_t}}<span>{{idx.work_7_d}}</span></span>
-                </button>
+            <div class="archive-carousel" data-archive-carousel>
+                <button class="archive-carousel-nav prev" type="button" data-archive-prev aria-label="{{page.archive_prev}}">‹</button>
+                <div class="archive-carousel-viewport" data-archive-viewport>
+                    <div class="archive-carousel-track">
+                        <button class="gallery-item gallery-project fade-in delay-1" type="button"
+                            data-gallery-title="{{idx.work_5_t}}"
+                            data-gallery-images="{{_assets}}images/works/ukraina-2018-3/01.jpg,{{_assets}}images/works/ukraina-2018-3/02.jpg,{{_assets}}images/works/ukraina-2018-3/03.jpg,{{_assets}}images/works/ukraina-2018-3/04.jpg,{{_assets}}images/works/ukraina-2018-3/05.jpg">
+                            <img src="{{_assets}}images/works/ukraina-2018-3/cover.jpg" alt="{{idx.work_5_alt}}" width="720" height="960" loading="lazy">
+                            <span class="gallery-count">{{idx.work_5_count}}</span>
+                            <span class="gallery-caption">{{idx.work_5_t}}<span>{{idx.work_5_d}}</span></span>
+                        </button>
+                        <button class="gallery-item gallery-project fade-in delay-2" type="button"
+                            data-gallery-title="{{idx.work_6_t}}"
+                            data-gallery-images="{{_assets}}images/works/ukraina-2019/01.jpg,{{_assets}}images/works/ukraina-2019/02.jpg,{{_assets}}images/works/ukraina-2019/03.jpg,{{_assets}}images/works/ukraina-2019/04.jpg,{{_assets}}images/works/ukraina-2019/05.jpg">
+                            <img src="{{_assets}}images/works/ukraina-2019/cover.jpg" alt="{{idx.work_6_alt}}" width="720" height="960" loading="lazy">
+                            <span class="gallery-count">{{idx.work_6_count}}</span>
+                            <span class="gallery-caption">{{idx.work_6_t}}<span>{{idx.work_6_d}}</span></span>
+                        </button>
+                        <button class="gallery-item gallery-project fade-in delay-3" type="button"
+                            data-gallery-title="{{idx.work_7_t}}"
+                            data-gallery-images="{{_assets}}images/works/ukraina-2018/01.jpg,{{_assets}}images/works/ukraina-2018/02.jpg,{{_assets}}images/works/ukraina-2018/03.jpg,{{_assets}}images/works/ukraina-2018/04.jpg,{{_assets}}images/works/ukraina-2018/05.jpg,{{_assets}}images/works/ukraina-2018/06.jpg">
+                            <img src="{{_assets}}images/works/ukraina-2018/cover.jpg" alt="{{idx.work_7_alt}}" width="720" height="960" loading="lazy">
+                            <span class="gallery-count">{{idx.work_7_count}}</span>
+                            <span class="gallery-caption">{{idx.work_7_t}}<span>{{idx.work_7_d}}</span></span>
+                        </button>
+                        <button class="gallery-item gallery-project fade-in delay-1" type="button"
+                            data-gallery-title="{{idx.work_8_t}}"
+                            data-gallery-images="{{_assets}}images/works/ukraina-2018-2/01.jpg,{{_assets}}images/works/ukraina-2018-2/02.jpg,{{_assets}}images/works/ukraina-2018-2/03.jpg">
+                            <img src="{{_assets}}images/works/ukraina-2018-2/cover.jpg" alt="{{idx.work_8_alt}}" width="720" height="960" loading="lazy">
+                            <span class="gallery-count">{{idx.work_8_count}}</span>
+                            <span class="gallery-caption">{{idx.work_8_t}}<span>{{idx.work_8_d}}</span></span>
+                        </button>
+                        <button class="gallery-item gallery-project fade-in delay-2" type="button"
+                            data-gallery-title="{{idx.work_9_t}}"
+                            data-gallery-images="{{_assets}}images/works/ukraina-2020/01.jpg,{{_assets}}images/works/ukraina-2020/02.jpg,{{_assets}}images/works/ukraina-2020/03.jpg">
+                            <img src="{{_assets}}images/works/ukraina-2020/cover.jpg" alt="{{idx.work_9_alt}}" width="720" height="960" loading="lazy">
+                            <span class="gallery-count">{{idx.work_9_count}}</span>
+                            <span class="gallery-caption">{{idx.work_9_t}}<span>{{idx.work_9_d}}</span></span>
+                        </button>
+                        <button class="gallery-item gallery-project fade-in delay-3" type="button"
+                            data-gallery-title="{{idx.work_10_t}}"
+                            data-gallery-images="{{_assets}}images/works/ukraina-2019-1/01.jpg,{{_assets}}images/works/ukraina-2019-1/02.jpg,{{_assets}}images/works/ukraina-2019-1/03.jpg">
+                            <img src="{{_assets}}images/works/ukraina-2019-1/cover.jpg" alt="{{idx.work_10_alt}}" width="720" height="960" loading="lazy">
+                            <span class="gallery-count">{{idx.work_10_count}}</span>
+                            <span class="gallery-caption">{{idx.work_10_t}}<span>{{idx.work_10_d}}</span></span>
+                        </button>
+                        <button class="gallery-item gallery-project fade-in delay-1" type="button"
+                            data-gallery-title="{{idx.work_11_t}}"
+                            data-gallery-images="{{_assets}}images/works/ukraina-2018-1/01.jpg,{{_assets}}images/works/ukraina-2018-1/02.jpg,{{_assets}}images/works/ukraina-2018-1/03.jpg">
+                            <img src="{{_assets}}images/works/ukraina-2018-1/cover.jpg" alt="{{idx.work_11_alt}}" width="720" height="960" loading="lazy">
+                            <span class="gallery-count">{{idx.work_11_count}}</span>
+                            <span class="gallery-caption">{{idx.work_11_t}}<span>{{idx.work_11_d}}</span></span>
+                        </button>
+                    </div>
+                </div>
+                <button class="archive-carousel-nav next" type="button" data-archive-next aria-label="{{page.archive_next}}">›</button>
             </div>
-            <p class="work-case-note fade-in">{{page.archive_note}}</p>
         </div>
     </section>
 

@@ -344,6 +344,36 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     })();
 
+    /* ----- Карусель архива на странице работ ----- */
+    document.querySelectorAll('[data-archive-carousel]').forEach(function (carousel) {
+        var viewport = carousel.querySelector('[data-archive-viewport]');
+        var prev = carousel.querySelector('[data-archive-prev]');
+        var next = carousel.querySelector('[data-archive-next]');
+        if (!viewport || !prev || !next) return;
+
+        function updateControls() {
+            var maxScroll = viewport.scrollWidth - viewport.clientWidth;
+            prev.disabled = viewport.scrollLeft <= 2;
+            next.disabled = viewport.scrollLeft >= maxScroll - 2;
+        }
+
+        function pageWidth() {
+            return viewport.clientWidth;
+        }
+
+        prev.addEventListener('click', function () {
+            viewport.scrollBy({ left: -pageWidth(), behavior: 'smooth' });
+        });
+
+        next.addEventListener('click', function () {
+            viewport.scrollBy({ left: pageWidth(), behavior: 'smooth' });
+        });
+
+        viewport.addEventListener('scroll', updateControls, { passive: true });
+        window.addEventListener('resize', updateControls);
+        updateControls();
+    });
+
     /* ----- Плавный скролл к якорям ----- */
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {
