@@ -377,6 +377,7 @@
     "form_assets_remove": "Удалить файл",
     "form_assets_empty": "Файлы не выбраны",
     "form_assets_selected": "Выбрано файлов:",
+    "form_attachments_limit": "Общий размер вложений не должен превышать 10 МБ.",
     "form_message_label": "Краткое описание",
     "form_message_placeholder": "Коротко напишите: метраж, адрес, текущее состояние ванной, желаемый уровень и объём работ.",
     "form_select_placeholder": "Выберите",

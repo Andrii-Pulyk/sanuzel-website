@@ -169,6 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var attachmentsList = document.getElementById('attachmentsList');
         var attachmentsSummary = document.getElementById('attachmentsSummary');
         var queuedFiles = [];
+        var maxAttachmentBytes = 10 * 1024 * 1024;
 
         function formatFileSize(bytes) {
             if (bytes < 1024) return bytes + ' B';
@@ -258,6 +259,19 @@ document.addEventListener('DOMContentLoaded', function () {
             var honeypot = document.getElementById('website');
             if (honeypot && honeypot.value) {
                 e.preventDefault();
+                return;
+            }
+
+            var totalAttachmentBytes = queuedFiles.reduce(function (sum, file) {
+                return sum + file.size;
+            }, 0);
+            if (totalAttachmentBytes > maxAttachmentBytes) {
+                e.preventDefault();
+                if (formSuccess) formSuccess.classList.remove('visible');
+                if (formError) {
+                    formError.textContent = contactForm.getAttribute('data-attachments-limit') || 'Attachments exceed the 10 MB limit.';
+                    formError.classList.add('visible');
+                }
                 return;
             }
 

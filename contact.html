@@ -138,7 +138,7 @@
 }
     </script>
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="stylesheet" href="css/style.css?v=e0e0a07a">
+    <link rel="stylesheet" href="css/style.css?v=394b9914">
 </head>
 
 <body>
@@ -264,10 +264,9 @@
                     <form class="form" id="contactForm"
                           action="https://formsubmit.co/kontakt@mistrzlazienek.pl" method="POST" enctype="multipart/form-data"
                           data-success="Спасибо! Заявка отправлена — мы свяжемся с вами в ближайшее время." data-error="Не удалось отправить заявку. Позвоните нам или попробуйте ещё раз."
-                          data-submit="Отправить заявку" data-sending="Отправляем…">
+                          data-submit="Отправить заявку" data-sending="Отправляем…" data-attachments-limit="Общий размер вложений не должен превышать 10 МБ.">
                         <input type="hidden" name="_subject" value="Новая заявка с сайта — отделка санузлов">
                         <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_cc" value="89892615877a@gmail.com">
                         <input type="hidden" name="_next" value="https://mistrzlazienek.pl/contact.html?sent=1#contactForm">
                         <div class="form-grid">
@@ -334,7 +333,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="attachments">Добавьте фото или файл</label>
-                                <input type="file" id="attachments" name="Фото или файлы" accept="image/*,.pdf,.heic,.heif" multiple data-remove-label="Удалить файл">
+                                <input type="file" id="attachments" name="attachment" accept="image/*,.pdf,.heic,.heif" multiple data-remove-label="Удалить файл">
                                 <div class="form-help">Можно приложить фото ванной, проект или PDF с объёмом работ.</div>
                                 <div class="form-file-summary" id="attachmentsSummary" data-empty="Файлы не выбраны" data-selected="Выбрано файлов:">Файлы не выбраны</div>
                                 <div class="form-file-list" id="attachmentsList" aria-live="polite"></div>
@@ -406,6 +405,6 @@
     </div>
 
 
-    <script src="js/main.js?v=e0e0a07a"></script>
+    <script src="js/main.js?v=394b9914"></script>
 </body>
 </html>

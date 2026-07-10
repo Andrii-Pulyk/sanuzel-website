@@ -138,7 +138,7 @@
 }
     </script>
     <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
-    <link rel="stylesheet" href="../css/style.css?v=e0e0a07a">
+    <link rel="stylesheet" href="../css/style.css?v=394b9914">
 </head>
 
 <body>
@@ -264,10 +264,9 @@
                     <form class="form" id="contactForm"
                           action="https://formsubmit.co/kontakt@mistrzlazienek.pl" method="POST" enctype="multipart/form-data"
                           data-success="Dziękujemy! Zgłoszenie zostało wysłane — skontaktujemy się z Tobą w najbliższym czasie." data-error="Nie udało się wysłać zgłoszenia. Zadzwoń do nas albo spróbuj ponownie."
-                          data-submit="Wyślij zgłoszenie" data-sending="Wysyłamy…">
+                          data-submit="Wyślij zgłoszenie" data-sending="Wysyłamy…" data-attachments-limit="Łączny rozmiar załączników nie może przekraczać 10 MB.">
                         <input type="hidden" name="_subject" value="Nowe zgłoszenie ze strony — wykończenie łazienek">
                         <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_cc" value="89892615877a@gmail.com">
                         <input type="hidden" name="_next" value="https://mistrzlazienek.pl/pl/contact.html?sent=1#contactForm">
                         <div class="form-grid">
@@ -334,7 +333,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="attachments">Dodaj zdjęcia lub plik</label>
-                                <input type="file" id="attachments" name="Zdjęcia lub pliki" accept="image/*,.pdf,.heic,.heif" multiple data-remove-label="Usuń plik">
+                                <input type="file" id="attachments" name="attachment" accept="image/*,.pdf,.heic,.heif" multiple data-remove-label="Usuń plik">
                                 <div class="form-help">Możesz dodać zdjęcia łazienki, projekt albo PDF z zakresem prac.</div>
                                 <div class="form-file-summary" id="attachmentsSummary" data-empty="Nie wybrano plików" data-selected="Wybrano plików:">Nie wybrano plików</div>
                                 <div class="form-file-list" id="attachmentsList" aria-live="polite"></div>
@@ -406,6 +405,6 @@
     </div>
 
 
-    <script src="../js/main.js?v=e0e0a07a"></script>
+    <script src="../js/main.js?v=394b9914"></script>
 </body>
 </html>

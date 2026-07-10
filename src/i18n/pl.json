@@ -377,6 +377,7 @@
     "form_assets_remove": "Usuń plik",
     "form_assets_empty": "Nie wybrano plików",
     "form_assets_selected": "Wybrano plików:",
+    "form_attachments_limit": "Łączny rozmiar załączników nie może przekraczać 10 MB.",
     "form_message_label": "Krótki opis",
     "form_message_placeholder": "Napisz krótko: metraż, adres, stan łazienki, oczekiwany standard i zakres prac.",
     "form_select_placeholder": "Wybierz",

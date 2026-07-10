@@ -89,10 +89,9 @@
                     <form class="form" id="contactForm"
                           action="https://formsubmit.co/{{_lead_email}}" method="POST" enctype="multipart/form-data"
                           data-success="{{page.form_success}}" data-error="{{page.form_error}}"
-                          data-submit="{{page.form_submit}}" data-sending="{{page.form_sending}}">
+                          data-submit="{{page.form_submit}}" data-sending="{{page.form_sending}}" data-attachments-limit="{{page.form_attachments_limit}}">
                         <input type="hidden" name="_subject" value="{{page.form_subject}}">
                         <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_cc" value="{{_cc_email}}">
                         <input type="hidden" name="_next" value="{{_form_success_url}}">
                         <div class="form-grid">
@@ -159,7 +158,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="attachments">{{page.form_assets_label}}</label>
-                                <input type="file" id="attachments" name="{{page.form_assets_field}}" accept="image/*,.pdf,.heic,.heif" multiple data-remove-label="{{page.form_assets_remove}}">
+                                <input type="file" id="attachments" name="attachment" accept="image/*,.pdf,.heic,.heif" multiple data-remove-label="{{page.form_assets_remove}}">
                                 <div class="form-help">{{page.form_assets_help}}</div>
                                 <div class="form-file-summary" id="attachmentsSummary" data-empty="{{page.form_assets_empty}}" data-selected="{{page.form_assets_selected}}">{{page.form_assets_empty}}</div>
                                 <div class="form-file-list" id="attachmentsList" aria-live="polite"></div>
