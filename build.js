@@ -208,7 +208,12 @@ function getCspConnectSrc() {
     sources.push('https://www.google-analytics.com', 'https://region1.google-analytics.com');
   }
   if (getGoogleAdsConversionId()) {
-    sources.push('https://www.googleadservices.com', 'https://googleads.g.doubleclick.net');
+    sources.push(
+      'https://www.googleadservices.com',
+      'https://googleads.g.doubleclick.net',
+      'https://ad.doubleclick.net',
+      'https://www.google.com'
+    );
   }
   return sources.length ? ` ${sources.join(' ')}` : '';
 }
@@ -216,7 +221,12 @@ function getCspConnectSrc() {
 function getCspImgSrc() {
   const sources = [];
   if (getGoogleAdsConversionId()) {
-    sources.push('https://www.googleadservices.com', 'https://googleads.g.doubleclick.net');
+    sources.push(
+      'https://www.googleadservices.com',
+      'https://googleads.g.doubleclick.net',
+      'https://ad.doubleclick.net',
+      'https://www.google.com'
+    );
   }
   return sources.length ? ` ${sources.join(' ')}` : '';
 }
