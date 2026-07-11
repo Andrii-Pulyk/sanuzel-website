@@ -14,6 +14,12 @@ module.exports = {
   forminitFormId: 'mdg7xylojtp',
   // GA4 Measurement ID. Пример: G-XXXXXXXXXX. Оставь пустым, чтобы отключить аналитику.
   ga4MeasurementId: 'G-P9N5CG8ZZX',
+  // Google Ads destination ID для конверсий сайта. Пример: AW-1234567890.
+  googleAdsConversionId: 'AW-17993328154',
+  // Label конкретной лид-конверсии "Отправка формы для потенциальных клиентов".
+  googleAdsLeadConversionLabel: 'PGLNCIr3xM4cEJrM8YND',
+  googleAdsLeadConversionValue: '1.0',
+  googleAdsLeadConversionCurrency: 'PLN',
 
   // Название бренда для соцсетей (og:site_name) и schema.org.
   siteName: 'Mistrz Łazienek',

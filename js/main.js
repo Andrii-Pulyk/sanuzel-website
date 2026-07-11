@@ -6,24 +6,37 @@
 document.addEventListener('DOMContentLoaded', function () {
     var gaMeasurementIdMeta = document.querySelector('meta[name="ga4-measurement-id"]');
     var gaMeasurementId = gaMeasurementIdMeta ? gaMeasurementIdMeta.getAttribute('content') : '';
+    var googleAdsConversionIdMeta = document.querySelector('meta[name="google-ads-conversion-id"]');
+    var googleAdsConversionId = googleAdsConversionIdMeta ? googleAdsConversionIdMeta.getAttribute('content') : '';
+    var googleAdsLeadConversionLabelMeta = document.querySelector('meta[name="google-ads-lead-conversion-label"]');
+    var googleAdsLeadConversionLabel = googleAdsLeadConversionLabelMeta ? googleAdsLeadConversionLabelMeta.getAttribute('content') : '';
+    var googleAdsLeadConversionValueMeta = document.querySelector('meta[name="google-ads-lead-conversion-value"]');
+    var googleAdsLeadConversionValue = googleAdsLeadConversionValueMeta ? googleAdsLeadConversionValueMeta.getAttribute('content') : '';
+    var googleAdsLeadConversionCurrencyMeta = document.querySelector('meta[name="google-ads-lead-conversion-currency"]');
+    var googleAdsLeadConversionCurrency = googleAdsLeadConversionCurrencyMeta ? googleAdsLeadConversionCurrencyMeta.getAttribute('content') : '';
 
     function initAnalytics() {
-        if (!gaMeasurementId || window.gtag) return;
+        if ((!gaMeasurementId && !googleAdsConversionId) || window.gtag) return;
         window.dataLayer = window.dataLayer || [];
         window.gtag = function () {
             window.dataLayer.push(arguments);
         };
         window.gtag('js', new Date());
-        window.gtag('config', gaMeasurementId);
+        if (gaMeasurementId) {
+            window.gtag('config', gaMeasurementId);
+        }
+        if (googleAdsConversionId) {
+            window.gtag('config', googleAdsConversionId);
+        }
 
         var script = document.createElement('script');
         script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaMeasurementId);
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaMeasurementId || googleAdsConversionId);
         document.head.appendChild(script);
     }
 
     function trackEvent(name, params) {
-        if (!gaMeasurementId) return;
+        if (!gaMeasurementId && !googleAdsConversionId) return;
         initAnalytics();
         window.gtag('event', name, params || {});
     }
@@ -289,6 +302,19 @@ document.addEventListener('DOMContentLoaded', function () {
                         form_id: contactForm.id || 'contactForm',
                         page_location: window.location.pathname
                     });
+                    trackEvent('generate_lead', {
+                        form_id: contactForm.id || 'contactForm',
+                        event_category: 'lead',
+                        event_label: 'contact_form',
+                        page_location: window.location.pathname
+                    });
+                    if (googleAdsConversionId && googleAdsLeadConversionLabel) {
+                        trackEvent('conversion', {
+                            send_to: googleAdsConversionId + '/' + googleAdsLeadConversionLabel,
+                            value: parseFloat(googleAdsLeadConversionValue || '1') || 1,
+                            currency: googleAdsLeadConversionCurrency || 'PLN'
+                        });
+                    }
                     if (formSuccess) {
                         formSuccess.classList.add('visible');
                         setTimeout(function () { formSuccess.classList.remove('visible'); }, 8000);

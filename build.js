@@ -182,13 +182,43 @@ function getGaMeasurementId() {
   return (config.ga4MeasurementId || '').trim();
 }
 
+function getGoogleAdsConversionId() {
+  return (config.googleAdsConversionId || '').trim();
+}
+
+function getGoogleAdsLeadConversionLabel() {
+  return (config.googleAdsLeadConversionLabel || '').trim();
+}
+
+function getGoogleAdsLeadConversionValue() {
+  return String(config.googleAdsLeadConversionValue || '').trim();
+}
+
+function getGoogleAdsLeadConversionCurrency() {
+  return String(config.googleAdsLeadConversionCurrency || '').trim();
+}
+
 function getCspScriptSrc() {
-  return getGaMeasurementId() ? " https://www.googletagmanager.com" : '';
+  return (getGaMeasurementId() || getGoogleAdsConversionId()) ? " https://www.googletagmanager.com" : '';
 }
 
 function getCspConnectSrc() {
-  if (!getGaMeasurementId()) return '';
-  return ' https://www.google-analytics.com https://region1.google-analytics.com';
+  const sources = [];
+  if (getGaMeasurementId()) {
+    sources.push('https://www.google-analytics.com', 'https://region1.google-analytics.com');
+  }
+  if (getGoogleAdsConversionId()) {
+    sources.push('https://www.googleadservices.com', 'https://googleads.g.doubleclick.net');
+  }
+  return sources.length ? ` ${sources.join(' ')}` : '';
+}
+
+function getCspImgSrc() {
+  const sources = [];
+  if (getGoogleAdsConversionId()) {
+    sources.push('https://www.googleadservices.com', 'https://googleads.g.doubleclick.net');
+  }
+  return sources.length ? ` ${sources.join(' ')}` : '';
 }
 
 // ─── Города (мультигородские лендинги) ───────────────────────────────────────
@@ -530,10 +560,15 @@ for (const page of config.pages) {
       _assets: assetsPrefix,
       _asset_version: ASSET_VERSION,
       _ga_measurement_id: getGaMeasurementId(),
+      _google_ads_conversion_id: getGoogleAdsConversionId(),
+      _google_ads_lead_conversion_label: getGoogleAdsLeadConversionLabel(),
+      _google_ads_lead_conversion_value: getGoogleAdsLeadConversionValue(),
+      _google_ads_lead_conversion_currency: getGoogleAdsLeadConversionCurrency(),
       _lead_email: config.leadEmail,
       _cc_email: config.ccEmail || '',
       _csp_script_src: getCspScriptSrc(),
       _csp_connect_src: getCspConnectSrc(),
+      _csp_img_src: getCspImgSrc(),
       _form_action: `https://forminit.com/f/${config.forminitFormId}`,
       _form_success_url: canonicalUrl + '?sent=1#contactForm',
       _canonical_url: canonicalUrl,
@@ -601,10 +636,15 @@ if (CITIES.length) {
         _assets: '../',
         _asset_version: ASSET_VERSION,
         _ga_measurement_id: getGaMeasurementId(),
+        _google_ads_conversion_id: getGoogleAdsConversionId(),
+        _google_ads_lead_conversion_label: getGoogleAdsLeadConversionLabel(),
+        _google_ads_lead_conversion_value: getGoogleAdsLeadConversionValue(),
+        _google_ads_lead_conversion_currency: getGoogleAdsLeadConversionCurrency(),
         _lead_email: config.leadEmail,
         _cc_email: config.ccEmail || '',
         _csp_script_src: getCspScriptSrc(),
         _csp_connect_src: getCspConnectSrc(),
+        _csp_img_src: getCspImgSrc(),
         _form_action: `https://forminit.com/f/${config.forminitFormId}`,
         _form_success_url: config.siteUrl + BASE + '/' + city.slug + '/?sent=1#contactForm',
         _canonical_url: config.siteUrl + BASE + '/' + city.slug + '/',

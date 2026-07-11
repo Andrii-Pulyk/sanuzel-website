@@ -2,7 +2,7 @@
 <html lang="{{meta.lang}}" dir="{{meta.dir}}">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'{{_csp_script_src}}; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://forminit.com{{_csp_connect_src}}; form-action 'self' https://forminit.com; base-uri 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'{{_csp_script_src}}; style-src 'self'; img-src 'self' data:{{_csp_img_src}}; font-src 'self'; connect-src 'self' https://forminit.com{{_csp_connect_src}}; form-action 'self' https://forminit.com; base-uri 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +24,10 @@
     <meta name="twitter:description" content="{{page.meta_description}}">
     <meta name="twitter:image" content="{{_og_image}}">
     <meta name="ga4-measurement-id" content="{{_ga_measurement_id}}">
+    <meta name="google-ads-conversion-id" content="{{_google_ads_conversion_id}}">
+    <meta name="google-ads-lead-conversion-label" content="{{_google_ads_lead_conversion_label}}">
+    <meta name="google-ads-lead-conversion-value" content="{{_google_ads_lead_conversion_value}}">
+    <meta name="google-ads-lead-conversion-currency" content="{{_google_ads_lead_conversion_currency}}">
     <title>{{page.title}}</title>
     {{_hreflang_tags}}
     <link rel="canonical" href="{{_canonical_url}}">
