@@ -467,15 +467,27 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ----- Активная ссылка навигации ----- */
     (function () {
         var currentPath = window.location.pathname;
+        var currentHash = window.location.hash;
         var navLinks = document.querySelectorAll('.nav a:not(.lang-toggle-mobile), .footer-links a');
         navLinks.forEach(function (link) {
             var href = link.getAttribute('href');
             if (!href || href.indexOf('#') === 0) return;
-            var linkPath = new URL(href, window.location.origin).pathname;
-            var isActive = currentPath === linkPath
+
+            var linkUrl = new URL(href, window.location.origin);
+            var linkPath = linkUrl.pathname;
+            var linkHash = linkUrl.hash;
+            var isSamePath = currentPath === linkPath
                 || (currentPath === '/' && linkPath === '/index.html')
                 || (currentPath === '/index.html' && linkPath === '/')
                 || (currentPath.endsWith('/') && linkPath === currentPath + 'index.html');
+            var isActive = false;
+
+            if (linkHash) {
+                isActive = isSamePath && currentHash === linkHash;
+            } else {
+                isActive = isSamePath && !currentHash;
+            }
+
             if (isActive) link.classList.add('active');
         });
     })();

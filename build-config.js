@@ -59,7 +59,7 @@ module.exports = {
     // Ссылки на профили (Google Business Profile, соцсети) — заполни, когда появятся.
     // GBP добавим после видео-верификации; Facebook (Interno Perfetto) — когда/если переименуем в Mistrz Łazienek.
     sameAs: [
-      'https://www.oferteo.pl/dabudinwest-spolka-z-ograniczona-odpowiedzialnoscia/firma/5683720',
+      'https://www.oferteo.pl/mistrz-lazienek/firma/5683720',
     ],
   },
 
