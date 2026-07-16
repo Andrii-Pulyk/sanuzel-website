@@ -8,6 +8,8 @@ module.exports = {
 
   // Контактный email бренда, показывается на сайте и используется в контенте.
   leadEmail: 'kontakt@mistrzlazienek.pl',
+  whatsappUrl: 'https://wa.me/48795656642',
+  telegramUrl: 'https://t.me/+48795656642',
   // Email аккаунта Forminit (Free plan): сюда реально приходят уведомления по форме.
   ccEmail: '89892615877a@gmail.com',
   // ID формы в Forminit. Текущий backend формы: https://forminit.com/f/<formId>

@@ -13,6 +13,10 @@
                 <a href="{{_nav_works_url}}">{{nav.gallery}}</a>
                 <a href="{{_nav_home_url}}#reviews">{{nav.reviews}}</a>
                 <a href="{{_nav_contacts_url}}">{{nav.contacts}}</a>
+                <div class="nav-messengers">
+                    <a href="{{_whatsapp_url}}" class="contact-channel contact-channel-whatsapp" target="_blank" rel="noopener noreferrer" data-analytics-event="click_whatsapp" aria-label="{{nav.whatsapp}}">WhatsApp</a>
+                    <a href="{{_telegram_url}}" class="contact-channel contact-channel-telegram" target="_blank" rel="noopener noreferrer" data-analytics-event="click_telegram" aria-label="{{nav.telegram}}">Telegram</a>
+                </div>
                 {{_lang_switcher_mobile}}
             </nav>
 
@@ -21,6 +25,10 @@
                 <a href="tel:{{footer.phone_href}}" class="header-phone">
                     {{footer.phone}}<small>{{nav.phone_hint}}</small>
                 </a>
+                <div class="header-messengers">
+                    <a href="{{_whatsapp_url}}" class="messenger-icon messenger-whatsapp" target="_blank" rel="noopener noreferrer" data-analytics-event="click_whatsapp" aria-label="{{nav.whatsapp}}" title="WhatsApp">WA</a>
+                    <a href="{{_telegram_url}}" class="messenger-icon messenger-telegram" target="_blank" rel="noopener noreferrer" data-analytics-event="click_telegram" aria-label="{{nav.telegram}}" title="Telegram">TG</a>
+                </div>
                 <a href="{{_nav_contacts_url}}" class="btn btn-primary btn-header" data-analytics-event="click_contact_cta" data-analytics-label="{{nav.cta}}">{{nav.cta}}</a>
             </div>
 

@@ -233,6 +233,16 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
+        link.addEventListener('click', function () {
+            trackEvent('click_email', {
+                email_address: (link.getAttribute('href') || '').replace(/^mailto:/, ''),
+                link_text: getAnalyticsLabel(link),
+                page_location: window.location.pathname
+            });
+        });
+    });
+
     document.querySelectorAll('[data-analytics-event]').forEach(function (el) {
         el.addEventListener('click', function () {
             trackEvent(el.getAttribute('data-analytics-event'), {

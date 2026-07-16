@@ -290,6 +290,26 @@ ul { list-style: none; }
 .header-phone small { color: var(--text-3); font-size: 0.66rem; font-weight: 500; letter-spacing: 0.04em; }
 .header-phone:hover { color: var(--teal); }
 
+.header-messengers, .nav-messengers { display: flex; align-items: center; gap: 7px; }
+.messenger-icon {
+    width: 34px; height: 34px;
+    display: grid; place-items: center;
+    border: 1px solid var(--line-2);
+    border-radius: 50%;
+    color: var(--text);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    transition: transform var(--t), border-color var(--t), background var(--t);
+}
+.messenger-icon:hover { transform: translateY(-2px); border-color: transparent; }
+.messenger-whatsapp:hover { background: #25d366; color: #07130b; }
+.messenger-telegram:hover { background: #229ed9; color: #061319; }
+.nav-messengers { display: none; }
+.contact-channel { font-weight: 700; }
+.contact-channel-whatsapp { color: #4fd879; }
+.contact-channel-telegram { color: #53bce9; }
+
 .btn-header { padding: 11px 22px; font-size: 0.86rem; }
 
 .menu-toggle {
@@ -1381,6 +1401,7 @@ ul { list-style: none; }
     .nav > a { font-size: 1.1rem; padding: 12px 0; border-bottom: 1px solid var(--line); }
     .nav > a::after { display: none; }
     .header-side { display: none; }
+    .nav-messengers { display: flex; gap: 18px; padding: 14px 0 4px; }
     .menu-toggle { display: flex; margin-left: auto; }
     .city-switch { order: -1; }
     .city-switch-menu { left: 0; right: auto; }
