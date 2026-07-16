@@ -47,6 +47,26 @@ document.addEventListener('DOMContentLoaded', function () {
         return (el.textContent || '').replace(/\s+/g, ' ').trim();
     }
 
+    function normalizePhoneNumber(value) {
+        var raw = (value || '').trim();
+        var digits = raw.replace(/\D/g, '');
+        if (digits.indexOf('00') === 0) digits = digits.slice(2);
+        if (digits.length === 9) digits = '48' + digits;
+        if (digits.length < 11 || digits.length > 15) return '';
+        return '+' + digits;
+    }
+
+    function setEnhancedConversionData(email, phone) {
+        var userData = {};
+        var normalizedEmail = (email || '').trim().toLowerCase();
+        var normalizedPhone = normalizePhoneNumber(phone);
+        if (normalizedEmail) userData.email = normalizedEmail;
+        if (normalizedPhone) userData.phone_number = normalizedPhone;
+        if (!Object.keys(userData).length) return;
+        initAnalytics();
+        window.gtag('set', 'user_data', userData);
+    }
+
     initAnalytics();
 
     /* ----- Шапка: тень при скролле ----- */
@@ -294,6 +314,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = labelSending; }
 
             var formData = new FormData(contactForm);
+            var leadEmail = formData.get('fi-text-email') || '';
+            var leadPhone = formData.get('fi-text-phone') || '';
+            var transactionId = 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
 
             fetch(contactForm.action, {
                 method: 'POST',
@@ -306,6 +329,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     return res.text();
                 })
                 .then(function () {
+                    setEnhancedConversionData(leadEmail, leadPhone);
                     contactForm.reset();
                     formStarted = false;
                     trackEvent('form_submit', {
@@ -322,7 +346,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         trackEvent('conversion', {
                             send_to: googleAdsConversionId + '/' + googleAdsLeadConversionLabel,
                             value: parseFloat(googleAdsLeadConversionValue || '1') || 1,
-                            currency: googleAdsLeadConversionCurrency || 'PLN'
+                            currency: googleAdsLeadConversionCurrency || 'PLN',
+                            transaction_id: transactionId
                         });
                     }
                     if (formSuccess) {
