@@ -291,6 +291,7 @@ ul { list-style: none; }
 .header-phone:hover { color: var(--teal); }
 
 .header-messengers, .nav-messengers { display: flex; align-items: center; gap: 7px; }
+.header-messengers-mobile { display: none; }
 .messenger-icon {
     width: 34px; height: 34px;
     display: grid; place-items: center;
@@ -1419,8 +1420,17 @@ ul { list-style: none; }
     .nav > a { font-size: 1.1rem; padding: 12px 0; border-bottom: 1px solid var(--line); }
     .nav > a::after { display: none; }
     .header-side { display: none; }
+    .header .container { gap: 10px; }
+    .header-messengers-mobile {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-left: auto;
+    }
+    .header-messengers-mobile .messenger-icon { width: 32px; height: 32px; }
+    .header-messengers-mobile .messenger-icon .brand-icon { width: 18px; height: 18px; }
     .nav-messengers { display: flex; gap: 18px; padding: 14px 0 4px; }
-    .menu-toggle { display: flex; margin-left: auto; }
+    .menu-toggle { display: flex; }
     .city-switch { order: -1; }
     .city-switch-menu { left: 0; right: auto; }
 
