@@ -305,6 +305,24 @@ ul { list-style: none; }
 .messenger-icon:hover { transform: translateY(-2px); border-color: transparent; }
 .messenger-whatsapp:hover { background: #25d366; color: #07130b; }
 .messenger-telegram:hover { background: #229ed9; color: #061319; }
+
+.brand-icon {
+    width: 1.15em;
+    height: 1.15em;
+    flex: 0 0 auto;
+    fill: currentColor;
+}
+
+.messenger-icon .brand-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.contact-channel {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
 .nav-messengers { display: none; }
 .contact-channel { font-weight: 700; }
 .contact-channel-whatsapp { color: #4fd879; }
