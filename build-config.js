@@ -25,10 +25,11 @@ module.exports = {
 
   // Название бренда для соцсетей (og:site_name) и schema.org.
   siteName: 'Mistrz Łazienek',
-  // Картинка для превью в соцсетях/мессенджерах (og:image). Путь от корня сайта.
-  ogImage: 'images/hero-background-wide.png',
-  ogImageWidth: 1672,
-  ogImageHeight: 941,
+  // Реальное фото выполненной работы для превью в поиске и соцсетях.
+  // Оно также используется как primaryImageOfPage и добавляется в sitemap.xml.
+  ogImage: 'images/works/wola-2025/06.jpg',
+  ogImageWidth: 1200,
+  ogImageHeight: 1600,
 
   // ─── Данные бизнеса для микроразметки schema.org (JSON-LD) ─────────────────
   // На основе этого блока build.js генерирует LocalBusiness / Service / FAQPage /

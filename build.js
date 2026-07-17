@@ -460,7 +460,7 @@ function generateStructuredData(page, pageData, lang, canonicalUrl, t) {
     publisher: { '@id': HOME_URL + '#business' },
   });
 
-  graph.push({
+  const webPage = {
     '@type': 'WebPage',
     '@id': canonicalUrl + '#webpage',
     url: canonicalUrl,
@@ -470,7 +470,18 @@ function generateStructuredData(page, pageData, lang, canonicalUrl, t) {
     isPartOf: { '@id': HOME_URL + '#website' },
     about: { '@id': HOME_URL + '#business' },
     breadcrumb: { '@id': canonicalUrl + '#breadcrumb' },
-  });
+  };
+  if (config.ogImage) {
+    webPage.primaryImageOfPage = {
+      '@type': 'ImageObject',
+      '@id': canonicalUrl + '#primaryimage',
+      url: absUrl(config.ogImage),
+      contentUrl: absUrl(config.ogImage),
+      width: config.ogImageWidth,
+      height: config.ogImageHeight,
+    };
+  }
+  graph.push(webPage);
 
   graph.push(breadcrumbNode(page, pageData, canonicalUrl, t));
 
@@ -713,7 +724,10 @@ for (const page of config.pages) {
     const changefreq = page.slug === 'index' ? 'weekly'
       : page.slug === 'privacy' ? 'yearly'
       : 'monthly';
-    sitemapUrls.push(`  <url>\n    <loc>${url}</loc>\n    <lastmod>${SITEMAP_DATE}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`);
+    const imageEntry = config.ogImage
+      ? `\n    <image:image>\n      <image:loc>${absUrl(config.ogImage)}</image:loc>\n    </image:image>`
+      : '';
+    sitemapUrls.push(`  <url>\n    <loc>${url}</loc>\n    <lastmod>${SITEMAP_DATE}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>${imageEntry}\n  </url>`);
   }
 }
 
@@ -723,7 +737,8 @@ for (const city of CITIES) {
 }
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${sitemapUrls.join('\n')}
 </urlset>
 `;
