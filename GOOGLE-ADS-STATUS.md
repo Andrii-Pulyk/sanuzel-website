@@ -1,6 +1,6 @@
 # Google Ads campaign status
 
-Last updated: `2026-07-16`, Europe/Warsaw
+Last updated: `2026-08-17`, Europe/Warsaw
 
 ## Mandatory rules
 
@@ -26,16 +26,18 @@ Last updated: `2026-07-16`, Europe/Warsaw
 
 ## Current diagnosis
 
-The only actionable campaign warning visible on `2026-07-16` is:
+Checked live via campaign diagnostics on `2026-08-17`. Campaign header warning: `За последнюю неделю в кампании не регистрировались конверсии`. Two specific warnings inside:
 
-- `Недостаточно релевантных ключевых слов`
+- `Цели` tab: `В настройках расширенного отслеживания конверсий есть проблемы, влияющие на эффективность`, drilling in shows the affected conversion action `Отправка формы для потенциальных клиентов (1)` (Основные/primary, source TAG) has status `Нет недавних данных`.
+- `Аудитории` tab: `Ваша реклама показывается не по всем возможным поисковым запросам` — this is Google's usual broad-match keyword recommendation. **Do not apply** (see mandatory rules above).
+- `Аккаунт`, `Объявления`, `Бюджет и ставки` tabs: all green/no issues.
 
-Important interpretation:
+Investigated whether the "no recent data" warning means the conversion tag is broken:
 
-- The detailed diagnostics show goals/conversions as completed.
-- The green conversion item states that Maximize Conversions is focusing on conversions.
-- The warning is a reach/keyword recommendation, not evidence that the website conversion tag is currently broken.
-- Google may display this warning under the `Аудитории` tab, but its actual text still concerns insufficient relevant keywords.
+- Reviewed `src/js/main.js`: on successful form submit (after the Forminit fetch resolves), it fires `gtag('event', 'conversion', {send_to: 'AW-17993328154/PGLNCIr3xM4cEJrM8YND', ...})` with a unique `transaction_id`, and calls `setEnhancedConversionData()` (email/phone) beforehand. Logic is correct.
+- Reviewed CSP in `src/templates/partials/head.html` (generated via `build.js` `getCspScriptSrc`/`getCspConnectSrc`/`getCspImgSrc`): confirmed the deployed `index.html`/`pl/index.html` CSP headers whitelist `googletagmanager.com`, `google-analytics.com`, `region1.google-analytics.com`, `googleadservices.com`, `googleads.g.doubleclick.net`, `ad.doubleclick.net`, `google.com` — nothing is being blocked by CSP.
+- Cross-checked Forminit notification emails (`notifications@forminit-mail.com` → `89892615877a@gmail.com`, some filed under Trash): real lead submissions occurred on `2026-07-14` (Artiom) and `2026-08-01` (Samuel Klonowski). Weekly Forminit summaries confirm 0 submissions for the weeks of `2026-07-20`–`2026-07-26` and `2026-08-03`–`2026-08-09`.
+- Conclusion: the conversion tag and code are working correctly. The "Нет недавних данных" warning just means no form has been submitted in the last ~2 weeks (last one was `2026-08-01`), not that tracking is broken. The account owner confirmed at least one of these submissions was already counted as a conversion in Google Ads. No code changes needed; re-check will clear itself once a new lead comes in.
 - Audiences do not need to be configured now. Do not use audience `Targeting`, because it could sharply restrict reach. Observation audiences may be added later for reporting only.
 
 ## Performance snapshot
@@ -50,6 +52,16 @@ Date range: `2026-06-19` to `2026-07-16`
 - Reported conversions: `0.00`
 
 These figures include historical AI Max traffic and precede reliable conversion reporting. Do not use them alone to remove otherwise relevant keywords.
+
+Latest snapshot, date range `2026-08-10` to `2026-08-16` (checked `2026-08-17`):
+
+- Impressions: `218`
+- Clicks: `26`
+- CTR: `11.93%`
+- Average CPC: `8.78 PLN`
+- Cost: `228.26 PLN`
+- Reported conversions: `0.00` for this 7-day window (last actual lead was `2026-08-01`, outside this window — see Current diagnosis).
+- Optimization score: `70.8%`.
 
 ## AI Max
 
@@ -126,7 +138,7 @@ Planned Ads usage after synchronization:
 
 1. Wait for Google Ads/GA4 link synchronization, then import the five GA4 key events as secondary conversions.
 2. Re-check the two new keywords after review and confirm whether `Мало запросов` remains.
-3. Re-check campaign diagnostics after Google processes the keyword additions; the warning may persist because Google prefers its broad-match recommendations.
-4. Do not change conversion code or submit more test leads solely to clear the keyword warning.
+3. Re-check campaign diagnostics after Google processes the keyword additions; the `Аудитории` broad-match warning may persist because Google prefers its own recommendations — this is expected, do not apply it.
+4. Do not change conversion code or submit more test leads solely to clear the "Нет недавних данных" warning — it clears itself once a new real lead comes in (code and CSP were verified correct on `2026-08-17`).
 5. Review new search terms after enough non-AI-Max traffic accumulates; add only clearly irrelevant terms as negative keywords.
 6. Evaluate primary form conversions before expanding keywords further.
