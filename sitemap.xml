@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://mistrzlazienek.pl/</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://mistrzlazienek.pl/pl/</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -21,7 +21,7 @@
   </url>
   <url>
     <loc>https://mistrzlazienek.pl/services.html</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://mistrzlazienek.pl/pl/services.html</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -39,7 +39,7 @@
   </url>
   <url>
     <loc>https://mistrzlazienek.pl/works.html</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -48,7 +48,7 @@
   </url>
   <url>
     <loc>https://mistrzlazienek.pl/pl/works.html</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -57,7 +57,7 @@
   </url>
   <url>
     <loc>https://mistrzlazienek.pl/contact.html</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -66,7 +66,7 @@
   </url>
   <url>
     <loc>https://mistrzlazienek.pl/pl/contact.html</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -75,7 +75,7 @@
   </url>
   <url>
     <loc>https://mistrzlazienek.pl/privacy.html</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <image:image>
@@ -84,7 +84,7 @@
   </url>
   <url>
     <loc>https://mistrzlazienek.pl/pl/privacy.html</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <image:image>

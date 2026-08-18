@@ -29,20 +29,20 @@
     "address_short": "ul. Hoża 86, Warszawa",
     "privacy_policy": "Polityka prywatności",
     "copyright": "&copy; 2022–2026 Mistrz Łazienek. Podmiot prawny: DABUDINWEST sp. z o.o.",
-    "brand_description": "Mistrz Łazienek — remont i wykończenie łazienek oraz pomieszczeń sanitarnych pod klucz. Umowa, stały kosztorys i 2 lata gwarancji na prace.",
+    "brand_description": "Mistrz Łazienek — remont i wykończenie łazienek oraz pomieszczeń sanitarnych pod klucz. Umowa, szczegółowy kosztorys i 2 lata gwarancji na prace.",
     "disclaimer": "NIP 1133056595 · Informacje nie stanowią oferty publicznej."
   },
 
   "index": {
     "title": "Remont łazienki pod klucz w Warszawie — Mistrz Łazienek",
-    "meta_description": "Remont łazienki pod klucz w Warszawie i okolicach. Pełny zakres prac: demontaż, hydraulika, elektryka, płytki i biały montaż. Stały kosztorys, umowa i 2 lata gwarancji. Mistrz Łazienek.",
+    "meta_description": "Remont łazienki pod klucz w Warszawie i okolicach. Pełny zakres prac: demontaż, hydraulika, elektryka, płytki i biały montaż. Szczegółowy kosztorys, umowa i 2 lata gwarancji. Mistrz Łazienek.",
 
     "hero_title": "Remont łazienki <span class=\"accent\">pod klucz w Warszawie</span>",
-    "hero_subtitle": "Realizujemy remonty łazienek w Warszawie i okolicach: od demontażu i instalacji po płytki, armaturę i biały montaż. Stały kosztorys, umowa, jasne terminy i 2 lata gwarancji na prace.",
+    "hero_subtitle": "Realizujemy remonty łazienek w Warszawie i okolicach: od demontażu i instalacji po płytki, armaturę i biały montaż. Szczegółowy kosztorys, umowa, jasne terminy i 2 lata gwarancji na prace.",
     "hero_cta_contact": "Oblicz koszt",
     "hero_cta_services": "Zobacz realizacje",
     "hero_cta_reviews": "Opinie na Oferteo",
-    "hero_point_1": "Bezpłatny pomiar i kosztorys",
+    "hero_point_1": "Wysoki standard wykończenia",
     "hero_point_2": "Pracujemy na podstawie umowy",
     "hero_point_3": "Pracujemy bez podwykonawców",
     "hero_badge_value": "2 lata",
@@ -53,8 +53,8 @@
 
     "trust_1_t": "Umowa",
     "trust_1_d": "oficjalne warunki",
-    "trust_2_t": "Stały kosztorys",
-    "trust_2_d": "cena się nie zmienia",
+    "trust_2_t": "Szczegółowy kosztorys",
+    "trust_2_d": "wycena każdego etapu prac",
     "trust_3_t": "Terminy",
     "trust_3_d": "2–4 tygodnie pod klucz",
     "trust_4_t": "Bez podwykonawców",
@@ -135,8 +135,8 @@
     "adv_eyebrow": "Dlaczego my",
     "adv_title": "Robimy tak, żeby nie wracać z poprawkami",
     "adv_subtitle": "Przejrzyste warunki, odpowiedzialność za efekt i dokładność na każdym etapie.",
-    "adv_1_title": "Stały kosztorys",
-    "adv_1_desc": "Koszt zapisujemy w umowie przed rozpoczęciem prac. Bez kwot, które nagle pojawiają się w trakcie remontu.",
+    "adv_1_title": "Szczegółowy kosztorys",
+    "adv_1_desc": "Każdy etap i pozycję wyceniamy osobno i zapisujemy w umowie przed rozpoczęciem prac.",
     "adv_2_title": "Umowa i gwarancja",
     "adv_2_desc": "Oficjalna umowa, protokoły odbioru i 2 lata gwarancji na prace. Odpowiadamy za rezultat.",
     "adv_3_title": "Terminy w umowie",
@@ -212,7 +212,7 @@
     "faq_4_a": "2-letnia gwarancja obejmuje wykonane prace: układanie płytek, hydroizolację, prace hydrauliczne i elektryczne. W okresie gwarancyjnym bezpłatnie usuwamy usterki powstałe z naszej winy.",
 
     "cta_title": "Poznaj koszt remontu swojej łazienki",
-    "cta_subtitle": "Zostaw zgłoszenie — przyjedziemy na bezpłatny pomiar i przygotujemy kosztorys ze stałą ceną.",
+    "cta_subtitle": "Zostaw zgłoszenie — przyjedziemy na pomiar i przygotujemy szczegółowy kosztorys.",
     "cta_button": "Wyślij zgłoszenie"
   },
 
@@ -258,12 +258,12 @@
 
   "city": {
     "title": "Wykończenie łazienki pod klucz w %CITY_IN% — Mistrz Łazienek",
-    "meta_description": "Wykończenie i remont łazienek pod klucz w %CITY_IN%. Pełny zakres: demontaż, hydroizolacja, hydraulika, elektryka, płytki. Umowa, stały kosztorys, 2 lata gwarancji.",
+    "meta_description": "Wykończenie i remont łazienek pod klucz w %CITY_IN%. Pełny zakres: demontaż, hydroizolacja, hydraulika, elektryka, płytki. Umowa, szczegółowy kosztorys, 2 lata gwarancji.",
     "badge": "Wykończenie pod klucz w %CITY_IN%",
     "h1": "Wykończenie łazienek pod klucz <span class=\"accent\">w %CITY_IN%</span>",
-    "tagline": "Remont łazienek i pomieszczeń sanitarnych w %CITY_IN% i okolicach: od demontażu po końcowe płytki. Stały kosztorys, umowa i 2 lata gwarancji na prace.",
+    "tagline": "Remont łazienek i pomieszczeń sanitarnych w %CITY_IN% i okolicach: od demontażu po końcowe płytki. Szczegółowy kosztorys, umowa i 2 lata gwarancji na prace.",
     "cta": "Umów pomiar w %CITY_IN%",
-    "meta_1": "Bezpłatny pomiar",
+    "meta_1": "Wysoki standard wykończenia",
     "meta_2": "Umowa i 2 lata gwarancji",
     "meta_3": "Własny mistrz",
     "districts_eyebrow": "Lokalizacja",
@@ -271,15 +271,15 @@
     "districts_subtitle": "Przyjeżdżamy na pomiar do każdej dzielnicy %CITY_GEN% i okolic. Remont łazienek w mieszkaniach, nowych inwestycjach i domach prywatnych.",
     "gallery_title": "Nasze łazienki w %CITY_IN%: przed i po",
     "cta_title": "Oblicz remont łazienki w %CITY_IN%",
-    "cta_subtitle": "Zostaw zgłoszenie — przyjedziemy na bezpłatny pomiar w %CITY_IN% i ustalimy cenę w umowie."
+    "cta_subtitle": "Zostaw zgłoszenie — przyjedziemy na pomiar w %CITY_IN% i przygotujemy szczegółowy kosztorys."
   },
 
   "services": {
     "title": "Usługi i ceny remontu łazienki pod klucz — Mistrz Łazienek",
-    "meta_description": "Remont łazienki pod klucz w Warszawie: demontaż, hydroizolacja, hydraulika, elektryka, płytki i biały montaż. Stały kosztorys, 2 lata gwarancji.",
+    "meta_description": "Remont łazienki pod klucz w Warszawie: demontaż, hydroizolacja, hydraulika, elektryka, płytki i biały montaż. Szczegółowy kosztorys, 2 lata gwarancji.",
     "badge": "Remont pod klucz",
     "hero_title": "Remont łazienki pod klucz",
-    "hero_tagline": "Pełny zakres prac w łazience i pomieszczeniu sanitarnym: od demontażu i prac przygotowawczych po układanie płytek, montaż armatury i końcowy odbiór. Pod klucz, na podstawie umowy, ze stałą ceną.",
+    "hero_tagline": "Pełny zakres prac w łazience i pomieszczeniu sanitarnym: od demontażu i prac przygotowawczych po układanie płytek, montaż armatury i końcowy odbiór. Pod klucz, na podstawie umowy, ze szczegółowym kosztorysem.",
     "hero_cta": "Otrzymaj kosztorys",
 
     "included_title": "Co obejmuje remont łazienki pod klucz",
@@ -309,9 +309,9 @@
     "process_title": "Etapy prac",
     "process_subtitle": "Każda łazienka przechodzi ten sam dopracowany cykl — od pomiaru po gwarancję.",
     "process_1_title": "Pomiar i kosztorys",
-    "process_1_desc": "Bezpłatny przyjazd mistrza, pomiar pomieszczenia i przygotowanie szczegółowego kosztorysu według rodzajów prac.",
+    "process_1_desc": "Przyjazd mistrza, pomiar pomieszczenia i przygotowanie szczegółowego kosztorysu według rodzajów prac.",
     "process_2_title": "Umowa",
-    "process_2_desc": "Podpisujemy umowę ze stałą ceną, harmonogramem i zobowiązaniami gwarancyjnymi.",
+    "process_2_desc": "Podpisujemy umowę ze szczegółowym kosztorysem, harmonogramem i zobowiązaniami gwarancyjnymi.",
     "process_3_title": "Prace przygotowawcze",
     "process_3_desc": "Demontaż, rozprowadzenie hydrauliki i elektryki, hydroizolacja, tynkowanie i posadzka.",
     "process_4_title": "Wykończenie",
@@ -366,9 +366,9 @@
 
   "contact": {
     "title": "Kontakt — Mistrz Łazienek, wykończenie łazienek w Warszawie",
-    "meta_description": "Kontakt Mistrz Łazienek — wykończenie łazienek pod klucz w Warszawie. Telefon, email, adres i formularz zgłoszenia na bezpłatny pomiar.",
+    "meta_description": "Kontakt Mistrz Łazienek — wykończenie łazienek pod klucz w Warszawie. Telefon, email, adres i formularz zgłoszenia na pomiar.",
     "hero_title": "Skontaktuj się <span class=\"accent\">z nami</span>",
-    "hero_subtitle": "Zostaw zgłoszenie albo zadzwoń — odpowiemy na pytania i umówimy bezpłatny pomiar.",
+    "hero_subtitle": "Zostaw zgłoszenie albo zadzwoń — odpowiemy na pytania i umówimy pomiar.",
     "phone_label": "Telefon",
     "email_label": "Email",
     "address_label": "Adres",
