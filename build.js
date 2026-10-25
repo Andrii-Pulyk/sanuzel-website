@@ -416,6 +416,7 @@ function worksNode(indexData, canonicalUrl) {
   const projects = [
     { index: 12, image: 'images/works/wlochi-2026/cover.jpg', anchor: 'project-5' },
     { index: 13, image: 'images/works/wolomin-2026/cover.jpg', anchor: 'project-6' },
+    { index: 14, image: 'images/works/bialoleka-2026/cover.jpg', anchor: 'project-7' },
     { index: 2, image: 'images/works/wola-2025/06.jpg', anchor: 'project-1' },
     { index: 1, image: 'images/works/bialoleka-2024/cover.jpg', anchor: 'project-2' },
     { index: 3, image: 'images/works/zoliborz-2026/cover.jpg', anchor: 'project-3' },
