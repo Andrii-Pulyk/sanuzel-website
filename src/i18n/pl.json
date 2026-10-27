@@ -16,8 +16,7 @@
     "call": "Zadzwoń",
     "whatsapp": "Napisz na WhatsApp",
     "telegram": "Napisz na Telegramie",
-    "phone_hint": "Bezpłatna rozmowa",
-    "showroom": "Showroom"
+    "phone_hint": "Bezpłatna rozmowa"
   },
 
   "footer": {
@@ -477,26 +476,5 @@
     "meta_description": "Polityka prywatności Mistrz Łazienek — przetwarzanie danych osobowych odwiedzających stronę.",
     "h1": "Polityka prywatności",
     "last_updated": "Ostatnia aktualizacja: 11 czerwca 2026 r."
-  },
-
-  "showroom": {
-    "title": "Łazienka w 360° — showroom 3D Mistrz Łazienek",
-    "meta_description": "Fotorealistyczna panorama 360° łazienki: płytki wielkoformatowe 60×120, WC podwieszane, prysznic walk-in ze szkłem, szafka z frontem dębowym. Zobacz, jak może wyglądać Twoja łazienka.",
-    "hero_title": "Łazienka w <span class=\"accent\">360°</span>",
-    "hero_subtitle": "Obracaj panoramę myszką lub palcem — tak wygląda gotowa łazienka z płytkami wielkoformatowymi. Taką wizualizację przygotowujemy dla każdego projektu jeszcze przed rozpoczęciem prac.",
-    "viewer_hint": "Przeciągnij obraz, aby się rozejrzeć. Przycisk w rogu — pełny ekran.",
-    "viewer_alt": "Panorama 360° łazienki z płytkami 60×120, prysznicem walk-in i WC podwieszanym",
-    "spec_title": "Co jest w tej łazience",
-    "spec_walls": "Ściany: gres Halcon Doge San Marco 60×120, fuga 2 mm w kolorze płytki.",
-    "spec_floor": "Podłoga: ciemny gres imitujący beton 60×60.",
-    "spec_shower": "Prysznic walk-in bez brodzika, ścianka szklana, deszczownica i termostat podtynkowy OmniRes Armance.",
-    "spec_wc": "WC podwieszane na stelażu zabudowanym pod płytkami.",
-    "spec_vanity": "Szafka podwieszana z frontem dębowym, umywalka nablatowa, wysoka bateria, lustro i grzejnik łazienkowy Terma.",
-    "spec_light": "Trzy oczka sufitowe i okno nad WC.",
-    "note": "To fotorealistyczna wizualizacja, a nie zdjęcie: powstała w naszym programie do projektowania na podstawie rzeczywistych wymiarów i materiałów. W ten sam sposób pokazujemy klientowi jego przyszłą łazienkę przed remontem.",
-    "cta_title": "Chcesz zobaczyć swoją łazienkę przed remontem?",
-    "cta_subtitle": "Zrobimy pomiar, dobierzemy płytki i ceramikę i pokażemy wizualizację Twojej łazienki.",
-    "cta_button": "Umów pomiar",
-    "cta_secondary": "Nasze realizacje"
   }
 }
