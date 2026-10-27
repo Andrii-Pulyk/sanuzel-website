@@ -70,6 +70,7 @@ module.exports = {
     { template: 'index.html', slug: 'index' },
     { template: 'services.html', slug: 'services' },
     { template: 'works.html', slug: 'works' },
+    { template: 'showroom.html', slug: 'showroom' },
     { template: 'contact.html', slug: 'contact' },
     { template: 'privacy.html', slug: 'privacy' },
   ],
